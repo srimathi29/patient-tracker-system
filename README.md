@@ -24,11 +24,11 @@ HealthTrack is a robust and secure Patient Tracker Management System designed to
 
 To get started with HealthTrack, follow these simple steps:
 
-1. **Installation:** Clone this repository to your local machine and follow the installation guide in the `docs` folder.
+1. **Installation:** Clone this repository to your local machine and follow the installation guide in the `docs` folder. <WIP>
 
-2. **Configuration:** Configure the system settings, database, and secure connections as per your specific requirements.
+2. **Configuration:** Configure the system settings, database, and secure connections as per your specific requirements. <WIP>
 
-3. **User Guide:** Check out our comprehensive user guide in the `docs` folder for detailed instructions on using HealthTrack effectively.
+3. **User Guide:** Check out our comprehensive user guide in the `docs` folder for detailed instructions on using HealthTrack effectively. <WIP>
 
 4. **HIPAA Compliance:** Familiarize yourself with HIPAA compliance guidelines and ensure that your system adheres to them.
 
