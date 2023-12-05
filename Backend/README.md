@@ -23,7 +23,7 @@ cd your-repo
 3. Create a new Python virtual environment:
 ```python -m venv venv```
 4. Activate the virtual environment:
-```For Windows:
+For Windows:
 venv\Scripts\activate```
 For Unix/MacOS:
 source venv/bin/activate```
