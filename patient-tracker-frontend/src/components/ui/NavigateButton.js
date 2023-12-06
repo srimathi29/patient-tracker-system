@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import classes from './NavigateButton.module.css';
 
-const NavigateButton = ({ path, children }) => {
+const NavigateButton = ({ path, children, onClick }) => {
   let navigate = useNavigate();
 
   const handleNavigation = () => {
