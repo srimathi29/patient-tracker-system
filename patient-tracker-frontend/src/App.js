@@ -7,6 +7,7 @@ import Layout from './components/layout/Layout';
 import LoginPage from './pages/LoginPage';
 import MainNavigation from './components/layout/MainNavigation';
 import AuthContext from './store/auth-context';
+import SignUpPage from './pages/SignUpPage';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -17,7 +18,7 @@ function App() {
     <Routes>
         <Route path='/' element={<AllMeetupsPage />} />
         <Route path='/login' element={<LoginPage />} />
-
+        <Route path='/signup' element={<SignUpPage />} />
 
         <Route path='/new-meetup' element={<NewMeetupPage />} />
         <Route path='/favorites' element={<FavoritesPage />} />
