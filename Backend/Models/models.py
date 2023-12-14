@@ -1,11 +1,10 @@
-from Backend.app import db
+from ..app import db, app
 from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_admin import Admin
 from flask_admin.contrib.sqla import ModelView
-from Backend.app import createApp
+from .enums import UserType
 
-app = createApp()
 
 admin = Admin(app, name='Patient Tracker Admin', template_mode='bootstrap3')
 
@@ -19,16 +18,17 @@ class User(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(80), unique=True, nullable=False)
-    #password = db.Column(db.String(80), nullable=False)
-    #email = db.Column(db.String(120), unique=True, nullable=False)
+    password_hash = db.Column(db.String(255), nullable=False)
+    user_email = db.Column(db.String(120), unique=True, nullable=False)
     first_name = db.Column(db.String(80), nullable=False)
     last_name = db.Column(db.String(80), nullable=False)
-    # is_admin = db.Column(db.Boolean, default=False)
-    # is_active = db.Column(db.Boolean, default=True)
-    # is_superuser = db.Column(db.Boolean, default=False)
     last_login = db.Column(db.DateTime, nullable=True)
     date_joined = db.Column(db.DateTime, nullable=False)
     is_authenticated = db.Column(db.Boolean, default=False)
+    user_type = db.Column(db.Enum(UserType), nullable=False)
+    gender = db.Column(db.String(10), nullable=True)
+    contact_number = db.Column(db.String(15), nullable=True)
+    address = db.Column(db.String(200), nullable=True)
 
     def __repr__(self):
         return '<User %r>' % self.username
@@ -53,23 +53,43 @@ class User(db.Model):
 
 
 
-# class Patient(db.Model):
-#     '''
-#     Patient model for the database.
-#     '''
-#     id = db.Column(db.Integer, primary_key=True)
-#     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
-#     gender = db.Column(db.String(10), nullable=True)
-#     contact_number = db.Column(db.String(15), nullable=True)
-#     address = db.Column(db.String(200), nullable=True)
+class Patient(db.Model):
+    '''
+    Patient model for the database.
+    '''
+    __tablename__ = 'patients'
 
-# class Doctor(db.Model):
-#     '''
-#     Doctor model for the database.
-#     '''
-#     id = db.Column(db.Integer, primary_key=True)
-#     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
-#     credentials = db.Column(db.String(100), nullable=False)
+    # Fields
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    
+    # Relationships
+
+    def __repr__(self):
+        """
+        Returns a string representation of the patient object.
+        """
+        return f"<Patient {self.id}>"
+    
+class Doctor(db.Model):
+    '''
+    Doctor model for the database.
+    '''
+    __tablename__ = 'doctors'
+
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    specialization = db.Column(db.String(255), default="general",nullable=False)
+    license_start_date = db.Column(db.Date, nullable=True)
+    last_license_renewed = db.Column(db.Date, nullable=True)
+    license_expiry_date = db.Column(db.Date, nullable=True)
+    license_number = db.Column(db.String(255), nullable=True)
+
+    def __repr__(self):
+        """
+        Returns a string representation of the doctor object.
+        """
+        return f"<Doctor {self.id}>"
 
 # class Medicine(db.Model):
 #     '''
