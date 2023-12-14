@@ -4,6 +4,8 @@ import styles from '../components/layout/Layout.module.css';
 import classes from './DoctorPage.module.css';
 import HomeComponent from '../components/doctor/HomeComponent';
 import PersonalInfoComponent from '../components/doctor/PersonalInfoComponent';
+import EditPersonalInfoComponent from '../components/doctor/EditPersonalInfoComponent';
+
 // import ReportsComponent from '../components/doctor/ReportsComponent';
 // import EditInfoComponent from '../components/doctor/EditInfoComponent';
 
@@ -15,7 +17,7 @@ function DoctorPage() {
     { name: 'Home', identifier: 'Home' },
     // { name: 'Reports', identifier: 'Reports' },
     { name: 'Personal Info', identifier: 'PersonalInfo' },
-    // { name: 'Edit Personal Info', identifier: 'EditPersonalInfo' },
+    { name: 'Edit Personal Info', identifier: 'EditPersonalInfo' },
     // Add more items as needed
   ];
 
@@ -32,8 +34,8 @@ function DoctorPage() {
       //   return <ReportsComponent />;
       case 'PersonalInfo':
         return <PersonalInfoComponent />;
-      // case 'EditPersonalInfo':
-      //   return <EditInfoComponent />;
+      case 'EditPersonalInfo':
+        return <EditPersonalInfoComponent />;
       default:
         return <HomeComponent />;
     }

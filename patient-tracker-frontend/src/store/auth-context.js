@@ -26,6 +26,7 @@ export function AuthContextProvider(props) {
                          email: 'msingh23@clinic.com',
                          age: 27,
                          gender: 'female',
+                         phone: '1234567890',
                          additionalData: 'No additional information.',
                           img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR04GWDTULmcrO5Gjnf_j-n3whWNEfKKQnChiOWkwidZ9DDgwzDU2SfnLMFQubt4mzwJj8&usqp=CAU'}
 
