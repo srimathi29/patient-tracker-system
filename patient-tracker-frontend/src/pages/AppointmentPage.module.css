@@ -1,0 +1,58 @@
+.appointment-page {
+    display: flex;
+    min-height: 100vh;
+    font-family: 'Arial', sans-serif;
+  }
+  
+/* This styles the sidebar */
+.navbar {
+  width: 200px; /* Sidebar width */
+  flex-shrink: 0; /* Prevent the sidebar from shrinking */
+  height: 100vh;
+  background-color: #2c3e50; /* Your chosen color */
+  /* Other styles... */
+}
+  .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .nav-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .nav-item {
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .nav-item:hover {
+    background-color: #34495e;
+  }
+  
+  .nav-item a {
+    text-decoration: none;
+    color: white;
+    display: block;
+  }
+  
+  .maincontent {
+    flex-grow: 1;
+    padding-left: 200px;
+    background-color: #ecf0f1;
+  }
+  
+  .main-content h1 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+  }
+  
+  /* Add more styling as needed */
+  
