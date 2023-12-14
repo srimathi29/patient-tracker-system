@@ -1,0 +1,32 @@
+.personalInfo {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding: 20px;
+  }
+  
+  .details {
+    /* Styles for the details section */
+  }
+  
+  .detailItem {
+    margin-bottom: 10px;
+  }
+  
+  .detailItem strong {
+    margin-right: 5px;
+  }
+  
+  .additionalData {
+    margin-top: 20px;
+  }
+  
+  .avatar {
+    /* Styles for the avatar section */
+  }
+  
+  .avatar img {
+    width: 100px; /* Adjust as needed */
+    height: 100px; /* Adjust as needed */
+    border-radius: 50%; /* Makes the image round */
+  }

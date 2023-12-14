@@ -1,11 +1,13 @@
 .main {
     /* margin:  auto; */
-    width: 90%;
+    /* top: 100px; */
+    /* width: 90%; */
     /* max-width: 40rem; */
+    padding-top:80px;
   }
 
 .doctorPageMain{
     margin: 0;
-    width: 90%;
-    max-width: 40rem;
+    /* width: 90%; */
+    /* max-width: 40rem; */
 }

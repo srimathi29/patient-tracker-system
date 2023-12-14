@@ -3,6 +3,8 @@ import SideNav from '../components/layout/SideNav';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import styles from '../components/layout/Layout.module.css';
 import classes from './DoctorPage.module.css';
+import HomeComponent from '../components/doctor/HomeComponent';
+
 
 function DoctorPage() {
   const navItems = [
@@ -19,8 +21,8 @@ function DoctorPage() {
         <div className={`${classes.maincontent}`}>
           <Routes>
             {/* Define routes and components for each path */}
-            {/* <Route path="/" element={<HomeComponent />} />
-            <Route path="/reports" element={<ReportsComponent />} />
+            <Route path="/" element={<HomeComponent />} />
+            {/*<Route path="/reports" element={<ReportsComponent />} />
             <Route path="/personal-info" element={<PersonalInfoComponent />} />
             <Route path="/edit-personal-info" element={<EditInfoComponent />} /> */}
             {/* Add more routes as needed */}

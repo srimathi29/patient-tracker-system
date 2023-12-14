@@ -5,6 +5,8 @@ const AuthContext = React.createContext({
   setIsAuthenticated: () => {},
   userRole: null,
   setUserRole: (role) => {},
+  user: null,
+  setUser: () => {},
   login: (username, password) => {},
   logout: () => {}
 });
@@ -12,15 +14,19 @@ const AuthContext = React.createContext({
 export function AuthContextProvider(props) {
   const [isAuthenticated, setIsAuthenticated] = React.useState(false);
   const [userRole, setUserRole] = React.useState(null);
+  const [user, setUser] = React.useState(null);
 
   const loginHandler = (username, password) => {
     return new Promise((resolve) => {
       const dummyUsername = 'doctor';
       const dummyPassword = 'password';
+      // BACKEND LINK: get user data from backend
+      const dummyuser = {firstName: 'Megha', lastName: 'Singh', email: 'msingh23@clinic.com', img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR04GWDTULmcrO5Gjnf_j-n3whWNEfKKQnChiOWkwidZ9DDgwzDU2SfnLMFQubt4mzwJj8&usqp=CAU'}
 
       if (username === dummyUsername && password === dummyPassword) {
         setIsAuthenticated(true);
         setUserRole('doctor');
+        setUser(dummyuser);
       } else {
         console.error('Invalid username or password');
       }
@@ -57,6 +63,8 @@ export function AuthContextProvider(props) {
     setisAuthenticated: setIsAuthenticated,
     userRole: userRole,
     setUserRole: setUserRoleHandler,
+    user: user,
+    setUser: setUser,
     login: loginHandler,
     logout: logoutHandler
   };
