@@ -1,0 +1,59 @@
+.reportsComponent {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .reportsList {
+    flex-grow: 1;
+    padding: 1rem;
+  }
+  
+  .filterSection {
+    width: 300px; /* Adjust as needed */
+    padding: 1rem;
+    border-left: 1px solid #ccc; /* Separator from the report list */
+    box-sizing: border-box;
+  }
+  
+  .filterControl {
+    margin-bottom: 1rem;
+  }
+  
+  .filterControl label {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  
+  .filterControl input[type="text"],
+  .filterControl select {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .filterControl input[type="checkbox"] {
+    margin-right: 0.5rem;
+  }
+  
+  .filterActions {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .filterActions button {
+    background-color: #007bff;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+  }
+  
+  .filterActions button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* You can add more styles as per your design */
+  

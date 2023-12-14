@@ -5,9 +5,7 @@ import classes from './DoctorPage.module.css';
 import HomeComponent from '../components/doctor/HomeComponent';
 import PersonalInfoComponent from '../components/doctor/PersonalInfoComponent';
 import EditPersonalInfoComponent from '../components/doctor/EditPersonalInfoComponent';
-
-// import ReportsComponent from '../components/doctor/ReportsComponent';
-// import EditInfoComponent from '../components/doctor/EditInfoComponent';
+import ReportsComponent from '../components/doctor/ReportsComponent';
 
 function DoctorPage() {
   const [activeComponent, setActiveComponent] = useState('Home');
@@ -15,7 +13,7 @@ function DoctorPage() {
   // Adjust navItems to include an identifier for the component
   const navItems = [
     { name: 'Home', identifier: 'Home' },
-    // { name: 'Reports', identifier: 'Reports' },
+    { name: 'Reports', identifier: 'Reports' },
     { name: 'Personal Info', identifier: 'PersonalInfo' },
     { name: 'Edit Personal Info', identifier: 'EditPersonalInfo' },
     // Add more items as needed
@@ -30,8 +28,8 @@ function DoctorPage() {
     switch (activeComponent) {
       case 'Home':
         return <HomeComponent />;
-      // case 'Reports':
-      //   return <ReportsComponent />;
+      case 'Reports':
+        return <ReportsComponent />;
       case 'PersonalInfo':
         return <PersonalInfoComponent />;
       case 'EditPersonalInfo':
