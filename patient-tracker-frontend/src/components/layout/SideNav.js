@@ -1,14 +1,18 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import classes from './SideNav.module.css';
-const SideNav = ({ navItems }) => {
+
+const SideNav = ({ navItems, onNavItemSelect }) => {
   return (
     <div className={classes.navbar}>
       <nav>
         <ul className={classes.navitems}>
-          {navItems.map((item, index) => (
-            <li className={classes.navitem} key={index}>
-              <Link to={item.path}>{item.name}</Link>
+          {navItems.map((item) => (
+            <li 
+              className={classes.navitem} 
+              key={item.identifier}
+              onClick={() => onNavItemSelect(item.identifier)}
+            >
+              {item.name}
             </li>
           ))}
         </ul>

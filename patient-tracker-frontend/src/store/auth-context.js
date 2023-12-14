@@ -21,7 +21,13 @@ export function AuthContextProvider(props) {
       const dummyUsername = 'doctor';
       const dummyPassword = 'password';
       // BACKEND LINK: get user data from backend
-      const dummyuser = {firstName: 'Megha', lastName: 'Singh', email: 'msingh23@clinic.com', img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR04GWDTULmcrO5Gjnf_j-n3whWNEfKKQnChiOWkwidZ9DDgwzDU2SfnLMFQubt4mzwJj8&usqp=CAU'}
+      const dummyuser = {firstName: 'Megha',
+                         lastName: 'Singh', 
+                         email: 'msingh23@clinic.com',
+                         age: 27,
+                         gender: 'female',
+                         additionalData: 'No additional information.',
+                          img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR04GWDTULmcrO5Gjnf_j-n3whWNEfKKQnChiOWkwidZ9DDgwzDU2SfnLMFQubt4mzwJj8&usqp=CAU'}
 
       if (username === dummyUsername && password === dummyPassword) {
         setIsAuthenticated(true);
