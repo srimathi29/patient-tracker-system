@@ -5,6 +5,7 @@ import HomePage from "../../pages/HomePage";
 import { useContext, useEffect } from 'react';
 import AuthContext from "../../store/auth-context";
 import AppointmentPage from "../../pages/AppointmentPage";
+import PatientsListPage from "../../pages/PatientsListPage";
 
 function DoctorRoutes() {
 
@@ -13,6 +14,7 @@ function DoctorRoutes() {
         <Routes>
             <Route path='/' element={<DoctorPage />} />
             <Route path='/appointments' element={<AppointmentPage />} />
+            <Route path='/patients' element={<PatientsListPage />} />
         </Routes>
     </Layout>
     );
