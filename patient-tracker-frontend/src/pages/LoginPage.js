@@ -3,7 +3,7 @@ import Card from '../components/ui/Card';
 import classes from './LoginPage.module.css';
 import AuthContext from '../store/auth-context';
 import { useNavigate } from 'react-router-dom';
-
+import cardClasses from '../components/ui/Card.module.css';
 
 function LoginPage() {
     const authCtx = useContext(AuthContext);
@@ -25,6 +25,8 @@ function LoginPage() {
     };
 
     return (
+        // align Card to center
+        <div className={cardClasses.centercard}>
         <Card>
             <form className={classes.form} onSubmit={handleSubmit}>
                 <div className={classes.control}>
@@ -40,6 +42,7 @@ function LoginPage() {
                 </div>
             </form>       
         </Card>
+        </div>
     );
 
 
