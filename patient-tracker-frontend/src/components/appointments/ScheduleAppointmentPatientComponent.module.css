@@ -1,6 +1,6 @@
 .scheduleAppointment {
     max-width: 600px;
-    margin: auto;
+    margin: 20px auto;
     padding: 1rem;
 }
 
@@ -41,3 +41,19 @@
 }
 
 /* Add more styles as needed */
+.reactSelect {
+    z-index: 1;
+    /* A lower z-index than the navbar */
+    /* other styles */
+}
+
+.readOnlyInput {
+    background-color: #e9ecef;
+    /* Light gray background to indicate non-editability */
+    color: #495057;
+    /* Darker text for readability */
+    border: 1px solid #ced4da;
+    padding: .375rem .75rem;
+    border-radius: .25rem;
+    /* Add any other styling to match your design */
+}

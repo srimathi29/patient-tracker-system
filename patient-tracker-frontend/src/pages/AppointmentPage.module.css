@@ -1,58 +1,97 @@
+/* AppointmentPage.module.css */
 .appointment-page {
-    display: flex;
-    min-height: 100vh;
-    font-family: 'Arial', sans-serif;
-  }
-  
-/* This styles the sidebar */
+  display: flex;
+  min-height: 100vh;
+  font-family: 'Arial', sans-serif;
+}
+
 .navbar {
-  width: 200px; /* Sidebar width */
-  flex-shrink: 0; /* Prevent the sidebar from shrinking */
+  width: 200px;
+  flex-shrink: 0;
   height: 100vh;
-  background-color: #2c3e50; /* Your chosen color */
+  background-color: #2c3e50;
   /* Other styles... */
 }
-  .logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px 0;
-    margin-bottom: 20px;
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
-  .nav-items {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .nav-item {
-    padding: 10px 20px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .nav-item:hover {
-    background-color: #34495e;
-  }
-  
-  .nav-item a {
-    text-decoration: none;
-    color: white;
-    display: block;
-  }
-  
-  .maincontent {
-    flex-grow: 1;
-    padding-left: 200px;
-    background-color: #ecf0f1;
-  }
-  
-  .main-content h1 {
-    color: #2c3e50;
-    margin-bottom: 20px;
-  }
-  
-  /* Add more styling as needed */
-  
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+}
+
+.nav-items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-item {
+  padding: 10px 20px;
+  transition: background-color 0.3s ease;
+}
+
+.nav-item:hover {
+  background-color: #34495e;
+}
+
+.nav-item a {
+  text-decoration: none;
+  color: white;
+  display: block;
+}
+
+.maincontent {
+  flex-grow: 1;
+  padding-left: 200px;
+  background-color: #ecf0f1;
+  /* Soft gray to not strain the eyes */
+}
+
+.main-content h1 {
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+/* Card styling for appointments */
+.appointment-card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 1rem 0;
+  padding: 1rem;
+  transition: transform 0.1s ease-in-out;
+}
+
+.appointment-card:hover {
+  transform: translateY(-3px);
+}
+
+/* Enhancements for no-appointment messages */
+.no-appointments {
+  text-align: center;
+  padding: 2rem 0;
+  color: #7f8c8d;
+  /* Soft color for the message */
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  /* Subtle border */
+  border-radius: 8px;
+  margin: 1rem 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* General styling adjustments */
+.main {
+  padding-top: 80px;
+}
+
+.doctorPageMain {
+  margin: 0;
+}
+
+/* You can add more styles below as needed... */

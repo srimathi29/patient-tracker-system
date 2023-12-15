@@ -56,24 +56,24 @@ export function AuthContextProvider(props) {
       try {
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
-      
+
         var raw = JSON.stringify({
           "user_email": email,
           "password": password
         });
-      
+
         var requestOptions = {
           method: 'POST',
           headers: myHeaders,
           body: raw,
           redirect: 'follow'
         };
-      
+
         const url = `http://${config.ipAddress}:${config.port}/login`;
         const response = await fetch(url, requestOptions);
         const data = await response.json();
         console.log(data);
-        
+
         const curr_user = {
           firstName: data.data.firstName,
           lastName: data.data.lastName,
@@ -85,8 +85,8 @@ export function AuthContextProvider(props) {
           img: data.data.img,
           user_id: data.data.user_id,
           role: data.data.role,
-          roleId: data.data.roleId          
- 
+          roleId: data.data.roleId
+
         }
         console.log("user" + curr_user);
         console.log("role" + data.data.role);
@@ -96,6 +96,7 @@ export function AuthContextProvider(props) {
           setUser(curr_user);
           setUserRole(data.data.role);
           resolve({ status: 'success', user: data.user, role: data.role });
+          console.log("user data" + curr_user.roleId);
         } else {
           console.error('Login failed:', data.message);
           reject({ status: 'error', message: data.message });
@@ -106,11 +107,11 @@ export function AuthContextProvider(props) {
       }
     });
   }
-  
+
 
   const logoutHandler = () => {
     return new Promise((resolve) => {
-      const url = `http://${config.server.ipAddress}:${config.server.port}/logout`;
+      const url = `http://${config.ipAddress}:${config.port}/logout`;
       const response = fetch(url);
 
       setIsAuthenticated(false);
