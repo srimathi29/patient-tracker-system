@@ -33,10 +33,10 @@ function LoginPage() {
             // Handle errors (e.g., display a message to the user)
             console.error('Login failed:', error);
         }
-        if(authCtx.isSuccess){
+        if (authCtx.isSuccess) {
             navigate('/');
         }
-        else{
+        else {
             setErrorMessage('Login failed. Please contact the administrator or try again with proper credentials.');
         }
     };
@@ -46,7 +46,7 @@ function LoginPage() {
             <Card>
                 <form className={classes.form} onSubmit={handleSubmit}>
                     <div className={classes.control}>
-                        <label htmlFor="username">Username</label>
+                        <label htmlFor="username">User Email</label>
                         <input type="text" required id="username" ref={usernameRef} />
                     </div>
                     <div className={classes.control}>
