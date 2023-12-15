@@ -89,3 +89,40 @@
     color: white;
     /* Darker red shade for active/pressed */
 }
+.reportsList {
+    margin-top: 20px;
+}
+
+.reportsList Card {
+    margin-bottom: 10px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    border-radius: 4px;
+}
+
+h4 {
+    margin-top: 20px;
+    color: #333;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+ul li a {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+ul li a:hover {
+    text-decoration: underline;
+}
+.reportsComponent {
+    margin: 20px;
+    padding: 5px;
+}
