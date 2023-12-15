@@ -1,8 +1,10 @@
-from flask import request, jsonify
-from ..Models.models import db, MedicalRecord, Prescription, Patient, Doctor, Medicine
+from flask import request, jsonify, Response, json, url_for
+from ..Models.models import db, MedicalRecord, Prescription, Patient, Doctor, Medicine, MedicalRecordDocument
 from datetime import datetime
 from flask_restful import Resource
-
+from werkzeug.utils import secure_filename, send_file
+from ..app import app
+import os
 class MedicalRecordController(Resource):
     def post(self):
         try:
