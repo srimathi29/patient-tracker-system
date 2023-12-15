@@ -2,12 +2,36 @@ from flask import request, jsonify
 from flask_restful import Resource
 from ..Models.models import db, Doctor, User
 
+from flask import Response, json
+
 class DoctorAPI(Resource):
-    def get(self, user_id):
-        doctor = Doctor.query.filter_by(user_id=user_id).first()
-        if doctor:
-            return jsonify(doctor=doctor.serialize())
-        return jsonify({"message": "Doctor not found"}), 404
+    def get(self, user_id=None):
+        if user_id:
+            # Get a specific doctor by user_id
+            doctor = Doctor.query.filter_by(user_id=user_id).first()
+            if doctor:
+                response_data = {
+                    "data": {
+                        "doctor": doctor.serialize()
+                    }
+                }
+                return Response(json.dumps(response_data), mimetype="application/json"), 200
+            response_data = {
+                "data": {
+                    "message": "Doctor not found"
+                }
+            }
+            return Response(json.dumps(response_data), mimetype="application/json", status=404)
+        else:
+            # Get all doctors
+            doctors = Doctor.query.all()
+            serialized_doctors = [doctor.serialize() for doctor in doctors]
+            response_data = {
+                "data": {
+                    "doctors": serialized_doctors
+                }
+            }
+            return Response(json.dumps(response_data), mimetype="application/json"), 200
 
     def post(self):
         data = request.json
@@ -24,11 +48,26 @@ class DoctorAPI(Resource):
                 )
                 db.session.add(new_doctor)
                 db.session.commit()
-                return jsonify({"message": "Doctor profile created successfully"}), 201
+                response_data = {
+                    "data": {
+                        "message": "Doctor profile created successfully"
+                    }
+                }
+                return Response(json.dumps(response_data), mimetype="application/json", status=201)
             except Exception as e:
                 db.session.rollback()
-                return jsonify({"message": str(e)}), 400
-        return jsonify({"message": "User already has a doctor profile or does not exist"}), 409
+                response_data = {
+                    "data": {
+                        "message": str(e)
+                    }
+                }
+                return Response(json.dumps(response_data), mimetype="application/json", status=400)
+        response_data = {
+            "data": {
+                "message": "User already has a doctor profile or does not exist"
+            }
+        }
+        return Response(json.dumps(response_data), mimetype="application/json", status=409)
 
     def put(self, user_id):
         doctor = Doctor.query.filter_by(user_id=user_id).first()
@@ -39,27 +78,35 @@ class DoctorAPI(Resource):
             doctor.last_license_renewed = data.get('last_license_renewed', doctor.last_license_renewed)
             doctor.license_expiry_date = data.get('license_expiry_date', doctor.license_expiry_date)
             doctor.license_number = data.get('license_number', doctor.license_number)
-            
+
             db.session.commit()
-            return jsonify({"message": "Doctor profile updated successfully"}), 200
-        return jsonify({"message": "Doctor not found"}), 404
+            response_data = {
+                "data": {
+                    "message": "Doctor profile updated successfully"
+                }
+            }
+            return Response(json.dumps(response_data), mimetype="application/json", status=200)
+        response_data = {
+            "data": {
+                "message": "Doctor not found"
+            }
+        }
+        return Response(json.dumps(response_data), mimetype="application/json", status=404)
 
     def delete(self, user_id):
         doctor = Doctor.query.filter_by(user_id=user_id).first()
         if doctor:
             db.session.delete(doctor)
             db.session.commit()
-            return jsonify({"message": "Doctor profile deleted successfully"}), 200
-        return jsonify({"message": "Doctor not found"}), 404
-
-# Add serialization method in Doctor model
-def serialize(self):
-    return {
-        "user_id": self.user_id,
-        "doctor_id": self.id,
-        "specialization": self.specialization,
-        # Include other fields as necessary
-    }
-
-Doctor.serialize = serialize
-
+            response_data = {
+                "data": {
+                    "message": "Doctor profile deleted successfully"
+                }
+            }
+            return Response(json.dumps(response_data), mimetype="application/json", status=200)
+        response_data = {
+            "data": {
+                "message": "Doctor not found"
+            }
+        }
+        return Response(json.dumps(response_data), mimetype="application/json", status=404)
