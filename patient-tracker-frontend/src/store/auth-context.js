@@ -1,4 +1,5 @@
 import React from 'react';
+import config from '../config.json';
 
 const AuthContext = React.createContext({
   isAuthenticated: false,
@@ -16,7 +17,7 @@ export function AuthContextProvider(props) {
   const [userRole, setUserRole] = React.useState(null);
   const [user, setUser] = React.useState(null);
 
-  const loginHandler = (username, password) => {
+  const loginHandler2 = (username, password) => {
     return new Promise((resolve) => {
       // Dummy credentials
       const dummyDoctorUsername = 'doctor';
@@ -42,10 +43,62 @@ export function AuthContextProvider(props) {
       } else {
         console.error('Invalid username or password');
       }
-
       resolve();
     });
   };
+
+  async function loginHandler(email, password) {
+    return new Promise(async (resolve, reject) => {
+      try {
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+      
+        var raw = JSON.stringify({
+          "user_email": email,
+          "password": password
+        });
+      
+        var requestOptions = {
+          method: 'POST',
+          headers: myHeaders,
+          body: raw,
+          redirect: 'follow'
+        };
+      
+        const url = `http://${config.ipAddress}:${config.port}/login`;
+        const response = await fetch(url, requestOptions);
+        const data = await response.json();
+        console.log(data);
+        
+        const curr_user = {
+          firstName: data.data.firstName,
+          lastName: data.data.lastName,
+          email: data.data.email,
+          age: data.data.age,
+          gender: data.data.gender,
+          phone: data.data.phone,
+          additionalData: data.data.additionalData,
+          img: data.data.img
+ 
+        }
+        console.log("user" + curr_user);
+        console.log("role" + data.data.role);
+        if (response.ok) {
+          setIsAuthenticated(true);
+          setUser(curr_user);
+          setUserRole(data.data.role);
+          resolve({ status: 'success', user: data.user, role: data.role });
+        } else {
+          console.error('Login failed:', data.message);
+          reject({ status: 'error', message: data.message });
+        }
+      } catch (error) {
+        console.error('Login error:', error);
+        reject({ status: 'error', message: 'Network or server error' });
+      }
+    });
+  }
+  
 
   const logoutHandler = () => {
     return new Promise((resolve) => {
