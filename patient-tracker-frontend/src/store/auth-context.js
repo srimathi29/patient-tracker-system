@@ -85,7 +85,8 @@ export function AuthContextProvider(props) {
           img: data.data.img,
           user_id: data.data.user_id,
           role: data.data.role,
-          roleId: data.data.roleId
+          roleId: data.data.roleId,
+          address: '',
 
         }
         console.log("user" + curr_user);
