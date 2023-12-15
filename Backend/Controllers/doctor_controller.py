@@ -18,7 +18,8 @@ class DoctorAPI(Resource):
                 return Response(json.dumps(response_data), mimetype="application/json", status=200)
             response_data = {
                 "data": {
-                    "message": "Doctor not found"
+                    "message": "Doctor not found",
+                    "isSuccess": 0
                 }
             }
             return Response(json.dumps(response_data), mimetype="application/json", status=404)
@@ -50,7 +51,8 @@ class DoctorAPI(Resource):
                 db.session.commit()
                 response_data = {
                     "data": {
-                        "message": "Doctor profile created successfully"
+                        "message": "Doctor profile created successfully",
+                        "isSuccess": 1
                     }
                 }
                 return Response(json.dumps(response_data), mimetype="application/json", status=201)
@@ -58,13 +60,15 @@ class DoctorAPI(Resource):
                 db.session.rollback()
                 response_data = {
                     "data": {
-                        "message": str(e)
+                        "message": str(e),
+                        "isSuccess": 0
                     }
                 }
                 return Response(json.dumps(response_data), mimetype="application/json", status=400)
         response_data = {
             "data": {
-                "message": "User already has a doctor profile or does not exist"
+                "message": "User already has a doctor profile or does not exist",
+                "isSuccess": 0
             }
         }
         return Response(json.dumps(response_data), mimetype="application/json", status=409)
@@ -82,13 +86,15 @@ class DoctorAPI(Resource):
             db.session.commit()
             response_data = {
                 "data": {
-                    "message": "Doctor profile updated successfully"
+                    "message": "Doctor profile updated successfully",
+                    "isSuccess": 1
                 }
             }
             return Response(json.dumps(response_data), mimetype="application/json", status=200)
         response_data = {
             "data": {
-                "message": "Doctor not found"
+                "message": "Doctor not found",
+                "isSuccess": 0
             }
         }
         return Response(json.dumps(response_data), mimetype="application/json", status=404)
@@ -100,14 +106,15 @@ class DoctorAPI(Resource):
             db.session.commit()
             response_data = {
                 "data": {
-                    "message": "Doctor profile deleted successfully"
+                    "message": "Doctor profile deleted successfully",
+                    "isSuccess": 1
                 }
             }
             return Response(json.dumps(response_data), mimetype="application/json", status=200)
         response_data = {
             "data": {
-                "message": "Doctor not found"
+                "message": "Doctor not found",
+                "isSuccess": 0
             }
         }
         return Response(json.dumps(response_data), mimetype="application/json", status=404)
-
