@@ -1,44 +1,59 @@
 .scheduleAppointment {
-    max-width: 600px;
-    margin: auto;
-    padding: 1rem;
-  }
-  
-  .formControl {
-    margin-bottom: 1rem;
-  }
-  
-  .formControl label {
-    display: block;
-    margin-bottom: 0.5rem;
-  }
-  
-  .formControl input,
-  .formControl select,
-  .formControl textarea {
-    width: 100%;
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  .tooltip {
-    /* Styling for the tooltip button */
-    margin-left: 0.5rem;
-  }
-  
-  .formActions button {
-    background-color: #007bff;
-    color: white;
-    padding: 0.5rem 1rem;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .formActions button:hover {
-    background-color: #0056b3;
-  }
-  
-  /* Add more styles as needed */
-  
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 1rem;
+}
+
+.formControl {
+  margin-bottom: 1rem;
+}
+
+.formControl label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.formControl input,
+.formControl select,
+.formControl textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.tooltip {
+  /* Styling for the tooltip button */
+  margin-left: 0.5rem;
+}
+
+.formActions button {
+  background-color: #007bff;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.formActions button:hover {
+  background-color: #0056b3;
+}
+
+/* Add more styles as needed */
+.reactSelect {
+  z-index: 1;
+  /* A lower z-index than the navbar */
+  /* other styles */
+}
+
+.readOnlyInput {
+  background-color: #e9ecef;
+  /* Light gray background to indicate non-editability */
+  color: #495057;
+  /* Darker text for readability */
+  border: 1px solid #ced4da;
+  padding: .375rem .75rem;
+  border-radius: .25rem;
+  /* Add any other styling to match your design */
+}

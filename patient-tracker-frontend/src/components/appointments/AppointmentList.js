@@ -9,6 +9,7 @@ function AppointmentList() {
     const [upcomingAppointments, setUpcomingAppointments] = useState([]);
     const [doctorOptions, setDoctorOptions] = useState([]); // To store doctor options
     const authCtx = useContext(AuthContext);
+    const [patientOptions, setPatientOptions] = useState([]);
 
 
     useEffect(() => {
@@ -82,21 +83,55 @@ function AppointmentList() {
                 console.log('error', error);
             }
         };
+        const fetchPatientsFromBackend = async () => {
+            try {
+              const myHeaders = new Headers();
+              myHeaders.append("Cookie", `session=${authCtx.session}`);
+              const requestOptions = {
+                method: 'GET',
+                headers: myHeaders,
+                redirect: 'follow',
+              };
+              const response = await fetch(`http://${config.ipAddress}:${config.port}/patients`, requestOptions);
+              console.log(`http://${config.ipAddress}:${config.port}/patients`);
+              if (!response.ok) {
+                throw new Error('Failed to fetch patients');
+              }
+      
+              const data = await response.json();
+              console.log(data);
+              const patientOptions = data.data.patients.map(patient => ({
+                value: patient.id,
+                label: patient.full_name
+            }));
+              setPatientOptions(patientOptions);
+            } catch (error) {
+              console.error('Error fetching patients:', error);
+            }
+          };
 
         fetchDoctors();
+        fetchPatientsFromBackend();
     }, [authCtx.session]);
 
     // Function to get doctor name based on doctor ID
     const getDoctorName = (doctorId) => {
+        if(authCtx.user.role === 'doctor'){
+            return `${authCtx.user.firstName} ${authCtx.user.lastName}`;
+        }
         const selectedDoctor = doctorOptions.find(doctor => doctor.value === doctorId);
         return selectedDoctor ? selectedDoctor.label : 'Unknown Doctor';
     };
 
     // Function to get patient name based on authCtx
-    const getPatientName = () => {
-        return `${authCtx.user.firstName} ${authCtx.user.lastName}`;
+    const getPatientName = (patientId) => {
+        if(authCtx.user.role === 'patient'){
+            return `${authCtx.user.firstName} ${authCtx.user.lastName}`;
+        }
+        const selectedPatient = patientOptions.find(patient => patient.value === patientId);
+        return selectedPatient ? selectedPatient.label : 'Unknown Patient';
     };
-
+    console.log("user role id " + authCtx.user.roleId);
     return (
         <ul className={classes.list}>
             {todaysAppointments.length > 0 && (
@@ -107,7 +142,7 @@ function AppointmentList() {
                             key={appointment.id}
                             id={appointment.id}
                             title={appointment.title}
-                            patientName={getPatientName()}
+                            patientName={getPatientName(appointment.id)}
                             doctorName={getDoctorName(appointment.doctor_id)}
                             datetime={appointment.date}
                             start_time={appointment.start_time}
