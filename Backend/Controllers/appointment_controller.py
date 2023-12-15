@@ -18,7 +18,10 @@ class AppointmentCreateResource(Resource):
 
         if not all([patient_id, doctor_id, date, start_time, end_time]):
             response_data = {
-                "message": "Missing required data."
+                "data": {
+                    "message": "Missing required data.",
+                    "isSuccess": 0
+                }
             }
             return Response(json.dumps(response_data), mimetype="application/json", status=400)
 
@@ -31,7 +34,10 @@ class AppointmentCreateResource(Resource):
 
         if overlapping_appointments:
             response_data = {
-                "message": "Doctor is not available at this time."
+                "data": {
+                    "message": "Doctor is not available at this time.",
+                    "isSuccess": 0
+                }
             }
             return Response(json.dumps(response_data), mimetype="application/json", status=400)
 
@@ -51,7 +57,11 @@ class AppointmentCreateResource(Resource):
         db.session.commit()
 
         response_data = {
-            "message": "Appointment created successfully."
+            "data": {
+                "message": "Appointment created successfully.",
+                "appointment_id": appointment.id,
+                "isSuccess": 1
+            }
         }
         return Response(json.dumps(response_data), mimetype="application/json",status=201)
 
@@ -62,7 +72,10 @@ class AppointmentUpdateResource(Resource):
 
         if not appointment:
             response_data = {
-                "message": "Appointment not found."
+                "data": {
+                    "message": "Appointment not found.",
+                    "isSuccess": 0
+                }
             }
             return Response(json.dumps(response_data), mimetype="application/json", status=404)
 
@@ -82,7 +95,11 @@ class AppointmentUpdateResource(Resource):
 
             if overlapping_appointments:
                 response_data = {
-                    "message": "Doctor is not available at the updated time."
+                    "data": {
+                        "message": "Doctor is not available at the updated time.",
+                        "isSuccess": 0
+
+                    }
                 }
                 return Response(json.dumps(response_data), mimetype="application/json", status=400)
 
@@ -99,51 +116,61 @@ class AppointmentUpdateResource(Resource):
         db.session.commit()
 
         response_data = {
-            "message": "Appointment updated successfully."
+            "data": {
+                "message": "Appointment updated successfully.",
+                "appointment_id": appointment.id,
+                "isSuccess": 1
+            }
         }
         return Response(json.dumps(response_data), mimetype="application/json", status=200)
 
-class DoctorAppointmentsOnDateResource(Resource):
-    def get(self, doctor_id, date):
+class DoctorAppointmentsResource(Resource):
+    def get(self, doctor_id, date=None):
         try:
-            date_obj = datetime.strptime(date, "%Y-%m-%d").date()
-            doctor = Doctor.query.get(doctor_id)
+            current_date = datetime.now().date()
 
-            if not doctor:
-                response_data = {
-                    "message": "Doctor not found."
-                }
-                return Response(json.dumps(response_data), mimetype="application/json", status=404)
+            if date:
+                date = datetime.strptime(date, "%Y-%m-%d").date()
+                appointments = Appointment.query.filter(
+                    Appointment.doctor_id == doctor_id,
+                    Appointment.date == date
+                ).all()
 
-            appointments_on_date = [appointment for appointment in doctor.appointments if appointment.date == date_obj]
+                # Convert start_time and end_time strings to datetime.time objects
+                start_time = datetime.strptime('09:00:00', '%H:%M:%S').time()
+                end_time = datetime.strptime('17:00:00', '%H:%M:%S').time()
+                slot_duration = timedelta(minutes=30)
 
-            start_time = datetime.strptime('09:00:00', '%H:%M:%S').time()
-            end_time = datetime.strptime('17:00:00', '%H:%M:%S').time()
-            slot_duration = timedelta(minutes=30)
+                available_slots = []
 
-            available_slots = []
+                current_time = datetime.combine(date, start_time)
+                while current_time + slot_duration <= datetime.combine(date, end_time):
+                    slot_end = current_time + slot_duration
+                    slot_start_time = current_time.time()
+                    slot_end_time = slot_end.time()
 
-            current_time = datetime.combine(date_obj, start_time)
-            while current_time + slot_duration <= datetime.combine(date_obj, end_time):
-                slot_end = current_time + slot_duration
-                slot_start_str = current_time.time().strftime('%H:%M:%S')
-                slot_end_str = slot_end.time().strftime('%H:%M:%S')
-
-                slot_available = all(
-                    not (
-                        appointment.start_time <= slot_start_str and
-                        appointment.end_time >= slot_end_str
+                    slot_available = all(
+                        not (
+                            appointment.start_time <= slot_start_time and
+                            appointment.end_time >= slot_end_time
+                        )
+                        for appointment in appointments
                     )
-                    for appointment in appointments_on_date
-                )
 
-                if slot_available:
-                    available_slots.append({
-                        "start_time": slot_start_str,
-                        "end_time": slot_end_str,
-                    })
+                    if slot_available:
+                        available_slots.append({
+                            "start_time": slot_start_time.strftime('%H:%M:%S'),
+                            "end_time": slot_end_time.strftime('%H:%M:%S'),
+                        })
 
-                current_time += slot_duration
+                    current_time += slot_duration
+
+            else:
+                appointments = Appointment.query.filter(
+                    Appointment.doctor_id == doctor_id,
+                    Appointment.date >= current_date
+                ).all()
+                available_slots = []
 
             appointment_data = [{
                 "id": appointment.id,
@@ -152,20 +179,26 @@ class DoctorAppointmentsOnDateResource(Resource):
                 "start_time": str(appointment.start_time),
                 "end_time": str(appointment.end_time),
                 "notes": appointment.notes
-            } for appointment in appointments_on_date]
+            } for appointment in appointments]
 
             response_data = {
-                "appointments": appointment_data,
-                "available_slots": available_slots
+                "data": {
+                    "appointments": appointment_data,
+                    "available_slots": available_slots,
+                    "isSuccess": 1
+                }
             }
 
             return Response(json.dumps(response_data), mimetype="application/json", status=200)
 
         except Exception as e:
             response_data = {
-                "message": f"Error: {str(e)}"
+                "data": {
+                    "message": f"Error: {str(e)}",
+                    "isSuccess": 0
+                }
             }
-            return Response(json.dumps(response_data), mimetype="application/json",status=500)
+            return Response(json.dumps(response_data), mimetype="application/json", status=500)
 
 class PatientAppointmentsResource(Resource):
     def get(self, patient_id, date=None):
@@ -193,10 +226,18 @@ class PatientAppointmentsResource(Resource):
                 "notes": appointment.notes
             } for appointment in appointments]
 
-            return Response(json.dumps(appointment_data), mimetype="application/json",status=200)
+            response_data = {
+                "data": appointment_data,
+                "isSuccess": 1
+            }
+
+            return Response(json.dumps(response_data), mimetype="application/json",status=200)
 
         except Exception as e:
             response_data = {
-                "message": f"Error: {str(e)}"
+                "data": {
+                    "message": f"Error: {str(e)}",
+                    "isSuccess": 0
+                }
             }
             return Response(json.dumps(response_data), mimetype="application/json", status=500)

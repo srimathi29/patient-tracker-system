@@ -4,6 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_admin import Admin
 from flask_admin.contrib.sqla import ModelView
 from .enums import UserType
+from datetime import datetime
 
 
 admin = Admin(app, name='Patient Tracker Admin', template_mode='bootstrap3')
@@ -64,12 +65,26 @@ class Patient(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     
     # Relationships
+    appointments = db.relationship('Appointment', backref='patient', lazy=True)
+    medical_records = db.relationship('MedicalRecord', backref='doctor', lazy=True)
+    
 
     def __repr__(self):
         """
         Returns a string representation of the patient object.
         """
         return f"<Patient {self.id}>"
+    
+    def serialize(self):
+        user = User.query.get(self.user_id)  # Retrieve the associated User data
+        full_name = f"{user.first_name} {user.last_name}" if user else None
+
+        return {
+            "id": self.id,
+            "user_id": self.user_id,
+            "full_name": full_name,
+            # Add other fields you want to include in the serialization here...
+        }
     
 class Doctor(db.Model):
     '''
@@ -85,38 +100,81 @@ class Doctor(db.Model):
     license_expiry_date = db.Column(db.Date, nullable=True)
     license_number = db.Column(db.String(255), nullable=True)
 
+    # Relationships
+    appointments = db.relationship('Appointment', backref='doctor', lazy=True)
+    medical_records = db.relationship('MedicalRecord', backref='patient', lazy=True)
+    
     def __repr__(self):
         """
         Returns a string representation of the doctor object.
         """
         return f"<Doctor {self.id}>"
 
-# class Medicine(db.Model):
-#     '''
-#     Medicine model for the database.
-#     '''
-#     id = db.Column(db.Integer, primary_key=True)
-#     name = db.Column(db.String(100), nullable=False)
-#     doctor_id = db.Column(db.Integer, db.ForeignKey('doctor.id'), nullable=False)
-#     medication_id = db.Column(db.Integer, nullable=False)
-#     dosage = db.Column(db.String(50), nullable=True)
-#     patient_id = db.Column(db.Integer, db.ForeignKey('patient.id'), nullable=False)
-#     prescription_date = db.Column(db.Date, nullable=False)
-#     medical_record_id = db.Column(db.Integer, db.ForeignKey('medical_record.id'), nullable=False)
+    def serialize(self):
+        user = User.query.get(self.user_id)  # Retrieve the associated User data
+        full_name = f"{user.first_name} {user.last_name}" if user else None
 
+        return {
+            "user_id": self.user_id,
+            "doctor_id": self.id,
+            "full_name": full_name,
+            "specialization": self.specialization,
+            "license_start_date": self.license_start_date.isoformat() if self.license_start_date else "",
+            "last_license_renewed": self.last_license_renewed.isoformat() if self.last_license_renewed else "",
+            "license_expiry_date": self.license_expiry_date.isoformat() if self.license_expiry_date else "",
+            "license_number": self.license_number if self.license_number else ""
+            # Add other attributes as needed
+        }
 
-# class MedicalRecord(db.Model):
-#     '''
-#     MedicalRecord model for the database.
-#     '''
-#     id = db.Column(db.Integer, primary_key=True)
-#     patient_id = db.Column(db.Integer, db.ForeignKey('patient.id'), nullable=False)
-#     doctor_id = db.Column(db.Integer, db.ForeignKey('doctor.id'), nullable=False)
-#     date = db.Column(db.Date, nullable=False)
-#     diagnosis = db.Column(db.Text, nullable=True)
-#     comments = db.Column(db.Text, nullable=True)
-#     record_id = db.Column(db.Integer, nullable=False)
-#     medication_id = db.Column(db.Integer, db.ForeignKey('medicine.id'), nullable=True)
+class Medicine(db.Model):
+    __tablename__ = 'medicines'
+    
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100), nullable=False)
+    dosage = db.Column(db.String(50), nullable=True)
+    manufacturer = db.Column(db.String(100), nullable=True)
+    description = db.Column(db.Text, nullable=True)
+    
+    def __repr__(self):
+        return f"<Medicine {self.name}>"
+
+class MedicalRecord(db.Model):
+    __tablename__ = 'medical_records'
+    
+    id = db.Column(db.Integer, primary_key=True)
+    diagnosis = db.Column(db.Text)
+    comments = db.Column(db.Text)
+    date = db.Column(db.DateTime, default=datetime.utcnow)
+    
+    # Foreign keys
+    doctor_id = db.Column(db.Integer, db.ForeignKey('doctors.id'), nullable=False)
+    patient_id = db.Column(db.Integer, db.ForeignKey('patients.id'), nullable=False)
+    
+    # Relationship to prescriptions (one-to-many)
+    prescriptions = db.relationship('Prescription', backref='medical_record', lazy=True)
+    
+    def __repr__(self):
+        return f"<MedicalRecord {self.id}>"
+
+class Prescription(db.Model):
+    __tablename__ = 'prescriptions'
+    
+    id = db.Column(db.Integer, primary_key=True)
+    # Foreign key to the medical record
+    medical_record_id = db.Column(db.Integer, db.ForeignKey('medical_records.id'), nullable=False)
+    
+    # Relationship to medicines (many-to-many)
+    medicines = db.relationship('Medicine', secondary='prescription_medicines', backref='prescriptions')
+    
+    def __repr__(self):
+        return f"<Prescription {self.id}>"
+
+# Define the association table for the many-to-many relationship
+prescription_medicines = db.Table('prescription_medicines',
+    db.Column('prescription_id', db.Integer, db.ForeignKey('prescriptions.id'), primary_key=True),
+    db.Column('medicine_id', db.Integer, db.ForeignKey('medicines.id'), primary_key=True)
+)
+
 
 # Add models to the admin interface
 # admin.add_view(ModelView(User, db.session))
@@ -129,13 +187,14 @@ class Doctor(db.Model):
 #     db.create_all()
 #     app.run(debug=True)
 
-class Appointment(Base):
+class Appointment(db.Model):
     """
     The Appointment model class.
     """
     _tablename_ = 'appointments'
 
     # Fields
+    id = db.Column(db.Integer, primary_key=True)
     patient_id = db.Column(db.Integer, db.ForeignKey(
         'patients.id'), nullable=False)
     doctor_id = db.Column(db.Integer, db.ForeignKey(
@@ -145,11 +204,12 @@ class Appointment(Base):
     end_time = db.Column(db.Time, nullable=False)
     notes = db.Column(db.Text)
 
-    # Relationships
-    patient = db.relationship(
-        'Patient', backref=db.backref('appointments', lazy=True))
-    doctor = db.relationship(
-        'Doctor', backref=db.backref('appointments', lazy=True))
+    # Fields for time slots
+    time_slot_start = db.Column(db.Time,default='09:00:00',nullable=False)
+    time_slot_end = db.Column(db.Time,default='17:00:00',nullable=False)
+    time_slot_interval = db.Column(db.Integer,default=30,nullable=False)
+    doctor_visit = db.Column(db.Boolean,default=True,nullable=False)
+    patient_visit = db.Column(db.Boolean,default=True,nullable=False)
 
     def _repr_(self):
         """

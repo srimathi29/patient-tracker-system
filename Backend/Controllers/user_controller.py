@@ -7,7 +7,6 @@ from flask_login import login_user, login_required,logout_user
 from datetime import datetime
 from ..Models.enums import UserType
 import json
-from flask import jsonify
 
 class Login(Resource):
     def post(self):
@@ -86,7 +85,7 @@ class Register(Resource):
             user_type = data['user_type']
             # Check if user already exists
             if User.query.filter((User.username == username) or (User.user_email == email)).first():
-                return jsonify({"message": "Username or email already exists"}), 409
+                return Response(json.dumps({"data": {"message": "Username or email already exists","isSuccess":0}}), mimetype="application/json", status=409)
 
             # Create a new user instance
             new_user = User(
@@ -124,9 +123,9 @@ class Register(Resource):
                 db.session.add(new_patient)
 
             db.session.commit()
-            return Response(json.dumps({"data": {"message": "User registered successfully"}}), mimetype="application/json", status=201)
+            return Response(json.dumps({"data": {"message": "User registered successfully","isSuccess":1}}), mimetype="application/json", status=201)
 
         except Exception as e:
             db.session.rollback()
             app.logger.error(f"Error occurred during registration {e}")
-            return Response(json.dumps({"data": {"message": "Failed to create User"}}), mimetype="application/json", status=400)
+            return Response(json.dumps({"data": {"message": "Failed to create User","isSuccess":0}}), mimetype="application/json", status=400)
