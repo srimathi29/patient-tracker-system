@@ -43,3 +43,53 @@
     background-color: #a50e48;
     border-color: #a50e48;
 }
+
+
+.actionBar {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+    background-color: #f4f4f4;
+    /* example color */
+    margin-bottom: 20px;
+}
+
+.actionBar button,
+.actionBar label {
+    margin-right: 10px;
+    background: #e0e0e0;
+    /* example color */
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.actionBar label {
+    position: relative;
+}
+
+.actionBar label:hover {
+    background: #cacaca;
+    /* example color on hover */
+}
+
+/* Hide the file input but keep it functional */
+.actionBar input[type="file"] {
+    display: none;
+}
+
+/* Add this inside MedicalRecordsComponent.module.css */
+
+.actionBar button:hover,
+.actionBar label:hover {
+    background-color: #77002e;
+    color: white;
+    /* Red shade for hover */
+}
+
+.actionBar button:active,
+.actionBar label:active {
+    background-color: #77002e;
+    color: white;
+    /* Darker red shade for active/pressed */
+}

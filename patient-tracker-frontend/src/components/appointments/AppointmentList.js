@@ -7,7 +7,7 @@ import AuthContext from '../../store/auth-context';
 function AppointmentList(props) {
      const [doctorOptions, setDoctorOptions] = useState([]); // To store doctor options
     const authCtx = useContext(AuthContext);
-    const [patientOptions, setPatientOptions] = useState([]);
+    const [patientsOptions, setPatientOptions] = useState([]);
 
 
     useEffect(() => {
@@ -76,6 +76,7 @@ function AppointmentList(props) {
                     value: doctor.doctor_id,
                     label: doctor.full_name
                 }));
+                console.log("doctor options " + doctorOptions);
                 setDoctorOptions(doctorOptions);
             } catch (error) {
                 console.log('error', error);
@@ -97,7 +98,7 @@ function AppointmentList(props) {
               }
       
               const data = await response.json();
-              console.log(data);
+              console.log("patientdata "+data);
               const patientOptions = data.data.patients.map(patient => ({
                 value: patient.id,
                 label: patient.full_name
@@ -126,7 +127,7 @@ function AppointmentList(props) {
         if(authCtx.user.role === 'patient'){
             return `${authCtx.user.firstName} ${authCtx.user.lastName}`;
         }
-        const selectedPatient = patientOptions.find(patient => patient.value === patientId);
+        const selectedPatient = patientsOptions.find(patient => patient.value === patientId);
         console.log("selected patient "+patientId);
         return selectedPatient ? selectedPatient.label : 'Unknown Patient';
     };

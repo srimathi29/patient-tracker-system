@@ -56,10 +56,10 @@ function MedicalRecordsComponent() {
 
                 <div className={classes.actionBar}>
                     <button onClick={navigateToAddReportForm}>Add Record</button>
-                    <label>
+                    {/* <label>
                         Upload File
                         <input type="file" onChange={handleFileUpload} style={{ display: 'none' }} />
-                    </label>
+                    </label> */}
                 </div>
                 <div className={classes.homePageContainer}>
                     <div className={classes.searchSection}>
