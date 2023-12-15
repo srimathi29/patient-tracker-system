@@ -3,6 +3,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "axios": "^1.6.2",
-    "react-datepicker": "^4.24.0"
+    "react-datepicker": "^4.24.0",
+    "react-select": "^5.8.0"
   }
 }
