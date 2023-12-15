@@ -57,7 +57,7 @@ function LoginPage() {
                         <button>Log In</button>
                     </div>
                 </form>
-                {errorMessage && <p>{errorMessage}</p>}
+                {errorMessage && <p className={classes.errorMessage}>{errorMessage}</p>}
             </Card>
         </div>
     );

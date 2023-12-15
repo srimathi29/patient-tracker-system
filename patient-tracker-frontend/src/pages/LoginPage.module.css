@@ -44,3 +44,11 @@
     background-color: #a50e48;
     border-color: #a50e48;
   }
+  .errorMessage {
+    color: white;
+    background-color: red;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px red; /* Add this line */
+  }
