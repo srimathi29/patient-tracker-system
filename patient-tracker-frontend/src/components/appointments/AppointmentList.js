@@ -6,12 +6,13 @@ function AppointmentList(props) {
     return (<ul className={classes.list}>
         <h2>Upcoming Appointments</h2>
         {props.appointments.map((appointment) => (
-            <Appointment 
+            <Appointment
                 id={appointment.id}
                 title={appointment.title}
                 patientName={appointment.patientName}
-                datetime = {appointment.dateTime}
-                />
+                doctorName={appointment.doctorName}
+                datetime={appointment.dateTime}
+            />
         ))}
     </ul>);
 

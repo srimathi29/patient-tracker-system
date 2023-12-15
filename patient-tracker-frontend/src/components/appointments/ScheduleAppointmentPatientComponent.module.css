@@ -1,0 +1,43 @@
+.scheduleAppointment {
+    max-width: 600px;
+    margin: auto;
+    padding: 1rem;
+}
+
+.formControl {
+    margin-bottom: 1rem;
+}
+
+.formControl label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.formControl input,
+.formControl select,
+.formControl textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.tooltip {
+    /* Styling for the tooltip button */
+    margin-left: 0.5rem;
+}
+
+.formActions button {
+    background-color: #007bff;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.formActions button:hover {
+    background-color: #0056b3;
+}
+
+/* Add more styles as needed */

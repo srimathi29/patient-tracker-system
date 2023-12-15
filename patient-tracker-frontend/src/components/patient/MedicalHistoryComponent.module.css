@@ -1,0 +1,16 @@
+.medicalHistory {
+    /* Add your styles for the container */
+}
+
+.visitEntry {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.visitEntry h3 {
+    margin-top: 0;
+}
+
+/* Add more styles as per your design requirements */
