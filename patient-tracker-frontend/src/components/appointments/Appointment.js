@@ -19,9 +19,11 @@ function Appointment(props) {
                     <h3>{props.title}</h3>
                     <p> <b>Patient Name:</b> {props.patientName} <br></br>
                         <b>Doctor Name:</b> {props.doctorName} <br></br>
-                        <b>DateTime:</b> {props.datetime}</p>
+                        <b>DateTime:</b> {props.datetime} <br></br>
+                        <b>Start Time:</b> {props.start_time}   <b>End Time:</b> {props.end_time}
+                    </p>
                 </div>
-                <div className={classes.actions}>
+                {/* <div className={classes.actions}>
                     <button onClick={confirmHandler} className={classes.confirm}>
                         <FontAwesomeIcon icon={faCheck} />
                     </button>
@@ -31,7 +33,7 @@ function Appointment(props) {
                     <button onClick={cancelHandler} className={classes.cancel}>
                         <FontAwesomeIcon icon={faTimes} />
                     </button>
-                </div>
+                </div> */}
             </Card>
         </li>
     );

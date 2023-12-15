@@ -96,6 +96,7 @@ export function AuthContextProvider(props) {
           setUser(curr_user);
           setUserRole(data.data.role);
           resolve({ status: 'success', user: data.user, role: data.role });
+          console.log("user data" + curr_user.roleId);
         } else {
           console.error('Login failed:', data.message);
           reject({ status: 'error', message: data.message });

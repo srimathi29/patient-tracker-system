@@ -49,8 +49,9 @@ function PatientAppointmentPage(props) {
                 onNavItemSelect={handleNavItemSelect}
             />
             <div className={`${classes.maincontent}`}>
-                {renderComponent()}
                 <h1>Appointment Page</h1>
+                {renderComponent()}
+
                 {/* The rest of your page content goes here */}
             </div>
         </div>
