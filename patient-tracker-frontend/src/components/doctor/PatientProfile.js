@@ -11,10 +11,9 @@ function PatientProfile(props) {
     return (
         <div className={classes.patientProfile}>
             <h1>Patient Profile: {patient.name}</h1>
-            {/* <p><strong>ID:</strong> {patient.id}</p> */}
-            <p><strong>Age:</strong> {patient.age}</p>
-            <p><strong>Gender:</strong> {patient.gender}</p>
-            <p><strong>Phone:</strong> {patient.phone}</p>
+            <p><strong>Age:</strong> {patient.age || 'N/A'}</p>
+            <p><strong>Gender:</strong> {patient.gender || 'N/A'}</p>
+            <p><strong>Phone:</strong> {patient.phone || 'N/A'}</p>
             <p><strong>Medical History:</strong> {patient.history}</p>
 
             <div className={classes.historySection}>
@@ -38,8 +37,7 @@ function PatientProfile(props) {
                         <li key={prescription.id}>
                             <p><strong>Date:</strong> {new Date(prescription.timestamp).toLocaleDateString()}</p>
                             <p><strong>Doctor:</strong> {prescription.doctorName}</p>
-                            <p><strong>Prescriptions:</strong> {prescription.prescriptions.map(p => p.name).join(', ')}</p>
-                            <p><strong>Description:</strong> {prescription.description}</p>
+                            <p><strong>Prescription:</strong> {prescription.prescriptions}</p>
                         </li>
                     ))}
                 </ul>

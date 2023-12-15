@@ -5,7 +5,7 @@ import config from '../../config.json';
 import AuthContext from '../../store/auth-context';
 
 function AppointmentList(props) {
-     const [doctorOptions, setDoctorOptions] = useState([]); // To store doctor options
+    const [doctorOptions, setDoctorOptions] = useState([]); // To store doctor options
     const authCtx = useContext(AuthContext);
     const [patientsOptions, setPatientOptions] = useState([]);
 
@@ -84,38 +84,38 @@ function AppointmentList(props) {
         };
         const fetchPatientsFromBackend = async () => {
             try {
-              const myHeaders = new Headers();
-              myHeaders.append("Cookie", `session=${authCtx.session}`);
-              const requestOptions = {
-                method: 'GET',
-                headers: myHeaders,
-                redirect: 'follow',
-              };
-              const response = await fetch(`http://${config.ipAddress}:${config.port}/patients`, requestOptions);
-              console.log(`http://${config.ipAddress}:${config.port}/patients`);
-              if (!response.ok) {
-                throw new Error('Failed to fetch patients');
-              }
-      
-              const data = await response.json();
-              console.log("patientdata "+data);
-              const patientOptions = data.data.patients.map(patient => ({
-                value: patient.id,
-                label: patient.full_name
-            }));
-              setPatientOptions(patientOptions);
+                const myHeaders = new Headers();
+                myHeaders.append("Cookie", `session=${authCtx.session}`);
+                const requestOptions = {
+                    method: 'GET',
+                    headers: myHeaders,
+                    redirect: 'follow',
+                };
+                const response = await fetch(`http://${config.ipAddress}:${config.port}/patients`, requestOptions);
+                console.log(`http://${config.ipAddress}:${config.port}/patients`);
+                if (!response.ok) {
+                    throw new Error('Failed to fetch patients');
+                }
+
+                const data = await response.json();
+                console.log("patientdata " + data);
+                const patientOptions = data.data.patients.map(patient => ({
+                    value: patient.id,
+                    label: patient.full_name
+                }));
+                setPatientOptions(patientOptions);
             } catch (error) {
-              console.error('Error fetching patients:', error);
+                console.error('Error fetching patients:', error);
             }
-          };
+        };
 
         fetchDoctors();
         fetchPatientsFromBackend();
-    }, [authCtx.session]);
+    }, []);
 
     // Function to get doctor name based on doctor ID
     const getDoctorName = (doctorId) => {
-        if(authCtx.user.role === 'doctor'){
+        if (authCtx.user.role === 'doctor') {
             return `${authCtx.user.firstName} ${authCtx.user.lastName}`;
         }
         const selectedDoctor = doctorOptions.find(doctor => doctor.value === doctorId);
@@ -124,11 +124,12 @@ function AppointmentList(props) {
 
     // Function to get patient name based on authCtx
     const getPatientName = (patientId) => {
-        if(authCtx.user.role === 'patient'){
+        console.log(`Looking for patient with ID: ${patientId}`);
+        if (authCtx.user.role === 'patient') {
             return `${authCtx.user.firstName} ${authCtx.user.lastName}`;
         }
         const selectedPatient = patientsOptions.find(patient => patient.value === patientId);
-        console.log("selected patient "+patientId);
+        console.log(`Selected patient:`, selectedPatient);
         return selectedPatient ? selectedPatient.label : 'Unknown Patient';
     };
     console.log("user role id " + authCtx.user.roleId);
@@ -160,7 +161,7 @@ function AppointmentList(props) {
                             key={appointment.id}
                             id={appointment.id}
                             title={appointment.title}
-                            patientName={getPatientName()}
+                            patientName={getPatientName(appointment.patient_id)}
                             doctorName={getDoctorName(appointment.doctor_id)}
                             datetime={appointment.date}
                             start_time={appointment.start_time}
