@@ -1,4 +1,4 @@
-import { useState, useRef, useContext } from 'react'; 
+import { useState, useRef, useContext, useEffect } from 'react';
 import Card from '../components/ui/Card';
 import classes from './LoginPage.module.css';
 import AuthContext from '../store/auth-context';
@@ -11,41 +11,48 @@ function LoginPage() {
     const passwordRef = useRef();
     const navigate = useNavigate();
 
-    function handleSubmit(event) {
+    // If the user is already authenticated, redirect them
+    useEffect(() => {
+        if (authCtx.isAuthenticated && authCtx.userRole === 'doctor') {
+            navigate('/'); // Navigate to the homepage or dashboard
+        }
+    }, [authCtx.isAuthenticated, authCtx.userRole, navigate]);
+
+    async function handleSubmit(event) {
         event.preventDefault();
 
         const enteredUsername = usernameRef.current.value;
         const enteredPassword = passwordRef.current.value;
 
-        console.log("Logging in with username: " + enteredUsername + " and password: " + enteredPassword);
-        authCtx.login(enteredUsername, enteredPassword);
-        if (authCtx.isAuthenticated && authCtx.userRole === 'doctor') {
-            navigate('/');
-          }
+        // You should have a try/catch here if your login method can throw
+        try {
+            await authCtx.login(enteredUsername, enteredPassword);
+            // If login is successful, the above useEffect will trigger navigation
+        } catch (error) {
+            // Handle errors (e.g., display a message to the user)
+            console.error('Login failed:', error);
+        }
     };
 
     return (
-        // align Card to center
         <div className={cardClasses.centercard}>
-        <Card>
-            <form className={classes.form} onSubmit={handleSubmit}>
-                <div className={classes.control}>
-                    <label htmlFor="title">Username</label>
-                    <input type="text" required id="username" ref={usernameRef} />
-                </div>
-                <div className={classes.control}>
-                    <label htmlFor="password">Password</label>
-                    <input type="password" required id="password" ref={passwordRef} />
-                </div>
-                <div className={classes.actions}>
-                    <button>Log In</button>
-                </div>
-            </form>       
-        </Card>
+            <Card>
+                <form className={classes.form} onSubmit={handleSubmit}>
+                    <div className={classes.control}>
+                        <label htmlFor="username">Username</label>
+                        <input type="text" required id="username" ref={usernameRef} />
+                    </div>
+                    <div className={classes.control}>
+                        <label htmlFor="password">Password</label>
+                        <input type="password" required id="password" ref={passwordRef} />
+                    </div>
+                    <div className={classes.actions}>
+                        <button>Log In</button>
+                    </div>
+                </form>
+            </Card>
         </div>
     );
-
-
 }
 
 export default LoginPage;
