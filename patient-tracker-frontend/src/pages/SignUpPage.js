@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios'; // Import Axios
 import Card from '../components/ui/Card';
 import classes from './SignUpPage.module.css';
+import SuccessMessage from '../components/Sucessmessage/SuccessMessage';
+import config from '../config.json';
 
 function SignUpPage() {
     const [errors, setErrors] = useState({
@@ -13,6 +15,8 @@ function SignUpPage() {
         lastName: '',
         role: ''
     });
+
+    const [errorMessage, setErrorMessage] = useState(null);
 
     const navigate = useNavigate();
 
@@ -67,7 +71,7 @@ function SignUpPage() {
                 user_type: roleRef.current.value
             };
 
-            axios.post('http://10.0.0.123:8080/register', JSON.stringify(userData), {
+            axios.post(`http://${config.ipAddress}:${config.port}/register`, JSON.stringify(userData), {
                 headers: {
                     'Content-Type': 'application/json'
                 }
@@ -75,13 +79,30 @@ function SignUpPage() {
                 .then(response => {
                     console.log(response.data);
                     setIsSuccess(true);
-                    navigate('/login'); // Navigate to the sign-in page
+                    // wait for some time 
+                    // navigate('/login'); // Navigate to the sign-in page
+                    setTimeout(() => {
+                        navigate('/login'); // Navigate to the sign-in page
+                    }, 2000);
                 })
                 .catch(error => {
                     console.error('Error:', error);
                     // Handle errors here, e.g., set error messages in state
+                    if (error.response && error.response.status === 409) {
+                        // Set error message for conflict (username or email already exists)
+                        setIsSuccess(false);
+                        setErrorMessage("Registration failed. Username or email already exists.");
+                    } else {
+                        console.error('Error:', error);
+                        // Handle other errors here, e.g., set a generic error message
+                        setIsSuccess(false);
+                        setErrorMessage("Registration failed. Please try again!")
+
+                    }
                 });
         }
+
+
     }
 
     function validateInput() {
@@ -156,11 +177,14 @@ function SignUpPage() {
                         <option value="Patient">Patient</option>
                     </select>
                     {errors.role && <p className={classes.error}>{errors.role}</p>}
+
                 </div>
                 <div className={classes.actions}>
                     <button>Sign Up</button>
                 </div>
             </form>
+            {errorMessage && <p className={classes.error} > {errorMessage}</p>}
+            {isSuccess && <SuccessMessage />}
         </Card>
     );
 }
