@@ -10,6 +10,7 @@ function LoginPage() {
     const usernameRef = useRef();
     const passwordRef = useRef();
     const navigate = useNavigate();
+    const [errorMessage, setErrorMessage] = useState(null);
 
     // If the user is already authenticated, redirect them
     useEffect(() => {
@@ -32,6 +33,12 @@ function LoginPage() {
             // Handle errors (e.g., display a message to the user)
             console.error('Login failed:', error);
         }
+        if(authCtx.isSuccess){
+            navigate('/');
+        }
+        else{
+            setErrorMessage('Login failed. Please contact the administrator or try again with proper credentials.');
+        }
     };
 
     return (
@@ -50,6 +57,7 @@ function LoginPage() {
                         <button>Log In</button>
                     </div>
                 </form>
+                {errorMessage && <p>{errorMessage}</p>}
             </Card>
         </div>
     );

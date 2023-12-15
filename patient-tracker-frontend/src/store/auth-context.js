@@ -7,6 +7,8 @@ const AuthContext = React.createContext({
   userRole: null,
   setUserRole: (role) => { },
   user: null,
+  isSuccess: false,
+  setIsSuccess: () => { },
   setUser: () => { },
   login: (username, password) => { },
   logout: () => { }
@@ -16,6 +18,8 @@ export function AuthContextProvider(props) {
   const [isAuthenticated, setIsAuthenticated] = React.useState(false);
   const [userRole, setUserRole] = React.useState(null);
   const [user, setUser] = React.useState(null);
+  const [isSuccess, setIsSuccess] = React.useState(null);
+
 
   const loginHandler2 = (username, password) => {
     return new Promise((resolve) => {
@@ -78,13 +82,17 @@ export function AuthContextProvider(props) {
           gender: data.data.gender,
           phone: data.data.phone,
           additionalData: data.data.additionalData,
-          img: data.data.img
+          img: data.data.img,
+          user_id: data.data.user_id,
+          role: data.data.role,
+          roleId: data.data.roleId          
  
         }
         console.log("user" + curr_user);
         console.log("role" + data.data.role);
         if (response.ok) {
           setIsAuthenticated(true);
+          setIsSuccess(data.data.isSuccess);
           setUser(curr_user);
           setUserRole(data.data.role);
           resolve({ status: 'success', user: data.user, role: data.role });
@@ -102,6 +110,9 @@ export function AuthContextProvider(props) {
 
   const logoutHandler = () => {
     return new Promise((resolve) => {
+      const url = `http://${config.server.ipAddress}:${config.server.port}/logout`;
+      const response = fetch(url);
+
       setIsAuthenticated(false);
       setUserRole('null');
 
