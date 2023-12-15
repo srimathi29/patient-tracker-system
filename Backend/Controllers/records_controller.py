@@ -242,3 +242,97 @@ class MedicalRecordAPI(Resource):
                 }
             }
             return Response(json.dumps(response_data), mimetype="application/json", status=400)
+
+    def put(self, medical_record_id):
+        medical_record = MedicalRecord.query.get(medical_record_id)
+        if medical_record:
+            try:
+                data = request.form  # Use request.form for form data
+                
+                # Update medical record fields
+                medical_record.diagnosis = data.get('diagnosis', medical_record.diagnosis)
+                medical_record.comments = data.get('comments',medical_record.comments)
+                medical_record.doctor_id = data.get('doctor_id',medical_record.doctor_id)
+                medical_record.patient_id = data.get('patient_id',medical_record.patient_id)
+                db.session.commit()
+                
+                # Handle file upload
+                if 'file' in request.files:
+                    file = request.files['file']
+                    if file:
+                        filename = secure_filename(file.filename)
+                        
+                        # Use the configured uploads folder
+                        upload_folder = app.config['UPLOAD_FOLDER']
+                        file.save(os.path.join(upload_folder, filename))
+                        
+                        new_document = MedicalRecordDocument(
+                            filename=filename,
+                            path=os.path.join(upload_folder, filename),
+                            medical_record_id=medical_record.id
+                        )
+                        db.session.add(new_document)
+                        db.session.commit()
+
+                        db.session.refresh(medical_record)
+                
+                response_data = {
+                    "data": {
+                        "message": "Medical record updated successfully",
+                        "isSuccess": 1
+                    }
+                }
+                return Response(json.dumps(response_data), mimetype="application/json", status=200)
+            except Exception as e:
+                db.session.rollback()
+                response_data = {
+                    "data": {
+                        "message": str(e),
+                        "isSuccess": 0
+                    }
+                }
+                return Response(json.dumps(response_data), mimetype="application/json", status=400)
+        response_data = {
+            "data": {
+                "message": "Medical record not found",
+                "isSuccess": 0
+            }
+        }
+        return Response(json.dumps(response_data), mimetype="application/json", status=404)
+
+    def delete(self, medical_record_id):
+        medical_record = MedicalRecord.query.get(medical_record_id)
+        if medical_record:
+            db.session.delete(medical_record)
+            db.session.commit()
+            response_data = {
+                "data": {
+                    "message": "Medical record deleted successfully",
+                    "isSuccess": 1
+                }
+            }
+            return Response(json.dumps(response_data), mimetype="application/json", status=200)
+        response_data = {
+            "data": {
+                "message": "Medical record not found",
+                "isSuccess": 0
+            }
+        }
+        return Response(json.dumps(response_data), mimetype="application/json", status=404)
+
+class DownloadFileAPI(Resource):
+    def get(self, filename):
+        # Construct the full path to the file
+        file_path = os.path.join(app.config["UPLOAD_FOLDER"], filename)
+        
+        # Check if the file exists
+        if os.path.exists(file_path):
+            # Return the file as an attachment
+            return send_file(file_path, as_attachment=True,environ=request.environ)
+        else:
+            return {
+                "data": {
+                    "message": "File not found",
+                    "isSuccess": 0
+                }
+            }, 404
