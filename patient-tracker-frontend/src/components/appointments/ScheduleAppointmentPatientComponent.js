@@ -55,11 +55,8 @@ function ScheduleAppointmentPatientComponent(props) {
 
         const formattedStartTime = `${startTime.getHours().toString().padStart(2, '0')}:${startTime.getMinutes().toString().padStart(2, '0')}:00`;
         const formattedEndTime = `${endTime.getHours().toString().padStart(2, '0')}:${endTime.getMinutes().toString().padStart(2, '0')}:00`;
-        // Check if a doctor is selected before accessing its value
         const doctorId = doctorRef.current ? doctorRef.current.value : null;
-        console.log("role id ");
-        console.log(authCtx.user.roleId);
-        // Check if authCtx.roleId is defined and has a value
+
         const patientId = authCtx.user.roleId ? authCtx.user.roleId : null;
 
         var raw = JSON.stringify({
@@ -74,7 +71,7 @@ function ScheduleAppointmentPatientComponent(props) {
             notes: detailsRef.current ? detailsRef.current.value : null,
             doctor_visit: doctorVisitRef.current ? doctorVisitRef.current.checked : false
         });
-        console.log(raw);
+
         var requestOptions = {
             method: 'POST',
             headers: myHeaders,
@@ -83,14 +80,19 @@ function ScheduleAppointmentPatientComponent(props) {
         };
 
         fetch(`http://${config.ipAddress}:${config.port}/appointments`, requestOptions)
-            .then(response => response.text())
+            .then(response => {
+                if (!response.ok && response.status === 400) {
+                    throw new Error("Doctor not available at this time");
+                }
+                return response.json();
+            })
             .then(result => {
                 console.log(result);
                 alert("Appointment scheduled successfully");
             })
             .catch(error => {
                 console.log('error', error);
-                alert("Error scheduling appointment");
+                alert(error.message);
             });
     };
 
@@ -101,13 +103,13 @@ function ScheduleAppointmentPatientComponent(props) {
     };
 
     const handleStartTimeChange = (date) => {
-        setStartTime(date); // Set start time
+        setStartTime(date);
 
-        // Calculate and set the end time
         const newEndTime = new Date(date);
-        newEndTime.setMinutes(newEndTime.getMinutes() + 30); // Add 30 minutes for end time
+        newEndTime.setMinutes(newEndTime.getMinutes() + 30);
         setEndTime(newEndTime);
     };
+
     const calculateEndTime = () => {
         const newEndTime = new Date(startTime);
         newEndTime.setMinutes(newEndTime.getMinutes() + 30);
