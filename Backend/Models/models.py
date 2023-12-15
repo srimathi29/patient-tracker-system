@@ -51,6 +51,20 @@ class User(db.Model):
         """False, as anonymous users aren't supported."""
         return False
 
+    def serialize(self):
+        return {
+            "id": self.id,
+            "username": self.username,
+            "user_email": self.user_email,
+            "first_name": self.first_name,
+            "last_name": self.last_name,
+            "last_login": str(self.last_login) if self.last_login else "",
+            "date_joined": str(self.date_joined),
+            "user_type": self.user_type.value,
+            "gender": self.gender,
+            "contact_number": self.contact_number if self.contact_number else "",
+            "address": self.address if self.address else ""
+        }
 
 
 
@@ -137,6 +151,15 @@ class Medicine(db.Model):
     
     def __repr__(self):
         return f"<Medicine {self.name}>"
+    
+    def serialize(self):
+        return {
+            "id": self.id,
+            "name": self.name,
+            "dosage": self.dosage,
+            "manufacturer": self.manufacturer,
+            "description": self.description
+        }
 
 class MedicalRecord(db.Model):
     __tablename__ = 'medical_records'
@@ -152,9 +175,24 @@ class MedicalRecord(db.Model):
     
     # Relationship to prescriptions (one-to-many)
     prescriptions = db.relationship('Prescription', backref='medical_record', lazy=True)
+    documents = db.relationship('MedicalRecordDocument', backref='medical_record', lazy=True)
     
     def __repr__(self):
         return f"<MedicalRecord {self.id}>"
+    
+    def serialize(self):
+        data = {
+            "id": self.id,
+            "diagnosis": self.diagnosis,
+            "comments": self.comments,
+            "date": self.date.strftime("%Y-%m-%d %H:%M:%S") if self.date else "",
+            "doctor_id": self.doctor_id,
+            "patient_id": self.patient_id,
+            # "prescriptions": [prescription.serialize() for prescription in self.prescriptions],
+            # "documents": [document.serialize() for document in self.documents]
+            # You can add more attributes here as needed
+        }
+        return data
 
 class Prescription(db.Model):
     __tablename__ = 'prescriptions'
@@ -175,6 +213,20 @@ prescription_medicines = db.Table('prescription_medicines',
     db.Column('medicine_id', db.Integer, db.ForeignKey('medicines.id'), primary_key=True)
 )
 
+class MedicalRecordDocument(db.Model):
+    __tablename__ = 'medical_record_documents'
+
+    id = db.Column(db.Integer, primary_key=True)
+    filename = db.Column(db.String(255), nullable=False)
+    path = db.Column(db.String(255), nullable=False)
+    
+    # Foreign key to link to the medical record
+    medical_record_id = db.Column(db.Integer, db.ForeignKey('medical_records.id'), nullable=False)
+
+    def __repr__(self):
+        return f"<MedicalRecordDocument {self.filename}>"
+    
+    
 
 # Add models to the admin interface
 # admin.add_view(ModelView(User, db.session))
@@ -203,6 +255,7 @@ class Appointment(db.Model):
     start_time = db.Column(db.Time, nullable=False)
     end_time = db.Column(db.Time, nullable=False)
     notes = db.Column(db.Text)
+    title = db.Column(db.String(255), nullable=False)
 
     # Fields for time slots
     time_slot_start = db.Column(db.Time,default='09:00:00',nullable=False)

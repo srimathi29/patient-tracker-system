@@ -109,12 +109,4 @@ class PatientAPI(Resource):
         }
         return Response(json.dumps(response_data), mimetype="application/json", status=404)
 
-# Method to serialize Patient data
-# def serialize_patient(patient):
-#     return {
-#         "user_id": patient.user_id,
-#         # Add other serialization fields here...
-#     }
-
-# Patient.serialize = serialize_patient
 

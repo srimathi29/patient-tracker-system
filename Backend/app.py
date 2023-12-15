@@ -41,10 +41,10 @@ formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
 file_handler.setFormatter(formatter)
 app.logger.addHandler(file_handler)
 
-app.logger.debug('Debug message')
-app.logger.info('Info message')
-app.logger.warning('Warning message')
-app.logger.error('Error message')
+
+# Set the upload folder configuration
+app.config['UPLOAD_FOLDER'] = '/Users/prudhvinikku/patient-tracker-system/Backend/Uploads'
+
 
 from .Models.models import User   
 @login_manager.user_loader
@@ -60,16 +60,17 @@ def load_user(user_id):
   
 
 # Register Endpoints
-from .Controllers.user_controller import Login, Logout, Register
+from .Controllers.user_controller import Login, Logout, Register, UserAPI
 from .Controllers.doctor_controller import DoctorAPI
 from .Controllers.appointment_controller import DoctorAppointmentsResource, AppointmentCreateResource, \
       AppointmentUpdateResource, PatientAppointmentsResource
-from .Controllers.records_controller import MedicalRecordController
+from .Controllers.records_controller import MedicalRecordController, MedicalRecordAPI, DownloadFileAPI
 from .Controllers.patient_controller import PatientAPI
+from .Controllers.medicine_controller import MedicineAPI
 api.add_resource(Login, '/login')
 api.add_resource(Logout, '/logout')
 api.add_resource(Register, '/register')
-
+api.add_resource(UserAPI, '/users', '/users/<int:user_id>')
 # Patients Endpoints
 api.add_resource(PatientAPI, '/patients',  '/patients/<int:user_id>', endpoint='patients')
 
@@ -88,9 +89,16 @@ api.add_resource(
     '/patients/<int:patient_id>/appointments/<date>'
 )
 
+
+api.add_resource(MedicineAPI, '/medicine', '/medicine/<int:medicine_id>')
+
+
 # Medical Records Endpoints
-api.add_resource(MedicalRecordController, '/medical-records', endpoint='medical_records')
-api.add_resource(MedicalRecordController, '/medical-records/<int:record_id>', endpoint='medical_record')
+# api.add_resource(MedicalRecordController, '/medical-records', endpoint='medical_records')
+# api.add_resource(MedicalRecordController, '/medical-records/<int:record_id>', endpoint='medical_record')
+api.add_resource(MedicalRecordAPI, "/medical-records", "/medical-records/<int:medical_record_id>")
+
+api.add_resource(DownloadFileAPI, '/download/<string:filename>')
 
 class HelloWorld(Resource):
     def get(self):

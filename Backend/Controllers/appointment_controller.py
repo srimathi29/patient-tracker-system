@@ -15,7 +15,7 @@ class AppointmentCreateResource(Resource):
         time_slot_start = data.get('time_slot_start')
         time_slot_end = data.get('time_slot_end')
         doctor_visit = data.get('doctor_visit', True)
-
+        title = data.get('title')
         if not all([patient_id, doctor_id, date, start_time, end_time]):
             response_data = {
                 "data": {
@@ -50,7 +50,8 @@ class AppointmentCreateResource(Resource):
             notes=notes,
             time_slot_start=time_slot_start,
             time_slot_end=time_slot_end,
-            doctor_visit=doctor_visit
+            doctor_visit=doctor_visit,
+            title=title
         )
 
         db.session.add(appointment)
@@ -112,6 +113,8 @@ class AppointmentUpdateResource(Resource):
             appointment.end_time = data['end_time']
         if 'notes' in data:
             appointment.notes = data['notes']
+        if 'title' in data:
+            appointment.title = data['title']
 
         db.session.commit()
 
@@ -178,7 +181,8 @@ class DoctorAppointmentsResource(Resource):
                 "date": str(appointment.date),
                 "start_time": str(appointment.start_time),
                 "end_time": str(appointment.end_time),
-                "notes": appointment.notes
+                "notes": appointment.notes,
+                "title": appointment.title
             } for appointment in appointments]
 
             response_data = {
@@ -223,7 +227,8 @@ class PatientAppointmentsResource(Resource):
                 "date": str(appointment.date),
                 "start_time": str(appointment.start_time),
                 "end_time": str(appointment.end_time),
-                "notes": appointment.notes
+                "notes": appointment.notes,
+                "title": appointment.title
             } for appointment in appointments]
 
             response_data = {

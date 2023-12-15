@@ -129,3 +129,128 @@ class Register(Resource):
             db.session.rollback()
             app.logger.error(f"Error occurred during registration {e}")
             return Response(json.dumps({"data": {"message": "Failed to create User","isSuccess":0}}), mimetype="application/json", status=400)
+
+
+class UserAPI(Resource):
+    def get(self, user_id=None):
+        if user_id:
+            # Get a specific user by ID
+            user = User.query.get(user_id)
+            if user:
+                response_data = {
+                    "data": {
+                        "user": user.serialize(),
+                        "isSuccess": 1
+                    }
+                }
+                print(response_data)
+                return Response(json.dumps(response_data), mimetype="application/json", status=200)
+            response_data = {
+                "data": {
+                    "message": "User not found",
+                    "isSuccess": 0
+                }
+            }
+            return Response(json.dumps(response_data), mimetype="application/json", status=404)
+        else:
+            # Get all users
+            users = User.query.all()
+            serialized_users = [user.serialize() for user in users]
+            response_data = {
+                "data": {
+                    "users": serialized_users,
+                    "isSuccess": 1
+                }
+            }
+            return Response(json.dumps(response_data), mimetype="application/json", status=200)
+
+    def post(self):
+        data = request.json
+        try:
+            new_user = User(
+                username=data['username'],
+                password_hash=data['password_hash'],
+                user_email=data['user_email'],
+                first_name=data['first_name'],
+                last_name=data['last_name'],
+                last_login=data.get('last_login'),
+                date_joined=data['date_joined'],
+                is_authenticated=data.get('is_authenticated', False),
+                user_type=data['user_type'],
+                gender=data.get('gender'),
+                contact_number=data.get('contact_number'),
+                address=data.get('address')
+            )
+            db.session.add(new_user)
+            db.session.commit()
+            response_data = {
+                "data": {
+                    "message": "User record created successfully",
+                    "isSuccess": 1
+                }
+            }
+            return Response(json.dumps(response_data), mimetype="application/json", status=201)
+        except Exception as e:
+            db.session.rollback()
+            response_data = {
+                "data": {
+                    "message": str(e),
+                    "isSuccess": 0
+                }
+            }
+            return Response(json.dumps(response_data), mimetype="application/json", status=400)
+
+    def put(self, user_id):
+        user = User.query.get(user_id)
+        if user:
+            try:
+                data = request.json
+                user.first_name = data.get('first_name', user.first_name)
+                user.last_name = data.get('last_name', user.last_name)
+                user.gender = data.get('gender',user.gender)
+                user.contact_number = data.get('contact_number',user.contact_number)
+                user.address = data.get('address',user.address)
+                db.session.commit()
+                response_data = {
+                    "data": {
+                        "message": "User record updated successfully",
+                        "isSuccess": 1
+                    }
+                }
+                return Response(json.dumps(response_data), mimetype="application/json", status=200)
+            except Exception as e:
+                db.session.rollback()
+                response_data = {
+                    "data": {
+                        "message": str(e),
+                        "isSuccess": 0
+                    }
+                }
+                return Response(json.dumps(response_data), mimetype="application/json", status=400)
+        response_data = {
+            "data": {
+                "message": "User not found",
+                "isSuccess": 0
+            }
+        }
+        return Response(json.dumps(response_data), mimetype="application/json", status=404)
+
+    def delete(self, user_id):
+        user = User.query.get(user_id)
+        if user:
+            db.session.delete(user)
+            db.session.commit()
+            response_data = {
+                "data": {
+                    "message": "User record deleted successfully",
+                    "isSuccess": 1
+                }
+            }
+            return Response(json.dumps(response_data), mimetype="application/json", status=200)
+        response_data = {
+            "data": {
+                "message": "User not found",
+                "isSuccess": 0
+            }
+        }
+        return Response(json.dumps(response_data), mimetype="application/json", status=404)
