@@ -13,7 +13,7 @@ function PatientAppointmentPage(props) {
 
     // Adjust navItems based on the user role
     const navItems = [
-        { name: 'Manage Appointments', identifier: 'Manage Appointments' },
+        { name: 'Appointment Summary', identifier: 'Appointment Summary' },
         { name: 'Schedule Appointments', identifier: 'Schedule Appointments' },
         // Add more items as needed
     ];
@@ -26,7 +26,7 @@ function PatientAppointmentPage(props) {
     // Render the component based on activeComponent state
     const renderComponent = () => {
         switch (activeComponent) {
-            case 'Manage Appointments':
+            case 'Appointment Summary':
                 return <AppointmentComponent />;
             case 'Schedule Appointments':
                 return <ScheduleAppointmentPatientComponent />;

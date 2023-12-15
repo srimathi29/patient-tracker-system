@@ -1,51 +1,52 @@
+import React, { useState, useEffect, useContext } from 'react';
 import classes from './MedicalRecordsComponent.module.css';
-import React, { useState, useEffect } from 'react';
 import Card from '../ui/Card';
-import AuthContext, { AuthContextProvider } from '../../store/auth-context';
-import ReportFilterComponent from '../common/ReportFilterComponent';
+import AuthContext from '../../store/auth-context';
 import { useNavigate } from 'react-router-dom';
-
+import config from '../../config.json';
 
 function MedicalRecordsComponent() {
-    const authCtx = React.useContext(AuthContext);
-    const [reports, setReports] = useState([]);
-    const [filteredReports, setFilteredReports] = useState([]);
-    const navigate = useNavigate(); // To navigate to the report form page
+    const authCtx = useContext(AuthContext);
+    const [medicalRecords, setMedicalRecords] = useState([]);
+    const [documents, setDocuments] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
-        // Fetch reports and set state here
-        // For now, we'll use dummy data
+        const fetchMedicalRecords = async () => {
+            try {
+                const patientId = authCtx.user.roleId;
+                var myHeaders = new Headers();
+                myHeaders.append("Cookie", "session=YOUR_SESSION_COOKIE");
 
-        //BACKEND CALL: fetch reports from backend
-        const fetchedReports = [
-            { id: 1, title: 'Report 1', content: 'Content for report 1' },
-            { id: 2, title: 'Report 2', content: 'Content for report 2' },
-            // ...more reports
-        ];
-        setReports(fetchedReports);
-        setFilteredReports(fetchedReports);
-    }, []);
+                var requestOptions = {
+                    method: 'GET',
+                    headers: myHeaders,
+                    redirect: 'follow'
+                };
 
-    const handleFilter = (filterValue) => {
-        // Filter logic here
-        const filtered = reports.filter(report =>
-            report.title.toLowerCase().includes(filterValue.toLowerCase())
-        );
-        setFilteredReports(filtered);
-    };
-    const handleFileUpload = (event) => {
-        const file = event.target.files[0];
-        // Handle file upload logic here
-    };
+                const response = await fetch(`http://${config.ipAddress}:${config.port}/medical-records/${patientId}`, requestOptions);
+                if (!response.ok) {
+                    throw new Error('Failed to fetch medical records');
+                }
+                
+                const data = await response.json();
+                setMedicalRecords(data.data.medical_records);
+                setDocuments(data.data.documents);
+            } catch (error) {
+                console.error('Error fetching medical records:', error);
+            }
+        };
+
+        fetchMedicalRecords();
+    }, [authCtx.user.roleId]);
 
     const navigateToAddReportForm = () => {
-        navigate('/add-record'); // The path to your form page to add a report
+        navigate('/add-record');
     };
 
     return (
         <div>
-            <h3> Medical Records Component History Component</h3>
-
+            <h3>Medical Records</h3>
             <div className={classes.reportsComponent}>
                 {authCtx.user && (
                     <div className={classes.doctorInfo}>
@@ -56,29 +57,36 @@ function MedicalRecordsComponent() {
 
                 <div className={classes.actionBar}>
                     <button onClick={navigateToAddReportForm}>Add Record</button>
-                    {/* <label>
-                        Upload File
-                        <input type="file" onChange={handleFileUpload} style={{ display: 'none' }} />
-                    </label> */}
                 </div>
+
                 <div className={classes.homePageContainer}>
-                    <div className={classes.searchSection}>
-                        <ReportFilterComponent onFilter={handleFilter} />
-                    </div>
                     <div className={classes.appointmentsSection}>
+                        <h4>Documents:</h4>
+                        <ul>
+                            {documents.map(document => (
+                                <li key={document.id}>
+                                    <a href={`http://${config.ipAddress}:${config.port}${document.download_link}`} target="_blank" rel="noopener noreferrer">
+                                        {document.filename}
+                                    </a>
+                                </li>
+                            ))}
+                        </ul>
+
+                        <h4>Medical Records:</h4>
                         <div className={classes.reportsList}>
-                            {filteredReports.map(report => (
-                                <Card key={report.id}>
-                                    <h3>{report.title}</h3>
-                                    <p>{report.content}</p>
-                                    {/* Add more report details here */}
+                            {medicalRecords.map(record => (
+                                <Card key={record.id} className={classes.reportsComponent}>
+                                    <h3>{record.diagnosis}</h3>
+                                    <p>Doctor: {record.doctor_name}</p>
+                                    <p>Date: {record.date}</p>
+                                    <p>Comments: {record.comments}</p>
+                                    {/* Add more medical record details here */}
                                 </Card>
                             ))}
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
     );
 }
