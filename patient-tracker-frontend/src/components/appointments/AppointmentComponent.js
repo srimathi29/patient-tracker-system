@@ -48,13 +48,14 @@ const authCtx = React.useContext(AuthContext);
           };
 
           // Use the date parameter to fetch either today's appointments or all appointments
-          const baseUrl = `http://${config.ipAddress}:${config.port}/doctors/${authCtx.user.roleId}/appointments`;
+          const roleurl = authCtx.user.role === 'doctor' ? 'doctors' : 'patients';
+          const baseUrl = `http://${config.ipAddress}:${config.port}/${roleurl}/${authCtx.user.roleId}/appointments`;
           const url = date ? `${baseUrl}?date=${date}` : baseUrl;
-
+          console.log("baseurl"+baseUrl);
           fetch(url, requestOptions)
               .then(response => response.json())
               .then(result => {
-                  const appointments = result.data.appointments; // Adjust this according to the actual result structure
+                  const appointments = authCtx.user.role === 'doctor' ? result.data.appointments : result.data;// Adjust this according to the actual result structure
                   const now = new Date();
                   const today = now.toISOString().split('T')[0];
                   console.log("appointment page: today " + today);
@@ -133,7 +134,7 @@ const authCtx = React.useContext(AuthContext);
 
       fetchDoctors();
       fetchPatientsFromBackend();
-  }, [authCtx.session]);
+  }, [authCtx.session, authCtx.user.role, authCtx.user.roleId]);
 
     return (
         <div>
