@@ -210,6 +210,8 @@ class UserAPI(Resource):
                 user.gender = data.get('gender',user.gender)
                 user.contact_number = data.get('contact_number',user.contact_number)
                 user.address = data.get('address',user.address)
+                user.age = data.get('age',user.age)
+                user.img = data.get('img',user.img) 
                 db.session.commit()
                 response_data = {
                     "data": {

@@ -2,7 +2,7 @@ from flask import request, Response, json
 from flask_restful import Resource
 from ..Models.models import db, Appointment, Doctor
 from datetime import datetime, timedelta
-
+from flask_login import login_required
 class AppointmentCreateResource(Resource):
     def post(self):
         data = request.get_json()

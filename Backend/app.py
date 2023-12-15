@@ -16,9 +16,11 @@ print("Creating app...")
 
 app = Flask(__name__)
 CORS(app)
+
 app.config.from_object(Config)
 db.init_app(app)
 migrate = Migrate(app, db)
+
 api = Api(app)
 app.debug = True
 
@@ -41,6 +43,7 @@ formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
 file_handler.setFormatter(formatter)
 app.logger.addHandler(file_handler)
 
+app.logger.info(f'Connected to database: {app.config["SQLALCHEMY_DATABASE_URI"]}')
 
 # Set the upload folder configuration
 app.config['UPLOAD_FOLDER'] = '/Users/prudhvinikku/patient-tracker-system/Backend/Uploads'
@@ -65,15 +68,17 @@ from .Controllers.doctor_controller import DoctorAPI
 from .Controllers.appointment_controller import DoctorAppointmentsResource, AppointmentCreateResource, \
       AppointmentUpdateResource, PatientAppointmentsResource
 from .Controllers.records_controller import MedicalRecordController, MedicalRecordAPI, DownloadFileAPI
-from .Controllers.patient_controller import PatientAPI
+from .Controllers.patient_controller import PatientAPI, PatientFullDataAPI
 from .Controllers.medicine_controller import MedicineAPI
 api.add_resource(Login, '/login')
 api.add_resource(Logout, '/logout')
 api.add_resource(Register, '/register')
 api.add_resource(UserAPI, '/users', '/users/<int:user_id>')
+
+
 # Patients Endpoints
 api.add_resource(PatientAPI, '/patients',  '/patients/<int:user_id>', endpoint='patients')
-
+api.add_resource(PatientFullDataAPI, '/v2/patients/<int:patient_id>',endpoint='patient_full_data')
 #Doctor Endpoints
 api.add_resource(DoctorAPI, '/doctors', '/doctors/<int:user_id>', endpoint='doctor')
 
@@ -96,7 +101,7 @@ api.add_resource(MedicineAPI, '/medicine', '/medicine/<int:medicine_id>')
 # Medical Records Endpoints
 # api.add_resource(MedicalRecordController, '/medical-records', endpoint='medical_records')
 # api.add_resource(MedicalRecordController, '/medical-records/<int:record_id>', endpoint='medical_record')
-api.add_resource(MedicalRecordAPI, "/medical-records", "/medical-records/<int:medical_record_id>")
+api.add_resource(MedicalRecordAPI, "/medical-records", "/medical-records/<int:patient_id>")
 
 api.add_resource(DownloadFileAPI, '/download/<string:filename>')
 
