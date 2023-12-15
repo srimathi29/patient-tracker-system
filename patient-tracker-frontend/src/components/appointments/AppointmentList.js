@@ -111,7 +111,7 @@ function AppointmentList(props) {
 
         fetchDoctors();
         fetchPatientsFromBackend();
-    }, [authCtx.session]);
+    }, []);
 
     // Function to get doctor name based on doctor ID
     const getDoctorName = (doctorId) => {
@@ -124,11 +124,12 @@ function AppointmentList(props) {
 
     // Function to get patient name based on authCtx
     const getPatientName = (patientId) => {
+        console.log(`Looking for patient with ID: ${patientId}`);
         if (authCtx.user.role === 'patient') {
             return `${authCtx.user.firstName} ${authCtx.user.lastName}`;
         }
         const selectedPatient = patientsOptions.find(patient => patient.value === patientId);
-        console.log("selected patient " + patientId);
+        console.log(`Selected patient:`, selectedPatient);
         return selectedPatient ? selectedPatient.label : 'Unknown Patient';
     };
     console.log("user role id " + authCtx.user.roleId);
@@ -160,7 +161,7 @@ function AppointmentList(props) {
                             key={appointment.id}
                             id={appointment.id}
                             title={appointment.title}
-                            patientName={getPatientName()}
+                            patientName={getPatientName(appointment.patient_id)}
                             doctorName={getDoctorName(appointment.doctor_id)}
                             datetime={appointment.date}
                             start_time={appointment.start_time}
