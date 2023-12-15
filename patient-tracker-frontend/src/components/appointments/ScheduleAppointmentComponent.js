@@ -50,7 +50,7 @@ function ScheduleAppointmentComponent(props) {
         <div className={classes.formActions}>
           <button type="submit">Submit</button>
         </div>
-        
+
       </form>
     </div>
   );

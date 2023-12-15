@@ -10,7 +10,9 @@ import AuthContext, { AuthContextProvider } from './store/auth-context';
 import SignUpPage from './pages/SignUpPage';
 import DoctorPage from './pages/DoctorPage';
 import DoctorRoutes from './components/Routes/DoctorRoutes';
+import PatientRoutes from './components/Routes/PatientRoutes';
 import HomePage from './pages/HomePage';
+import PatientPage from './pages/PatientPage';
 
 //dummy user data for testing
 const user = {
@@ -23,24 +25,27 @@ function App() {
 
   return (
     <div>
-    {authCtx.isAuthenticated ? (
-      authCtx.userRole === 'doctor' && <DoctorRoutes />
-      // after pressing login button the routes and pages are not changing
-      // the login page is still there
+      {authCtx.isAuthenticated ? (
+        <>
+          {authCtx.userRole === 'doctor' && <DoctorRoutes />}
+          {authCtx.userRole === 'patient' && <PatientRoutes />}
+        </>
+        // after pressing login button the routes and pages are not changing
+        // the login page is still there
       ) : (
         <Layout title="PTMS" role="none">
-        <Routes>
-        <Route path='/' element={<HomePage />} />
-        <Route path='/login' element={<LoginPage />} />
-        <Route path='/signup' element={<SignUpPage />} />
-        <Route path='/new-meetup' element={<NewMeetupPage />} />
-        <Route path='/favorites' element={<FavoritesPage />} />
-        
-        </Routes>
+          <Routes>
+            <Route path='/' element={<HomePage />} />
+            <Route path='/login' element={<LoginPage />} />
+            <Route path='/signup' element={<SignUpPage />} />
+            <Route path='/new-meetup' element={<NewMeetupPage />} />
+            <Route path='/favorites' element={<FavoritesPage />} />
+
+          </Routes>
         </Layout>
       )}
-  </div>  
-  
+    </div>
+
   );
 }
 

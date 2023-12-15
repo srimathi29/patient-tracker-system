@@ -2,13 +2,13 @@ import React from 'react';
 
 const AuthContext = React.createContext({
   isAuthenticated: false,
-  setIsAuthenticated: () => {},
+  setIsAuthenticated: () => { },
   userRole: null,
-  setUserRole: (role) => {},
+  setUserRole: (role) => { },
   user: null,
-  setUser: () => {},
-  login: (username, password) => {},
-  logout: () => {}
+  setUser: () => { },
+  login: (username, password) => { },
+  logout: () => { }
 });
 
 export function AuthContextProvider(props) {
@@ -18,22 +18,27 @@ export function AuthContextProvider(props) {
 
   const loginHandler = (username, password) => {
     return new Promise((resolve) => {
-      const dummyUsername = 'doctor';
+      // Dummy credentials
+      const dummyDoctorUsername = 'doctor';
+      const dummyPatientUsername = 'patient';
       const dummyPassword = 'password';
-      // BACKEND LINK: get user data from backend
-      const dummyuser = {firstName: 'Megha',
-                         lastName: 'Singh', 
-                         email: 'msingh23@clinic.com',
-                         age: 27,
-                         gender: 'female',
-                         phone: '1234567890',
-                         additionalData: 'No additional information.',
-                          img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR04GWDTULmcrO5Gjnf_j-n3whWNEfKKQnChiOWkwidZ9DDgwzDU2SfnLMFQubt4mzwJj8&usqp=CAU'}
 
-      if (username === dummyUsername && password === dummyPassword) {
+      // Dummy user data
+      const dummyUser = {
+        firstName: 'Megha',
+        lastName: 'Singh',
+        email: 'msingh23@clinic.com',
+        age: 27,
+        gender: 'female',
+        phone: '1234567890',
+        additionalData: 'No additional information.',
+        img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR04GWDTULmcrO5Gjnf_j-n3whWNEfKKQnChiOWkwidZ9DDgwzDU2SfnLMFQubt4mzwJj8&usqp=CAU'
+      };
+
+      if ((username === dummyDoctorUsername || username === dummyPatientUsername) && password === dummyPassword) {
         setIsAuthenticated(true);
-        setUserRole('doctor');
-        setUser(dummyuser);
+        setUser(dummyUser);
+        setUserRole(username); // Set role based on the username
       } else {
         console.error('Invalid username or password');
       }
@@ -41,14 +46,14 @@ export function AuthContextProvider(props) {
       resolve();
     });
   };
-  
+
   const logoutHandler = () => {
     return new Promise((resolve) => {
       setIsAuthenticated(false);
       setUserRole('null');
 
       resolve();
-      console.log("logout"+" "+isAuthenticated+" "+userRole);
+      console.log("logout" + " " + isAuthenticated + " " + userRole);
     });
 
   };
@@ -58,9 +63,9 @@ export function AuthContextProvider(props) {
     if (validRoles.includes(role)) {
       setUserRole(role);
     } else {
-      console.error(`Invalid role: ${role}. Role should be one of  ${validRoles.join(', ')    }`)
+      console.error(`Invalid role: ${role}. Role should be one of  ${validRoles.join(', ')}`)
     }
-    
+
   };
 
 

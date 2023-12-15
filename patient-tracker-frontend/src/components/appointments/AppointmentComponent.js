@@ -8,23 +8,25 @@ function AppointmentComponent(props) {
             id: 'a1',
             title: 'Dental Checkup',
             patientName: 'John Doe',
+            doctorName: 'Dr. Megha',
             dateTime: '2023-04-21 14:00',
         },
         {
             id: 'a2',
             title: 'Regular Checkup',
             patientName: 'Jane Smith',
+            doctorName: 'Dr. Megha',
             dateTime: '2023-04-22 09:30',
         },
         // ... more appointments
     ]);
     // BACKEND CALL: fetch appointments from backend
-    
-    return(
-    <div>
-        <AppointmentList appointments={appointments} />
 
-    </div>
+    return (
+        <div>
+            <AppointmentList appointments={appointments} />
+
+        </div>
     );
 }
 
