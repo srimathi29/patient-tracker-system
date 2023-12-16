@@ -1,0 +1,1282 @@
+2023-12-14 10:59:49,238 - DEBUG - Debug message
+2023-12-14 10:59:49,238 - INFO - Info message
+2023-12-14 10:59:49,238 - WARNING - Warning message
+2023-12-14 10:59:49,238 - ERROR - Error message
+2023-12-14 11:09:17,891 - DEBUG - Debug message
+2023-12-14 11:09:17,891 - INFO - Info message
+2023-12-14 11:09:17,891 - WARNING - Warning message
+2023-12-14 11:09:17,891 - ERROR - Error message
+2023-12-14 11:09:22,817 - ERROR - Error occured during registration 'user_email'
+2023-12-14 11:09:22,818 - ERROR - Exception on /register [POST]
+Traceback (most recent call last):
+  File "/Users/prudhvinikku/patient-tracker-system/PTS/lib/python3.11/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/prudhvinikku/patient-tracker-system/PTS/lib/python3.11/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/prudhvinikku/patient-tracker-system/PTS/lib/python3.11/site-packages/flask_restful/__init__.py", line 493, in wrapper
+    return self.make_response(data, code, headers=headers)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/prudhvinikku/patient-tracker-system/PTS/lib/python3.11/site-packages/flask_restful/__init__.py", line 522, in make_response
+    resp = self.representations[mediatype](data, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/prudhvinikku/patient-tracker-system/PTS/lib/python3.11/site-packages/flask_restful/representations/json.py", line 21, in output_json
+    dumped = dumps(data, **settings) + "\n"
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/prudhvinikku/anaconda3/lib/python3.11/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/prudhvinikku/anaconda3/lib/python3.11/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/prudhvinikku/anaconda3/lib/python3.11/json/encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "/Users/prudhvinikku/anaconda3/lib/python3.11/json/encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Response is not JSON serializable
+2023-12-14 11:10:16,003 - DEBUG - Debug message
+2023-12-14 11:10:16,003 - INFO - Info message
+2023-12-14 11:10:16,003 - WARNING - Warning message
+2023-12-14 11:10:16,003 - ERROR - Error message
+2023-12-14 11:10:18,719 - ERROR - Error occured during registration 'user_email'
+2023-12-14 11:10:18,719 - ERROR - Exception on /register [POST]
+Traceback (most recent call last):
+  File "/Users/prudhvinikku/patient-tracker-system/PTS/lib/python3.11/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/prudhvinikku/patient-tracker-system/PTS/lib/python3.11/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/prudhvinikku/patient-tracker-system/PTS/lib/python3.11/site-packages/flask_restful/__init__.py", line 493, in wrapper
+    return self.make_response(data, code, headers=headers)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/prudhvinikku/patient-tracker-system/PTS/lib/python3.11/site-packages/flask_restful/__init__.py", line 522, in make_response
+    resp = self.representations[mediatype](data, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/prudhvinikku/patient-tracker-system/PTS/lib/python3.11/site-packages/flask_restful/representations/json.py", line 21, in output_json
+    dumped = dumps(data, **settings) + "\n"
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/prudhvinikku/anaconda3/lib/python3.11/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/prudhvinikku/anaconda3/lib/python3.11/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/prudhvinikku/anaconda3/lib/python3.11/json/encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "/Users/prudhvinikku/anaconda3/lib/python3.11/json/encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Response is not JSON serializable
+2023-12-14 12:51:04,071 - DEBUG - Debug message
+2023-12-14 12:51:04,072 - INFO - Info message
+2023-12-14 12:51:04,072 - WARNING - Warning message
+2023-12-14 12:51:04,072 - ERROR - Error message
+2023-12-14 12:51:15,437 - DEBUG - Debug message
+2023-12-14 12:51:15,437 - INFO - Info message
+2023-12-14 12:51:15,437 - WARNING - Warning message
+2023-12-14 12:51:15,437 - ERROR - Error message
+2023-12-14 12:51:43,729 - DEBUG - Debug message
+2023-12-14 12:51:43,729 - INFO - Info message
+2023-12-14 12:51:43,729 - WARNING - Warning message
+2023-12-14 12:51:43,729 - ERROR - Error message
+2023-12-14 12:52:08,857 - DEBUG - Debug message
+2023-12-14 12:52:08,858 - INFO - Info message
+2023-12-14 12:52:08,858 - WARNING - Warning message
+2023-12-14 12:52:08,858 - ERROR - Error message
+2023-12-14 12:52:17,270 - ERROR - Error occured during registration 'user_email'
+2023-12-14 12:52:17,271 - ERROR - Exception on /register [POST]
+Traceback (most recent call last):
+  File "/Users/prudhvinikku/patient-tracker-system/PTS/lib/python3.11/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/prudhvinikku/patient-tracker-system/PTS/lib/python3.11/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/prudhvinikku/patient-tracker-system/PTS/lib/python3.11/site-packages/flask_restful/__init__.py", line 493, in wrapper
+    return self.make_response(data, code, headers=headers)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/prudhvinikku/patient-tracker-system/PTS/lib/python3.11/site-packages/flask_restful/__init__.py", line 522, in make_response
+    resp = self.representations[mediatype](data, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/prudhvinikku/patient-tracker-system/PTS/lib/python3.11/site-packages/flask_restful/representations/json.py", line 21, in output_json
+    dumped = dumps(data, **settings) + "\n"
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/prudhvinikku/anaconda3/lib/python3.11/json/__init__.py", line 231, in dumps
+    return _default_encoder.encode(obj)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/prudhvinikku/anaconda3/lib/python3.11/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/prudhvinikku/anaconda3/lib/python3.11/json/encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "/Users/prudhvinikku/anaconda3/lib/python3.11/json/encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Response is not JSON serializable
+2023-12-14 12:56:48,007 - DEBUG - Debug message
+2023-12-14 12:56:48,007 - INFO - Info message
+2023-12-14 12:56:48,008 - WARNING - Warning message
+2023-12-14 12:56:48,008 - ERROR - Error message
+2023-12-14 12:57:04,349 - DEBUG - Debug message
+2023-12-14 12:57:04,349 - INFO - Info message
+2023-12-14 12:57:04,349 - WARNING - Warning message
+2023-12-14 12:57:04,349 - ERROR - Error message
+2023-12-14 12:57:04,604 - DEBUG - Debug message
+2023-12-14 12:57:04,604 - INFO - Info message
+2023-12-14 12:57:04,604 - WARNING - Warning message
+2023-12-14 12:57:04,604 - ERROR - Error message
+2023-12-14 12:57:52,631 - DEBUG - Debug message
+2023-12-14 12:57:52,631 - INFO - Info message
+2023-12-14 12:57:52,631 - WARNING - Warning message
+2023-12-14 12:57:52,631 - ERROR - Error message
+2023-12-14 12:58:01,531 - ERROR - Error occured during registration module 'datetime' has no attribute 'utcnow'
+2023-12-14 12:58:34,528 - DEBUG - Debug message
+2023-12-14 12:58:34,528 - INFO - Info message
+2023-12-14 12:58:34,528 - WARNING - Warning message
+2023-12-14 12:58:34,528 - ERROR - Error message
+2023-12-14 12:58:36,898 - DEBUG - Debug message
+2023-12-14 12:58:36,898 - INFO - Info message
+2023-12-14 12:58:36,898 - WARNING - Warning message
+2023-12-14 12:58:36,898 - ERROR - Error message
+2023-12-14 13:02:05,433 - DEBUG - Debug message
+2023-12-14 13:02:05,433 - INFO - Info message
+2023-12-14 13:02:05,434 - WARNING - Warning message
+2023-12-14 13:02:05,434 - ERROR - Error message
+2023-12-14 13:02:52,354 - DEBUG - Debug message
+2023-12-14 13:02:52,354 - INFO - Info message
+2023-12-14 13:02:52,354 - WARNING - Warning message
+2023-12-14 13:02:52,354 - ERROR - Error message
+2023-12-14 13:04:19,548 - DEBUG - Debug message
+2023-12-14 13:04:19,548 - INFO - Info message
+2023-12-14 13:04:19,548 - WARNING - Warning message
+2023-12-14 13:04:19,548 - ERROR - Error message
+2023-12-14 13:04:25,298 - DEBUG - Debug message
+2023-12-14 13:04:25,298 - INFO - Info message
+2023-12-14 13:04:25,298 - WARNING - Warning message
+2023-12-14 13:04:25,299 - ERROR - Error message
+2023-12-14 13:08:48,139 - DEBUG - Debug message
+2023-12-14 13:08:48,139 - INFO - Info message
+2023-12-14 13:08:48,139 - WARNING - Warning message
+2023-12-14 13:08:48,139 - ERROR - Error message
+2023-12-14 13:08:48,414 - DEBUG - Debug message
+2023-12-14 13:08:48,414 - INFO - Info message
+2023-12-14 13:08:48,414 - WARNING - Warning message
+2023-12-14 13:08:48,414 - ERROR - Error message
+2023-12-14 13:08:53,627 - ERROR - Error occured during registration 'str' object has no attribute 'tolower'
+2023-12-14 13:09:27,285 - DEBUG - Debug message
+2023-12-14 13:09:27,285 - INFO - Info message
+2023-12-14 13:09:27,285 - WARNING - Warning message
+2023-12-14 13:09:27,285 - ERROR - Error message
+2023-12-14 13:09:58,029 - DEBUG - Debug message
+2023-12-14 13:09:58,030 - INFO - Info message
+2023-12-14 13:09:58,030 - WARNING - Warning message
+2023-12-14 13:09:58,030 - ERROR - Error message
+2023-12-14 13:19:31,516 - DEBUG - Debug message
+2023-12-14 13:19:31,517 - INFO - Info message
+2023-12-14 13:19:31,517 - WARNING - Warning message
+2023-12-14 13:19:31,517 - ERROR - Error message
+2023-12-14 13:20:21,527 - DEBUG - Debug message
+2023-12-14 13:20:21,527 - INFO - Info message
+2023-12-14 13:20:21,527 - WARNING - Warning message
+2023-12-14 13:20:21,527 - ERROR - Error message
+2023-12-14 13:21:41,767 - DEBUG - Debug message
+2023-12-14 13:21:41,767 - INFO - Info message
+2023-12-14 13:21:41,767 - WARNING - Warning message
+2023-12-14 13:21:41,767 - ERROR - Error message
+2023-12-14 13:21:53,267 - DEBUG - Debug message
+2023-12-14 13:21:53,267 - INFO - Info message
+2023-12-14 13:21:53,267 - WARNING - Warning message
+2023-12-14 13:21:53,267 - ERROR - Error message
+2023-12-14 13:22:29,043 - DEBUG - Debug message
+2023-12-14 13:22:29,043 - INFO - Info message
+2023-12-14 13:22:29,043 - WARNING - Warning message
+2023-12-14 13:22:29,043 - ERROR - Error message
+2023-12-14 13:24:09,443 - DEBUG - Debug message
+2023-12-14 13:24:09,443 - INFO - Info message
+2023-12-14 13:24:09,443 - WARNING - Warning message
+2023-12-14 13:24:09,443 - ERROR - Error message
+2023-12-14 13:24:13,803 - DEBUG - Debug message
+2023-12-14 13:24:13,803 - INFO - Info message
+2023-12-14 13:24:13,803 - WARNING - Warning message
+2023-12-14 13:24:13,803 - ERROR - Error message
+2023-12-14 13:25:34,988 - DEBUG - Debug message
+2023-12-14 13:25:34,989 - INFO - Info message
+2023-12-14 13:25:34,989 - WARNING - Warning message
+2023-12-14 13:25:34,989 - ERROR - Error message
+2023-12-14 13:27:15,365 - DEBUG - Debug message
+2023-12-14 13:27:15,366 - INFO - Info message
+2023-12-14 13:27:15,366 - WARNING - Warning message
+2023-12-14 13:27:15,366 - ERROR - Error message
+2023-12-14 13:27:31,910 - DEBUG - Debug message
+2023-12-14 13:27:31,910 - INFO - Info message
+2023-12-14 13:27:31,910 - WARNING - Warning message
+2023-12-14 13:27:31,910 - ERROR - Error message
+2023-12-14 13:28:14,778 - DEBUG - Debug message
+2023-12-14 13:28:14,778 - INFO - Info message
+2023-12-14 13:28:14,778 - WARNING - Warning message
+2023-12-14 13:28:14,778 - ERROR - Error message
+2023-12-14 13:28:16,123 - DEBUG - Debug message
+2023-12-14 13:28:16,123 - INFO - Info message
+2023-12-14 13:28:16,123 - WARNING - Warning message
+2023-12-14 13:28:16,123 - ERROR - Error message
+2023-12-14 13:28:51,920 - DEBUG - Debug message
+2023-12-14 13:28:51,920 - INFO - Info message
+2023-12-14 13:28:51,920 - WARNING - Warning message
+2023-12-14 13:28:51,920 - ERROR - Error message
+2023-12-14 13:29:26,674 - DEBUG - Debug message
+2023-12-14 13:29:26,674 - INFO - Info message
+2023-12-14 13:29:26,674 - WARNING - Warning message
+2023-12-14 13:29:26,674 - ERROR - Error message
+2023-12-14 13:30:17,593 - DEBUG - Debug message
+2023-12-14 13:30:17,593 - INFO - Info message
+2023-12-14 13:30:17,593 - WARNING - Warning message
+2023-12-14 13:30:17,593 - ERROR - Error message
+2023-12-14 13:30:54,355 - DEBUG - Debug message
+2023-12-14 13:30:54,356 - INFO - Info message
+2023-12-14 13:30:54,356 - WARNING - Warning message
+2023-12-14 13:30:54,356 - ERROR - Error message
+2023-12-14 13:51:03,045 - DEBUG - Debug message
+2023-12-14 13:51:03,046 - INFO - Info message
+2023-12-14 13:51:03,046 - WARNING - Warning message
+2023-12-14 13:51:03,046 - ERROR - Error message
+2023-12-14 13:52:49,489 - DEBUG - Debug message
+2023-12-14 13:52:49,489 - INFO - Info message
+2023-12-14 13:52:49,489 - WARNING - Warning message
+2023-12-14 13:52:49,489 - ERROR - Error message
+2023-12-14 13:55:43,616 - DEBUG - Debug message
+2023-12-14 13:55:43,616 - INFO - Info message
+2023-12-14 13:55:43,616 - WARNING - Warning message
+2023-12-14 13:55:43,616 - ERROR - Error message
+2023-12-14 13:57:22,025 - DEBUG - Debug message
+2023-12-14 13:57:22,025 - INFO - Info message
+2023-12-14 13:57:22,025 - WARNING - Warning message
+2023-12-14 13:57:22,025 - ERROR - Error message
+2023-12-14 13:57:36,552 - DEBUG - Debug message
+2023-12-14 13:57:36,552 - INFO - Info message
+2023-12-14 13:57:36,552 - WARNING - Warning message
+2023-12-14 13:57:36,552 - ERROR - Error message
+2023-12-14 13:58:48,658 - DEBUG - Debug message
+2023-12-14 13:58:48,658 - INFO - Info message
+2023-12-14 13:58:48,658 - WARNING - Warning message
+2023-12-14 13:58:48,658 - ERROR - Error message
+2023-12-14 13:59:12,331 - DEBUG - Debug message
+2023-12-14 13:59:12,331 - INFO - Info message
+2023-12-14 13:59:12,332 - WARNING - Warning message
+2023-12-14 13:59:12,332 - ERROR - Error message
+2023-12-14 14:00:40,666 - DEBUG - Debug message
+2023-12-14 14:00:40,667 - INFO - Info message
+2023-12-14 14:00:40,667 - WARNING - Warning message
+2023-12-14 14:00:40,667 - ERROR - Error message
+2023-12-14 14:00:42,013 - DEBUG - Debug message
+2023-12-14 14:00:42,013 - INFO - Info message
+2023-12-14 14:00:42,013 - WARNING - Warning message
+2023-12-14 14:00:42,013 - ERROR - Error message
+2023-12-14 14:00:51,437 - DEBUG - Debug message
+2023-12-14 14:00:51,437 - INFO - Info message
+2023-12-14 14:00:51,437 - WARNING - Warning message
+2023-12-14 14:00:51,437 - ERROR - Error message
+2023-12-14 14:05:07,651 - DEBUG - Debug message
+2023-12-14 14:05:07,651 - INFO - Info message
+2023-12-14 14:05:07,651 - WARNING - Warning message
+2023-12-14 14:05:07,651 - ERROR - Error message
+2023-12-14 14:05:35,339 - DEBUG - Debug message
+2023-12-14 14:05:35,339 - INFO - Info message
+2023-12-14 14:05:35,339 - WARNING - Warning message
+2023-12-14 14:05:35,339 - ERROR - Error message
+2023-12-14 14:06:32,374 - DEBUG - Debug message
+2023-12-14 14:06:32,374 - INFO - Info message
+2023-12-14 14:06:32,374 - WARNING - Warning message
+2023-12-14 14:06:32,374 - ERROR - Error message
+2023-12-14 14:11:17,752 - DEBUG - Debug message
+2023-12-14 14:11:17,752 - INFO - Info message
+2023-12-14 14:11:17,752 - WARNING - Warning message
+2023-12-14 14:11:17,752 - ERROR - Error message
+2023-12-14 14:20:53,342 - DEBUG - Debug message
+2023-12-14 14:20:53,342 - INFO - Info message
+2023-12-14 14:20:53,342 - WARNING - Warning message
+2023-12-14 14:20:53,342 - ERROR - Error message
+2023-12-14 14:21:03,974 - DEBUG - Debug message
+2023-12-14 14:21:03,974 - INFO - Info message
+2023-12-14 14:21:03,974 - WARNING - Warning message
+2023-12-14 14:21:03,974 - ERROR - Error message
+2023-12-14 14:21:04,227 - DEBUG - Debug message
+2023-12-14 14:21:04,227 - INFO - Info message
+2023-12-14 14:21:04,228 - WARNING - Warning message
+2023-12-14 14:21:04,228 - ERROR - Error message
+2023-12-14 14:22:13,356 - DEBUG - Debug message
+2023-12-14 14:22:13,356 - INFO - Info message
+2023-12-14 14:22:13,356 - WARNING - Warning message
+2023-12-14 14:22:13,356 - ERROR - Error message
+2023-12-14 14:22:13,611 - DEBUG - Debug message
+2023-12-14 14:22:13,611 - INFO - Info message
+2023-12-14 14:22:13,611 - WARNING - Warning message
+2023-12-14 14:22:13,611 - ERROR - Error message
+2023-12-14 14:22:36,240 - DEBUG - Debug message
+2023-12-14 14:22:36,240 - INFO - Info message
+2023-12-14 14:22:36,240 - WARNING - Warning message
+2023-12-14 14:22:36,240 - ERROR - Error message
+2023-12-14 14:22:50,802 - DEBUG - Debug message
+2023-12-14 14:22:50,802 - INFO - Info message
+2023-12-14 14:22:50,802 - WARNING - Warning message
+2023-12-14 14:22:50,802 - ERROR - Error message
+2023-12-14 14:23:26,660 - DEBUG - Debug message
+2023-12-14 14:23:26,660 - INFO - Info message
+2023-12-14 14:23:26,660 - WARNING - Warning message
+2023-12-14 14:23:26,660 - ERROR - Error message
+2023-12-14 14:23:26,919 - DEBUG - Debug message
+2023-12-14 14:23:26,919 - INFO - Info message
+2023-12-14 14:23:26,919 - WARNING - Warning message
+2023-12-14 14:23:26,919 - ERROR - Error message
+2023-12-14 14:29:18,334 - DEBUG - Debug message
+2023-12-14 14:29:18,334 - INFO - Info message
+2023-12-14 14:29:18,334 - WARNING - Warning message
+2023-12-14 14:29:18,334 - ERROR - Error message
+2023-12-14 14:29:18,592 - DEBUG - Debug message
+2023-12-14 14:29:18,592 - INFO - Info message
+2023-12-14 14:29:18,592 - WARNING - Warning message
+2023-12-14 14:29:18,592 - ERROR - Error message
+2023-12-14 14:31:16,216 - DEBUG - Debug message
+2023-12-14 14:31:16,217 - INFO - Info message
+2023-12-14 14:31:16,217 - WARNING - Warning message
+2023-12-14 14:31:16,217 - ERROR - Error message
+2023-12-14 14:31:32,813 - DEBUG - Debug message
+2023-12-14 14:31:32,813 - INFO - Info message
+2023-12-14 14:31:32,813 - WARNING - Warning message
+2023-12-14 14:31:32,813 - ERROR - Error message
+2023-12-14 14:32:39,993 - DEBUG - Debug message
+2023-12-14 14:32:39,993 - INFO - Info message
+2023-12-14 14:32:39,993 - WARNING - Warning message
+2023-12-14 14:32:39,993 - ERROR - Error message
+2023-12-14 14:33:18,583 - DEBUG - Debug message
+2023-12-14 14:33:18,583 - INFO - Info message
+2023-12-14 14:33:18,583 - WARNING - Warning message
+2023-12-14 14:33:18,583 - ERROR - Error message
+2023-12-14 14:33:18,834 - DEBUG - Debug message
+2023-12-14 14:33:18,834 - INFO - Info message
+2023-12-14 14:33:18,834 - WARNING - Warning message
+2023-12-14 14:33:18,834 - ERROR - Error message
+2023-12-14 17:31:56,363 - DEBUG - Debug message
+2023-12-14 17:31:56,364 - INFO - Info message
+2023-12-14 17:31:56,364 - WARNING - Warning message
+2023-12-14 17:31:56,364 - ERROR - Error message
+2023-12-14 17:53:05,508 - DEBUG - Debug message
+2023-12-14 17:53:05,509 - INFO - Info message
+2023-12-14 17:53:05,509 - WARNING - Warning message
+2023-12-14 17:53:05,509 - ERROR - Error message
+2023-12-14 17:53:12,340 - DEBUG - Debug message
+2023-12-14 17:53:12,340 - INFO - Info message
+2023-12-14 17:53:12,340 - WARNING - Warning message
+2023-12-14 17:53:12,340 - ERROR - Error message
+2023-12-14 18:47:32,412 - DEBUG - Debug message
+2023-12-14 18:47:32,413 - INFO - Info message
+2023-12-14 18:47:32,413 - WARNING - Warning message
+2023-12-14 18:47:32,413 - ERROR - Error message
+2023-12-14 18:48:45,100 - DEBUG - Debug message
+2023-12-14 18:48:45,101 - INFO - Info message
+2023-12-14 18:48:45,101 - WARNING - Warning message
+2023-12-14 18:48:45,101 - ERROR - Error message
+2023-12-14 18:50:18,170 - DEBUG - Debug message
+2023-12-14 18:50:18,170 - INFO - Info message
+2023-12-14 18:50:18,170 - WARNING - Warning message
+2023-12-14 18:50:18,170 - ERROR - Error message
+2023-12-14 18:50:27,625 - DEBUG - Debug message
+2023-12-14 18:50:27,626 - INFO - Info message
+2023-12-14 18:50:27,626 - WARNING - Warning message
+2023-12-14 18:50:27,626 - ERROR - Error message
+2023-12-14 19:47:54,237 - DEBUG - Debug message
+2023-12-14 19:47:54,237 - INFO - Info message
+2023-12-14 19:47:54,237 - WARNING - Warning message
+2023-12-14 19:47:54,237 - ERROR - Error message
+2023-12-14 19:48:08,285 - DEBUG - Debug message
+2023-12-14 19:48:08,285 - INFO - Info message
+2023-12-14 19:48:08,285 - WARNING - Warning message
+2023-12-14 19:48:08,285 - ERROR - Error message
+2023-12-14 19:48:11,894 - DEBUG - Debug message
+2023-12-14 19:48:11,894 - INFO - Info message
+2023-12-14 19:48:11,894 - WARNING - Warning message
+2023-12-14 19:48:11,894 - ERROR - Error message
+2023-12-14 20:06:57,361 - DEBUG - Debug message
+2023-12-14 20:06:57,361 - INFO - Info message
+2023-12-14 20:06:57,361 - WARNING - Warning message
+2023-12-14 20:06:57,361 - ERROR - Error message
+2023-12-14 20:07:03,609 - DEBUG - Debug message
+2023-12-14 20:07:03,609 - INFO - Info message
+2023-12-14 20:07:03,609 - WARNING - Warning message
+2023-12-14 20:07:03,609 - ERROR - Error message
+2023-12-14 20:14:46,769 - DEBUG - Debug message
+2023-12-14 20:14:46,769 - INFO - Info message
+2023-12-14 20:14:46,769 - WARNING - Warning message
+2023-12-14 20:14:46,769 - ERROR - Error message
+2023-12-14 20:14:47,063 - DEBUG - Debug message
+2023-12-14 20:14:47,064 - INFO - Info message
+2023-12-14 20:14:47,064 - WARNING - Warning message
+2023-12-14 20:14:47,064 - ERROR - Error message
+2023-12-14 20:38:40,521 - DEBUG - Debug message
+2023-12-14 20:38:40,521 - INFO - Info message
+2023-12-14 20:38:40,521 - WARNING - Warning message
+2023-12-14 20:38:40,521 - ERROR - Error message
+2023-12-14 20:42:00,052 - DEBUG - Debug message
+2023-12-14 20:42:00,052 - INFO - Info message
+2023-12-14 20:42:00,052 - WARNING - Warning message
+2023-12-14 20:42:00,052 - ERROR - Error message
+2023-12-14 20:45:14,533 - DEBUG - Debug message
+2023-12-14 20:45:14,533 - INFO - Info message
+2023-12-14 20:45:14,533 - WARNING - Warning message
+2023-12-14 20:45:14,533 - ERROR - Error message
+2023-12-14 20:46:08,355 - DEBUG - Debug message
+2023-12-14 20:46:08,355 - INFO - Info message
+2023-12-14 20:46:08,356 - WARNING - Warning message
+2023-12-14 20:46:08,356 - ERROR - Error message
+2023-12-14 20:46:16,383 - DEBUG - Debug message
+2023-12-14 20:46:16,383 - INFO - Info message
+2023-12-14 20:46:16,383 - WARNING - Warning message
+2023-12-14 20:46:16,383 - ERROR - Error message
+2023-12-14 21:17:25,089 - DEBUG - Debug message
+2023-12-14 21:17:25,089 - INFO - Info message
+2023-12-14 21:17:25,089 - WARNING - Warning message
+2023-12-14 21:17:25,090 - ERROR - Error message
+2023-12-14 21:18:02,665 - DEBUG - Debug message
+2023-12-14 21:18:02,665 - INFO - Info message
+2023-12-14 21:18:02,665 - WARNING - Warning message
+2023-12-14 21:18:02,665 - ERROR - Error message
+2023-12-14 21:18:02,922 - DEBUG - Debug message
+2023-12-14 21:18:02,922 - INFO - Info message
+2023-12-14 21:18:02,922 - WARNING - Warning message
+2023-12-14 21:18:02,922 - ERROR - Error message
+2023-12-14 21:23:28,827 - DEBUG - Debug message
+2023-12-14 21:23:28,827 - INFO - Info message
+2023-12-14 21:23:28,827 - WARNING - Warning message
+2023-12-14 21:23:28,827 - ERROR - Error message
+2023-12-14 21:38:06,653 - DEBUG - Debug message
+2023-12-14 21:38:06,654 - INFO - Info message
+2023-12-14 21:38:06,654 - WARNING - Warning message
+2023-12-14 21:38:06,654 - ERROR - Error message
+2023-12-14 21:38:06,926 - DEBUG - Debug message
+2023-12-14 21:38:06,926 - INFO - Info message
+2023-12-14 21:38:06,926 - WARNING - Warning message
+2023-12-14 21:38:06,926 - ERROR - Error message
+2023-12-14 21:44:03,038 - DEBUG - Debug message
+2023-12-14 21:44:03,038 - INFO - Info message
+2023-12-14 21:44:03,038 - WARNING - Warning message
+2023-12-14 21:44:03,038 - ERROR - Error message
+2023-12-14 21:44:03,317 - DEBUG - Debug message
+2023-12-14 21:44:03,317 - INFO - Info message
+2023-12-14 21:44:03,317 - WARNING - Warning message
+2023-12-14 21:44:03,317 - ERROR - Error message
+2023-12-14 21:45:07,250 - DEBUG - Debug message
+2023-12-14 21:45:07,250 - INFO - Info message
+2023-12-14 21:45:07,250 - WARNING - Warning message
+2023-12-14 21:45:07,250 - ERROR - Error message
+2023-12-14 21:45:07,526 - DEBUG - Debug message
+2023-12-14 21:45:07,526 - INFO - Info message
+2023-12-14 21:45:07,526 - WARNING - Warning message
+2023-12-14 21:45:07,527 - ERROR - Error message
+2023-12-14 21:45:27,990 - DEBUG - Debug message
+2023-12-14 21:45:27,991 - INFO - Info message
+2023-12-14 21:45:27,991 - WARNING - Warning message
+2023-12-14 21:45:27,991 - ERROR - Error message
+2023-12-14 21:45:28,270 - DEBUG - Debug message
+2023-12-14 21:45:28,270 - INFO - Info message
+2023-12-14 21:45:28,270 - WARNING - Warning message
+2023-12-14 21:45:28,270 - ERROR - Error message
+2023-12-14 21:46:10,563 - DEBUG - Debug message
+2023-12-14 21:46:10,563 - INFO - Info message
+2023-12-14 21:46:10,563 - WARNING - Warning message
+2023-12-14 21:46:10,563 - ERROR - Error message
+2023-12-14 21:46:10,860 - DEBUG - Debug message
+2023-12-14 21:46:10,861 - INFO - Info message
+2023-12-14 21:46:10,861 - WARNING - Warning message
+2023-12-14 21:46:10,861 - ERROR - Error message
+2023-12-14 21:46:59,852 - DEBUG - Debug message
+2023-12-14 21:46:59,852 - INFO - Info message
+2023-12-14 21:46:59,852 - WARNING - Warning message
+2023-12-14 21:46:59,853 - ERROR - Error message
+2023-12-14 21:50:56,853 - DEBUG - Debug message
+2023-12-14 21:50:56,853 - INFO - Info message
+2023-12-14 21:50:56,853 - WARNING - Warning message
+2023-12-14 21:50:56,853 - ERROR - Error message
+2023-12-14 21:51:18,076 - DEBUG - Debug message
+2023-12-14 21:51:18,076 - INFO - Info message
+2023-12-14 21:51:18,076 - WARNING - Warning message
+2023-12-14 21:51:18,076 - ERROR - Error message
+2023-12-14 21:51:24,572 - DEBUG - Debug message
+2023-12-14 21:51:24,572 - INFO - Info message
+2023-12-14 21:51:24,572 - WARNING - Warning message
+2023-12-14 21:51:24,572 - ERROR - Error message
+2023-12-14 21:51:29,042 - DEBUG - Debug message
+2023-12-14 21:51:29,042 - INFO - Info message
+2023-12-14 21:51:29,042 - WARNING - Warning message
+2023-12-14 21:51:29,042 - ERROR - Error message
+2023-12-14 21:51:29,302 - DEBUG - Debug message
+2023-12-14 21:51:29,302 - INFO - Info message
+2023-12-14 21:51:29,302 - WARNING - Warning message
+2023-12-14 21:51:29,302 - ERROR - Error message
+2023-12-14 21:52:41,511 - DEBUG - Debug message
+2023-12-14 21:52:41,511 - INFO - Info message
+2023-12-14 21:52:41,511 - WARNING - Warning message
+2023-12-14 21:52:41,511 - ERROR - Error message
+2023-12-14 21:53:33,404 - DEBUG - Debug message
+2023-12-14 21:53:33,404 - INFO - Info message
+2023-12-14 21:53:33,404 - WARNING - Warning message
+2023-12-14 21:53:33,404 - ERROR - Error message
+2023-12-14 21:53:38,803 - DEBUG - Debug message
+2023-12-14 21:53:38,804 - INFO - Info message
+2023-12-14 21:53:38,804 - WARNING - Warning message
+2023-12-14 21:53:38,804 - ERROR - Error message
+2023-12-14 21:53:43,139 - DEBUG - Debug message
+2023-12-14 21:53:43,139 - INFO - Info message
+2023-12-14 21:53:43,139 - WARNING - Warning message
+2023-12-14 21:53:43,139 - ERROR - Error message
+2023-12-14 21:53:43,396 - DEBUG - Debug message
+2023-12-14 21:53:43,396 - INFO - Info message
+2023-12-14 21:53:43,396 - WARNING - Warning message
+2023-12-14 21:53:43,396 - ERROR - Error message
+2023-12-14 21:55:17,878 - DEBUG - Debug message
+2023-12-14 21:55:17,878 - INFO - Info message
+2023-12-14 21:55:17,878 - WARNING - Warning message
+2023-12-14 21:55:17,878 - ERROR - Error message
+2023-12-14 21:55:27,380 - DEBUG - Debug message
+2023-12-14 21:55:27,380 - INFO - Info message
+2023-12-14 21:55:27,380 - WARNING - Warning message
+2023-12-14 21:55:27,380 - ERROR - Error message
+2023-12-14 21:55:31,345 - DEBUG - Debug message
+2023-12-14 21:55:31,345 - INFO - Info message
+2023-12-14 21:55:31,345 - WARNING - Warning message
+2023-12-14 21:55:31,345 - ERROR - Error message
+2023-12-14 21:55:34,088 - DEBUG - Debug message
+2023-12-14 21:55:34,088 - INFO - Info message
+2023-12-14 21:55:34,088 - WARNING - Warning message
+2023-12-14 21:55:34,088 - ERROR - Error message
+2023-12-14 21:55:34,356 - DEBUG - Debug message
+2023-12-14 21:55:34,356 - INFO - Info message
+2023-12-14 21:55:34,356 - WARNING - Warning message
+2023-12-14 21:55:34,356 - ERROR - Error message
+2023-12-14 22:11:55,056 - DEBUG - Debug message
+2023-12-14 22:11:55,056 - INFO - Info message
+2023-12-14 22:11:55,056 - WARNING - Warning message
+2023-12-14 22:11:55,056 - ERROR - Error message
+2023-12-14 22:11:55,354 - DEBUG - Debug message
+2023-12-14 22:11:55,355 - INFO - Info message
+2023-12-14 22:11:55,355 - WARNING - Warning message
+2023-12-14 22:11:55,355 - ERROR - Error message
+2023-12-14 22:15:48,560 - INFO - User patient1 created successfully
+2023-12-14 22:16:54,092 - INFO - User doctor1 created successfully
+2023-12-14 22:21:42,037 - DEBUG - Debug message
+2023-12-14 22:21:42,037 - INFO - Info message
+2023-12-14 22:21:42,037 - WARNING - Warning message
+2023-12-14 22:21:42,037 - ERROR - Error message
+2023-12-14 22:22:12,085 - INFO - User doctor2 created successfully
+2023-12-14 22:28:33,757 - DEBUG - Debug message
+2023-12-14 22:28:33,758 - INFO - Info message
+2023-12-14 22:28:33,758 - WARNING - Warning message
+2023-12-14 22:28:33,758 - ERROR - Error message
+2023-12-14 22:29:43,900 - DEBUG - Debug message
+2023-12-14 22:29:43,901 - INFO - Info message
+2023-12-14 22:29:43,901 - WARNING - Warning message
+2023-12-14 22:29:43,901 - ERROR - Error message
+2023-12-14 22:29:53,488 - DEBUG - Debug message
+2023-12-14 22:29:53,488 - INFO - Info message
+2023-12-14 22:29:53,488 - WARNING - Warning message
+2023-12-14 22:29:53,488 - ERROR - Error message
+2023-12-14 23:22:51,293 - DEBUG - Debug message
+2023-12-14 23:22:51,293 - INFO - Info message
+2023-12-14 23:22:51,293 - WARNING - Warning message
+2023-12-14 23:22:51,293 - ERROR - Error message
+2023-12-14 23:34:45,363 - DEBUG - Debug message
+2023-12-14 23:34:45,363 - INFO - Info message
+2023-12-14 23:34:45,363 - WARNING - Warning message
+2023-12-14 23:34:45,363 - ERROR - Error message
+2023-12-14 23:54:35,354 - DEBUG - Debug message
+2023-12-14 23:54:35,354 - INFO - Info message
+2023-12-14 23:54:35,354 - WARNING - Warning message
+2023-12-14 23:54:35,354 - ERROR - Error message
+2023-12-14 23:57:03,073 - INFO - User testuser1 created successfully
+2023-12-15 00:08:11,501 - DEBUG - Debug message
+2023-12-15 00:08:11,502 - INFO - Info message
+2023-12-15 00:08:11,502 - WARNING - Warning message
+2023-12-15 00:08:11,502 - ERROR - Error message
+2023-12-15 00:08:11,776 - DEBUG - Debug message
+2023-12-15 00:08:11,776 - INFO - Info message
+2023-12-15 00:08:11,776 - WARNING - Warning message
+2023-12-15 00:08:11,776 - ERROR - Error message
+2023-12-15 00:12:41,126 - INFO - User Prudhvi created successfully
+2023-12-15 00:14:30,306 - DEBUG - Debug message
+2023-12-15 00:14:30,306 - INFO - Info message
+2023-12-15 00:14:30,307 - WARNING - Warning message
+2023-12-15 00:14:30,307 - ERROR - Error message
+2023-12-15 00:16:34,494 - INFO - User doctor3 created successfully
+2023-12-15 00:17:27,660 - DEBUG - Debug message
+2023-12-15 00:17:27,660 - INFO - Info message
+2023-12-15 00:17:27,660 - WARNING - Warning message
+2023-12-15 00:17:27,660 - ERROR - Error message
+2023-12-15 00:17:40,155 - INFO - User Manikishan created successfully
+2023-12-15 00:18:39,949 - DEBUG - Debug message
+2023-12-15 00:18:39,949 - INFO - Info message
+2023-12-15 00:18:39,949 - WARNING - Warning message
+2023-12-15 00:18:39,949 - ERROR - Error message
+2023-12-15 00:20:29,584 - DEBUG - Debug message
+2023-12-15 00:20:29,584 - INFO - Info message
+2023-12-15 00:20:29,584 - WARNING - Warning message
+2023-12-15 00:20:29,584 - ERROR - Error message
+2023-12-15 00:20:40,090 - DEBUG - Debug message
+2023-12-15 00:20:40,090 - INFO - Info message
+2023-12-15 00:20:40,090 - WARNING - Warning message
+2023-12-15 00:20:40,090 - ERROR - Error message
+2023-12-15 00:21:55,354 - DEBUG - Debug message
+2023-12-15 00:21:55,354 - INFO - Info message
+2023-12-15 00:21:55,354 - WARNING - Warning message
+2023-12-15 00:21:55,354 - ERROR - Error message
+2023-12-15 00:27:09,280 - DEBUG - Debug message
+2023-12-15 00:27:09,280 - INFO - Info message
+2023-12-15 00:27:09,280 - WARNING - Warning message
+2023-12-15 00:27:09,280 - ERROR - Error message
+2023-12-15 00:31:14,328 - DEBUG - Debug message
+2023-12-15 00:31:14,328 - INFO - Info message
+2023-12-15 00:31:14,328 - WARNING - Warning message
+2023-12-15 00:31:14,328 - ERROR - Error message
+2023-12-15 00:31:26,857 - DEBUG - Debug message
+2023-12-15 00:31:26,857 - INFO - Info message
+2023-12-15 00:31:26,857 - WARNING - Warning message
+2023-12-15 00:31:26,858 - ERROR - Error message
+2023-12-15 00:32:23,961 - DEBUG - Debug message
+2023-12-15 00:32:23,961 - INFO - Info message
+2023-12-15 00:32:23,961 - WARNING - Warning message
+2023-12-15 00:32:23,962 - ERROR - Error message
+2023-12-15 00:32:27,345 - DEBUG - Debug message
+2023-12-15 00:32:27,345 - INFO - Info message
+2023-12-15 00:32:27,345 - WARNING - Warning message
+2023-12-15 00:32:27,345 - ERROR - Error message
+2023-12-15 00:32:33,746 - DEBUG - Debug message
+2023-12-15 00:32:33,746 - INFO - Info message
+2023-12-15 00:32:33,747 - WARNING - Warning message
+2023-12-15 00:32:33,747 - ERROR - Error message
+2023-12-15 00:33:03,557 - DEBUG - Debug message
+2023-12-15 00:33:03,557 - INFO - Info message
+2023-12-15 00:33:03,557 - WARNING - Warning message
+2023-12-15 00:33:03,557 - ERROR - Error message
+2023-12-15 00:33:11,057 - DEBUG - Debug message
+2023-12-15 00:33:11,057 - INFO - Info message
+2023-12-15 00:33:11,057 - WARNING - Warning message
+2023-12-15 00:33:11,057 - ERROR - Error message
+2023-12-15 00:34:00,047 - DEBUG - Debug message
+2023-12-15 00:34:00,047 - INFO - Info message
+2023-12-15 00:34:00,047 - WARNING - Warning message
+2023-12-15 00:34:00,047 - ERROR - Error message
+2023-12-15 00:34:49,005 - DEBUG - Debug message
+2023-12-15 00:34:49,005 - INFO - Info message
+2023-12-15 00:34:49,005 - WARNING - Warning message
+2023-12-15 00:34:49,005 - ERROR - Error message
+2023-12-15 00:37:43,598 - INFO - User Satyasriram created successfully
+2023-12-15 00:37:44,369 - DEBUG - Debug message
+2023-12-15 00:37:44,369 - INFO - Info message
+2023-12-15 00:37:44,369 - WARNING - Warning message
+2023-12-15 00:37:44,369 - ERROR - Error message
+2023-12-15 00:41:19,082 - DEBUG - Debug message
+2023-12-15 00:41:19,083 - INFO - Info message
+2023-12-15 00:41:19,083 - WARNING - Warning message
+2023-12-15 00:41:19,083 - ERROR - Error message
+2023-12-15 00:41:20,432 - DEBUG - Debug message
+2023-12-15 00:41:20,432 - INFO - Info message
+2023-12-15 00:41:20,432 - WARNING - Warning message
+2023-12-15 00:41:20,432 - ERROR - Error message
+2023-12-15 00:41:37,992 - DEBUG - Debug message
+2023-12-15 00:41:37,992 - INFO - Info message
+2023-12-15 00:41:37,992 - WARNING - Warning message
+2023-12-15 00:41:37,992 - ERROR - Error message
+2023-12-15 00:41:39,334 - DEBUG - Debug message
+2023-12-15 00:41:39,334 - INFO - Info message
+2023-12-15 00:41:39,334 - WARNING - Warning message
+2023-12-15 00:41:39,334 - ERROR - Error message
+2023-12-15 00:42:05,555 - INFO - User Satyasriram2 created successfully
+2023-12-15 00:43:26,281 - INFO - User Satyasriram23 created successfully
+2023-12-15 00:54:20,344 - DEBUG - Debug message
+2023-12-15 00:54:20,344 - INFO - Info message
+2023-12-15 00:54:20,344 - WARNING - Warning message
+2023-12-15 00:54:20,344 - ERROR - Error message
+2023-12-15 00:54:20,618 - DEBUG - Debug message
+2023-12-15 00:54:20,618 - INFO - Info message
+2023-12-15 00:54:20,618 - WARNING - Warning message
+2023-12-15 00:54:20,618 - ERROR - Error message
+2023-12-15 00:55:19,719 - DEBUG - Debug message
+2023-12-15 00:55:19,719 - INFO - Info message
+2023-12-15 00:55:19,719 - WARNING - Warning message
+2023-12-15 00:55:19,719 - ERROR - Error message
+2023-12-15 00:56:18,830 - DEBUG - Debug message
+2023-12-15 00:56:18,830 - INFO - Info message
+2023-12-15 00:56:18,831 - WARNING - Warning message
+2023-12-15 00:56:18,831 - ERROR - Error message
+2023-12-15 01:01:14,251 - INFO - User Srimathi created successfully
+2023-12-15 01:01:32,615 - DEBUG - Debug message
+2023-12-15 01:01:32,615 - INFO - Info message
+2023-12-15 01:01:32,615 - WARNING - Warning message
+2023-12-15 01:01:32,615 - ERROR - Error message
+2023-12-15 01:03:05,002 - INFO - User Meghasingh created successfully
+2023-12-15 01:03:10,083 - DEBUG - Debug message
+2023-12-15 01:03:10,083 - INFO - Info message
+2023-12-15 01:03:10,083 - WARNING - Warning message
+2023-12-15 01:03:10,083 - ERROR - Error message
+2023-12-15 01:04:31,951 - ERROR - Error occurred during registration (pymysql.err.IntegrityError) (1062, "Duplicate entry 'Meghasingh' for key 'user.username'")
+[SQL: INSERT INTO user (username, password_hash, user_email, first_name, last_name, last_login, date_joined, user_type, gender, contact_number, address) VALUES (%(username)s, %(password_hash)s, %(user_email)s, %(first_name)s, %(last_name)s, %(last_login)s, %(date_joined)s, %(user_type)s, %(gender)s, %(contact_number)s, %(address)s)]
+[parameters: {'username': 'Meghasingh', 'password_hash': 'scrypt:32768:8:1$g3rw97bYpjvGHmUC$30c7244dc416b9418e5356beae12db30d2ac69fce2f72e98903277cdbe0890c74f07527248516dffa3d9c395ad457a90250c3f88392712152769a324ec7a96ac', 'user_email': 'as@bassda.com', 'first_name': 'dsa', 'last_name': 'dasdsa', 'last_login': None, 'date_joined': datetime.datetime(2023, 12, 15, 6, 4, 31, 945436), 'user_type': 'PATIENT', 'gender': None, 'contact_number': None, 'address': None}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2023-12-15 01:04:56,768 - ERROR - Error occurred during registration (pymysql.err.IntegrityError) (1062, "Duplicate entry 'Meghasingh' for key 'user.username'")
+[SQL: INSERT INTO user (username, password_hash, user_email, first_name, last_name, last_login, date_joined, user_type, gender, contact_number, address) VALUES (%(username)s, %(password_hash)s, %(user_email)s, %(first_name)s, %(last_name)s, %(last_login)s, %(date_joined)s, %(user_type)s, %(gender)s, %(contact_number)s, %(address)s)]
+[parameters: {'username': 'Meghasingh', 'password_hash': 'scrypt:32768:8:1$sP68xbVjD2GOL7bj$e509ebb2ccfd7d089acca1381a9a9bd6a9c9c144be3a0dadeff12cd1e504e1871d22fb8fad6c2d50b90409e4ed66663f851314d145e778c42fdec299c0335f94', 'user_email': 'as@bassda.com', 'first_name': 'dsa', 'last_name': 'dasdsa', 'last_login': None, 'date_joined': datetime.datetime(2023, 12, 15, 6, 4, 56, 766156), 'user_type': 'PATIENT', 'gender': None, 'contact_number': None, 'address': None}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2023-12-15 01:08:19,685 - ERROR - Error occurred during registration (pymysql.err.IntegrityError) (1062, "Duplicate entry 'Meghasingh' for key 'user.username'")
+[SQL: INSERT INTO user (username, password_hash, user_email, first_name, last_name, last_login, date_joined, user_type, gender, contact_number, address) VALUES (%(username)s, %(password_hash)s, %(user_email)s, %(first_name)s, %(last_name)s, %(last_login)s, %(date_joined)s, %(user_type)s, %(gender)s, %(contact_number)s, %(address)s)]
+[parameters: {'username': 'Meghasingh', 'password_hash': 'scrypt:32768:8:1$JFfu5J37eKk5EPSS$e5c004323248fdb787ea1b619083d8763c41d7d6cd9800a3c437f8ae0fa201f877b89990145fc66d199bd9582310d957f342abff594c19cc9368fe130bdf8753', 'user_email': 'as@bassda.com', 'first_name': 'dsa', 'last_name': 'dasdsa', 'last_login': None, 'date_joined': datetime.datetime(2023, 12, 15, 6, 8, 19, 679987), 'user_type': 'PATIENT', 'gender': None, 'contact_number': None, 'address': None}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2023-12-15 01:09:00,264 - DEBUG - Debug message
+2023-12-15 01:09:00,264 - INFO - Info message
+2023-12-15 01:09:00,264 - WARNING - Warning message
+2023-12-15 01:09:00,264 - ERROR - Error message
+2023-12-15 01:10:04,556 - ERROR - Error occurred during registration (pymysql.err.IntegrityError) (1062, "Duplicate entry 'Meghasingh' for key 'user.username'")
+[SQL: INSERT INTO user (username, password_hash, user_email, first_name, last_name, last_login, date_joined, user_type, gender, contact_number, address) VALUES (%(username)s, %(password_hash)s, %(user_email)s, %(first_name)s, %(last_name)s, %(last_login)s, %(date_joined)s, %(user_type)s, %(gender)s, %(contact_number)s, %(address)s)]
+[parameters: {'username': 'Meghasingh', 'password_hash': 'scrypt:32768:8:1$NYPwVlaFifpGVylJ$936a253eaca462d62728db04593bbb30f1536ebafc6e6cc232845f08ed03b8e7aaf5e616ca9378443bdedd1914ae52070c4d3d701951ce1dccc6d033a31c7f30', 'user_email': 'megha@123.com', 'first_name': 'Megha', 'last_name': 'Ssd', 'last_login': None, 'date_joined': datetime.datetime(2023, 12, 15, 6, 10, 4, 551959), 'user_type': 'PATIENT', 'gender': None, 'contact_number': None, 'address': None}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2023-12-15 01:14:50,209 - INFO - User Meghasingh234 created successfully
+2023-12-15 01:18:55,006 - DEBUG - Debug message
+2023-12-15 01:18:55,006 - INFO - Info message
+2023-12-15 01:18:55,006 - WARNING - Warning message
+2023-12-15 01:18:55,006 - ERROR - Error message
+2023-12-15 01:19:03,490 - DEBUG - Debug message
+2023-12-15 01:19:03,490 - INFO - Info message
+2023-12-15 01:19:03,490 - WARNING - Warning message
+2023-12-15 01:19:03,490 - ERROR - Error message
+2023-12-15 01:20:44,022 - DEBUG - Debug message
+2023-12-15 01:20:44,022 - INFO - Info message
+2023-12-15 01:20:44,022 - WARNING - Warning message
+2023-12-15 01:20:44,022 - ERROR - Error message
+2023-12-15 01:20:45,370 - DEBUG - Debug message
+2023-12-15 01:20:45,370 - INFO - Info message
+2023-12-15 01:20:45,370 - WARNING - Warning message
+2023-12-15 01:20:45,371 - ERROR - Error message
+2023-12-15 01:21:04,966 - DEBUG - Debug message
+2023-12-15 01:21:04,966 - INFO - Info message
+2023-12-15 01:21:04,966 - WARNING - Warning message
+2023-12-15 01:21:04,966 - ERROR - Error message
+2023-12-15 01:29:07,518 - DEBUG - Debug message
+2023-12-15 01:29:07,518 - INFO - Info message
+2023-12-15 01:29:07,518 - WARNING - Warning message
+2023-12-15 01:29:07,518 - ERROR - Error message
+2023-12-15 01:30:24,759 - DEBUG - Debug message
+2023-12-15 01:30:24,759 - INFO - Info message
+2023-12-15 01:30:24,759 - WARNING - Warning message
+2023-12-15 01:30:24,759 - ERROR - Error message
+2023-12-15 01:30:38,291 - DEBUG - Debug message
+2023-12-15 01:30:38,291 - INFO - Info message
+2023-12-15 01:30:38,291 - WARNING - Warning message
+2023-12-15 01:30:38,291 - ERROR - Error message
+2023-12-15 01:32:43,077 - DEBUG - Debug message
+2023-12-15 01:32:43,077 - INFO - Info message
+2023-12-15 01:32:43,077 - WARNING - Warning message
+2023-12-15 01:32:43,077 - ERROR - Error message
+2023-12-15 01:36:47,129 - DEBUG - Debug message
+2023-12-15 01:36:47,129 - INFO - Info message
+2023-12-15 01:36:47,129 - WARNING - Warning message
+2023-12-15 01:36:47,129 - ERROR - Error message
+2023-12-15 01:39:21,196 - DEBUG - Debug message
+2023-12-15 01:39:21,196 - INFO - Info message
+2023-12-15 01:39:21,196 - WARNING - Warning message
+2023-12-15 01:39:21,196 - ERROR - Error message
+2023-12-15 01:42:27,560 - DEBUG - Debug message
+2023-12-15 01:42:27,561 - INFO - Info message
+2023-12-15 01:42:27,561 - WARNING - Warning message
+2023-12-15 01:42:27,561 - ERROR - Error message
+2023-12-15 01:46:47,917 - DEBUG - Debug message
+2023-12-15 01:46:47,917 - INFO - Info message
+2023-12-15 01:46:47,917 - WARNING - Warning message
+2023-12-15 01:46:47,917 - ERROR - Error message
+2023-12-15 01:46:48,181 - DEBUG - Debug message
+2023-12-15 01:46:48,181 - INFO - Info message
+2023-12-15 01:46:48,181 - WARNING - Warning message
+2023-12-15 01:46:48,181 - ERROR - Error message
+2023-12-15 01:47:24,927 - DEBUG - Debug message
+2023-12-15 01:47:24,927 - INFO - Info message
+2023-12-15 01:47:24,927 - WARNING - Warning message
+2023-12-15 01:47:24,927 - ERROR - Error message
+2023-12-15 01:47:33,409 - DEBUG - Debug message
+2023-12-15 01:47:33,409 - INFO - Info message
+2023-12-15 01:47:33,409 - WARNING - Warning message
+2023-12-15 01:47:33,409 - ERROR - Error message
+2023-12-15 01:47:43,930 - DEBUG - Debug message
+2023-12-15 01:47:43,931 - INFO - Info message
+2023-12-15 01:47:43,931 - WARNING - Warning message
+2023-12-15 01:47:43,931 - ERROR - Error message
+2023-12-15 01:47:49,304 - DEBUG - Debug message
+2023-12-15 01:47:49,304 - INFO - Info message
+2023-12-15 01:47:49,304 - WARNING - Warning message
+2023-12-15 01:47:49,304 - ERROR - Error message
+2023-12-15 01:47:59,735 - DEBUG - Debug message
+2023-12-15 01:47:59,735 - INFO - Info message
+2023-12-15 01:47:59,735 - WARNING - Warning message
+2023-12-15 01:47:59,735 - ERROR - Error message
+2023-12-15 01:48:04,097 - DEBUG - Debug message
+2023-12-15 01:48:04,097 - INFO - Info message
+2023-12-15 01:48:04,097 - WARNING - Warning message
+2023-12-15 01:48:04,097 - ERROR - Error message
+2023-12-15 01:48:18,640 - DEBUG - Debug message
+2023-12-15 01:48:18,640 - INFO - Info message
+2023-12-15 01:48:18,640 - WARNING - Warning message
+2023-12-15 01:48:18,640 - ERROR - Error message
+2023-12-15 01:48:27,118 - DEBUG - Debug message
+2023-12-15 01:48:27,118 - INFO - Info message
+2023-12-15 01:48:27,118 - WARNING - Warning message
+2023-12-15 01:48:27,118 - ERROR - Error message
+2023-12-15 01:48:36,621 - DEBUG - Debug message
+2023-12-15 01:48:36,621 - INFO - Info message
+2023-12-15 01:48:36,621 - WARNING - Warning message
+2023-12-15 01:48:36,621 - ERROR - Error message
+2023-12-15 01:48:43,026 - DEBUG - Debug message
+2023-12-15 01:48:43,026 - INFO - Info message
+2023-12-15 01:48:43,026 - WARNING - Warning message
+2023-12-15 01:48:43,026 - ERROR - Error message
+2023-12-15 01:53:26,431 - DEBUG - Debug message
+2023-12-15 01:53:26,431 - INFO - Info message
+2023-12-15 01:53:26,431 - WARNING - Warning message
+2023-12-15 01:53:26,431 - ERROR - Error message
+2023-12-15 02:10:17,982 - DEBUG - Debug message
+2023-12-15 02:10:17,982 - INFO - Info message
+2023-12-15 02:10:17,982 - WARNING - Warning message
+2023-12-15 02:10:17,982 - ERROR - Error message
+2023-12-15 02:10:58,910 - DEBUG - Debug message
+2023-12-15 02:10:58,911 - INFO - Info message
+2023-12-15 02:10:58,911 - WARNING - Warning message
+2023-12-15 02:10:58,911 - ERROR - Error message
+2023-12-15 02:11:10,445 - DEBUG - Debug message
+2023-12-15 02:11:10,445 - INFO - Info message
+2023-12-15 02:11:10,445 - WARNING - Warning message
+2023-12-15 02:11:10,445 - ERROR - Error message
+2023-12-15 02:11:31,058 - DEBUG - Debug message
+2023-12-15 02:11:31,058 - INFO - Info message
+2023-12-15 02:11:31,058 - WARNING - Warning message
+2023-12-15 02:11:31,058 - ERROR - Error message
+2023-12-15 02:17:47,593 - DEBUG - Debug message
+2023-12-15 02:17:47,593 - INFO - Info message
+2023-12-15 02:17:47,593 - WARNING - Warning message
+2023-12-15 02:17:47,593 - ERROR - Error message
+2023-12-15 02:22:15,461 - DEBUG - Debug message
+2023-12-15 02:22:15,461 - INFO - Info message
+2023-12-15 02:22:15,461 - WARNING - Warning message
+2023-12-15 02:22:15,461 - ERROR - Error message
+2023-12-15 02:22:25,955 - DEBUG - Debug message
+2023-12-15 02:22:25,955 - INFO - Info message
+2023-12-15 02:22:25,955 - WARNING - Warning message
+2023-12-15 02:22:25,956 - ERROR - Error message
+2023-12-15 02:24:46,710 - DEBUG - Debug message
+2023-12-15 02:24:46,711 - INFO - Info message
+2023-12-15 02:24:46,711 - WARNING - Warning message
+2023-12-15 02:24:46,711 - ERROR - Error message
+2023-12-15 02:26:57,728 - DEBUG - Debug message
+2023-12-15 02:26:57,728 - INFO - Info message
+2023-12-15 02:26:57,728 - WARNING - Warning message
+2023-12-15 02:26:57,728 - ERROR - Error message
+2023-12-15 02:26:58,028 - DEBUG - Debug message
+2023-12-15 02:26:58,028 - INFO - Info message
+2023-12-15 02:26:58,028 - WARNING - Warning message
+2023-12-15 02:26:58,028 - ERROR - Error message
+2023-12-15 02:48:20,059 - DEBUG - Debug message
+2023-12-15 02:48:20,059 - INFO - Info message
+2023-12-15 02:48:20,059 - WARNING - Warning message
+2023-12-15 02:48:20,059 - ERROR - Error message
+2023-12-15 03:28:23,248 - DEBUG - Debug message
+2023-12-15 03:28:23,248 - INFO - Info message
+2023-12-15 03:28:23,248 - WARNING - Warning message
+2023-12-15 03:28:23,248 - ERROR - Error message
+2023-12-15 03:29:32,337 - DEBUG - Debug message
+2023-12-15 03:29:32,337 - INFO - Info message
+2023-12-15 03:29:32,337 - WARNING - Warning message
+2023-12-15 03:29:32,337 - ERROR - Error message
+2023-12-15 03:34:07,584 - DEBUG - Debug message
+2023-12-15 03:34:07,585 - INFO - Info message
+2023-12-15 03:34:07,585 - WARNING - Warning message
+2023-12-15 03:34:07,585 - ERROR - Error message
+2023-12-15 03:34:09,953 - DEBUG - Debug message
+2023-12-15 03:34:09,953 - INFO - Info message
+2023-12-15 03:34:09,953 - WARNING - Warning message
+2023-12-15 03:34:09,954 - ERROR - Error message
+2023-12-15 03:57:54,475 - DEBUG - Debug message
+2023-12-15 03:57:54,475 - INFO - Info message
+2023-12-15 03:57:54,475 - WARNING - Warning message
+2023-12-15 03:57:54,475 - ERROR - Error message
+2023-12-15 03:58:03,983 - DEBUG - Debug message
+2023-12-15 03:58:03,983 - INFO - Info message
+2023-12-15 03:58:03,983 - WARNING - Warning message
+2023-12-15 03:58:03,983 - ERROR - Error message
+2023-12-15 03:58:35,747 - DEBUG - Debug message
+2023-12-15 03:58:35,747 - INFO - Info message
+2023-12-15 03:58:35,747 - WARNING - Warning message
+2023-12-15 03:58:35,747 - ERROR - Error message
+2023-12-15 03:58:58,453 - DEBUG - Debug message
+2023-12-15 03:58:58,453 - INFO - Info message
+2023-12-15 03:58:58,453 - WARNING - Warning message
+2023-12-15 03:58:58,453 - ERROR - Error message
+2023-12-15 04:00:11,596 - DEBUG - Debug message
+2023-12-15 04:00:11,596 - INFO - Info message
+2023-12-15 04:00:11,596 - WARNING - Warning message
+2023-12-15 04:00:11,596 - ERROR - Error message
+2023-12-15 04:00:26,098 - DEBUG - Debug message
+2023-12-15 04:00:26,098 - INFO - Info message
+2023-12-15 04:00:26,098 - WARNING - Warning message
+2023-12-15 04:00:26,098 - ERROR - Error message
+2023-12-15 04:00:57,960 - DEBUG - Debug message
+2023-12-15 04:00:57,960 - INFO - Info message
+2023-12-15 04:00:57,960 - WARNING - Warning message
+2023-12-15 04:00:57,960 - ERROR - Error message
+2023-12-15 04:01:09,311 - DEBUG - Debug message
+2023-12-15 04:01:09,312 - INFO - Info message
+2023-12-15 04:01:09,312 - WARNING - Warning message
+2023-12-15 04:01:09,312 - ERROR - Error message
+2023-12-15 04:01:12,942 - DEBUG - Debug message
+2023-12-15 04:01:12,942 - INFO - Info message
+2023-12-15 04:01:12,942 - WARNING - Warning message
+2023-12-15 04:01:12,942 - ERROR - Error message
+2023-12-15 04:01:13,198 - DEBUG - Debug message
+2023-12-15 04:01:13,198 - INFO - Info message
+2023-12-15 04:01:13,198 - WARNING - Warning message
+2023-12-15 04:01:13,198 - ERROR - Error message
+2023-12-15 04:01:47,945 - DEBUG - Debug message
+2023-12-15 04:01:47,945 - INFO - Info message
+2023-12-15 04:01:47,946 - WARNING - Warning message
+2023-12-15 04:01:47,946 - ERROR - Error message
+2023-12-15 04:01:52,382 - DEBUG - Debug message
+2023-12-15 04:01:52,382 - INFO - Info message
+2023-12-15 04:01:52,382 - WARNING - Warning message
+2023-12-15 04:01:52,382 - ERROR - Error message
+2023-12-15 04:19:50,044 - DEBUG - Debug message
+2023-12-15 04:19:50,044 - INFO - Info message
+2023-12-15 04:19:50,044 - WARNING - Warning message
+2023-12-15 04:19:50,044 - ERROR - Error message
+2023-12-15 04:20:09,670 - DEBUG - Debug message
+2023-12-15 04:20:09,670 - INFO - Info message
+2023-12-15 04:20:09,670 - WARNING - Warning message
+2023-12-15 04:20:09,670 - ERROR - Error message
+2023-12-15 04:20:46,906 - DEBUG - Debug message
+2023-12-15 04:20:46,907 - INFO - Info message
+2023-12-15 04:20:46,907 - WARNING - Warning message
+2023-12-15 04:20:46,907 - ERROR - Error message
+2023-12-15 04:20:53,136 - DEBUG - Debug message
+2023-12-15 04:20:53,136 - INFO - Info message
+2023-12-15 04:20:53,136 - WARNING - Warning message
+2023-12-15 04:20:53,136 - ERROR - Error message
+2023-12-15 04:20:56,288 - DEBUG - Debug message
+2023-12-15 04:20:56,288 - INFO - Info message
+2023-12-15 04:20:56,288 - WARNING - Warning message
+2023-12-15 04:20:56,288 - ERROR - Error message
+2023-12-15 04:20:56,547 - DEBUG - Debug message
+2023-12-15 04:20:56,547 - INFO - Info message
+2023-12-15 04:20:56,547 - WARNING - Warning message
+2023-12-15 04:20:56,548 - ERROR - Error message
+2023-12-15 04:31:35,740 - DEBUG - Debug message
+2023-12-15 04:31:35,740 - INFO - Info message
+2023-12-15 04:31:35,740 - WARNING - Warning message
+2023-12-15 04:31:35,740 - ERROR - Error message
+2023-12-15 04:35:30,497 - DEBUG - Debug message
+2023-12-15 04:35:30,497 - INFO - Info message
+2023-12-15 04:35:30,497 - WARNING - Warning message
+2023-12-15 04:35:30,497 - ERROR - Error message
+2023-12-15 04:35:30,852 - DEBUG - Debug message
+2023-12-15 04:35:30,852 - INFO - Info message
+2023-12-15 04:35:30,852 - WARNING - Warning message
+2023-12-15 04:35:30,853 - ERROR - Error message
+2023-12-15 04:40:17,243 - DEBUG - Debug message
+2023-12-15 04:40:17,243 - INFO - Info message
+2023-12-15 04:40:17,243 - WARNING - Warning message
+2023-12-15 04:40:17,243 - ERROR - Error message
+2023-12-15 04:40:17,639 - DEBUG - Debug message
+2023-12-15 04:40:17,639 - INFO - Info message
+2023-12-15 04:40:17,639 - WARNING - Warning message
+2023-12-15 04:40:17,639 - ERROR - Error message
+2023-12-15 09:41:15,571 - DEBUG - Debug message
+2023-12-15 09:41:15,571 - INFO - Info message
+2023-12-15 09:41:15,571 - WARNING - Warning message
+2023-12-15 09:41:15,571 - ERROR - Error message
+2023-12-15 09:41:26,078 - DEBUG - Debug message
+2023-12-15 09:41:26,078 - INFO - Info message
+2023-12-15 09:41:26,078 - WARNING - Warning message
+2023-12-15 09:41:26,078 - ERROR - Error message
+2023-12-15 09:43:06,624 - DEBUG - Debug message
+2023-12-15 09:43:06,624 - INFO - Info message
+2023-12-15 09:43:06,624 - WARNING - Warning message
+2023-12-15 09:43:06,624 - ERROR - Error message
+2023-12-15 09:43:09,004 - DEBUG - Debug message
+2023-12-15 09:43:09,004 - INFO - Info message
+2023-12-15 09:43:09,005 - WARNING - Warning message
+2023-12-15 09:43:09,005 - ERROR - Error message
+2023-12-15 09:44:53,540 - DEBUG - Debug message
+2023-12-15 09:44:53,540 - INFO - Info message
+2023-12-15 09:44:53,540 - WARNING - Warning message
+2023-12-15 09:44:53,540 - ERROR - Error message
+2023-12-15 09:47:45,805 - DEBUG - Debug message
+2023-12-15 09:47:45,805 - INFO - Info message
+2023-12-15 09:47:45,805 - WARNING - Warning message
+2023-12-15 09:47:45,805 - ERROR - Error message
+2023-12-15 09:48:39,917 - DEBUG - Debug message
+2023-12-15 09:48:39,917 - INFO - Info message
+2023-12-15 09:48:39,917 - WARNING - Warning message
+2023-12-15 09:48:39,917 - ERROR - Error message
+2023-12-15 09:48:41,289 - DEBUG - Debug message
+2023-12-15 09:48:41,289 - INFO - Info message
+2023-12-15 09:48:41,289 - WARNING - Warning message
+2023-12-15 09:48:41,289 - ERROR - Error message
+2023-12-15 09:48:50,724 - DEBUG - Debug message
+2023-12-15 09:48:50,724 - INFO - Info message
+2023-12-15 09:48:50,724 - WARNING - Warning message
+2023-12-15 09:48:50,724 - ERROR - Error message
+2023-12-15 09:48:54,092 - DEBUG - Debug message
+2023-12-15 09:48:54,092 - INFO - Info message
+2023-12-15 09:48:54,092 - WARNING - Warning message
+2023-12-15 09:48:54,092 - ERROR - Error message
+2023-12-15 09:49:46,123 - DEBUG - Debug message
+2023-12-15 09:49:46,124 - INFO - Info message
+2023-12-15 09:49:46,124 - WARNING - Warning message
+2023-12-15 09:49:46,124 - ERROR - Error message
+2023-12-15 09:50:14,825 - DEBUG - Debug message
+2023-12-15 09:50:14,825 - INFO - Info message
+2023-12-15 09:50:14,825 - WARNING - Warning message
+2023-12-15 09:50:14,825 - ERROR - Error message
+2023-12-15 09:50:16,180 - DEBUG - Debug message
+2023-12-15 09:50:16,180 - INFO - Info message
+2023-12-15 09:50:16,180 - WARNING - Warning message
+2023-12-15 09:50:16,180 - ERROR - Error message
+2023-12-15 10:17:51,231 - DEBUG - Debug message
+2023-12-15 10:17:51,231 - INFO - Info message
+2023-12-15 10:17:51,231 - WARNING - Warning message
+2023-12-15 10:17:51,231 - ERROR - Error message
+2023-12-15 10:17:52,600 - DEBUG - Debug message
+2023-12-15 10:17:52,600 - INFO - Info message
+2023-12-15 10:17:52,600 - WARNING - Warning message
+2023-12-15 10:17:52,600 - ERROR - Error message
+2023-12-15 10:18:50,650 - DEBUG - Debug message
+2023-12-15 10:18:50,651 - INFO - Info message
+2023-12-15 10:18:50,651 - WARNING - Warning message
+2023-12-15 10:18:50,651 - ERROR - Error message
+2023-12-15 10:24:12,539 - DEBUG - Debug message
+2023-12-15 10:24:12,539 - INFO - Info message
+2023-12-15 10:24:12,539 - WARNING - Warning message
+2023-12-15 10:24:12,539 - ERROR - Error message
+2023-12-15 13:13:04,723 - INFO - User Lavanya created successfully
+2023-12-15 13:13:46,981 - INFO - User Varun created successfully
+2023-12-15 13:15:33,001 - INFO - User Goku created successfully
+2023-12-15 13:16:30,039 - INFO - User Muskan created successfully
+2023-12-15 13:16:58,922 - INFO - User Virat created successfully
+2023-12-15 13:17:37,678 - INFO - User Rohit created successfully
+2023-12-15 13:18:07,391 - INFO - User Leo created successfully
+2023-12-15 13:18:39,934 - INFO - User Mbappe created successfully
+2023-12-15 14:09:48,195 - ERROR - Error occurred during registration (pymysql.err.IntegrityError) (1062, "Duplicate entry 'doctor3' for key 'user.username'")
+[SQL: INSERT INTO user (username, password_hash, user_email, first_name, last_name, last_login, date_joined, user_type, gender, contact_number, address) VALUES (%(username)s, %(password_hash)s, %(user_email)s, %(first_name)s, %(last_name)s, %(last_login)s, %(date_joined)s, %(user_type)s, %(gender)s, %(contact_number)s, %(address)s)]
+[parameters: {'username': 'doctor3', 'password_hash': 'scrypt:32768:8:1$K87J1AMiEi8fKxyJ$a1a3eea52c923abe343bd68f669b3ee4a8fca967834823dda1bdf0f4e2f9992119fa7c8d5183d187e4071082e6dd8c5b59d7d34fbff9ed12db0e9ba6e7a716fc', 'user_email': 'doc3@gmail.com', 'first_name': 'doc', 'last_name': 'doc', 'last_login': None, 'date_joined': datetime.datetime(2023, 12, 15, 19, 9, 48, 191059), 'user_type': 'DOCTOR', 'gender': None, 'contact_number': None, 'address': None}]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2023-12-15 14:12:48,006 - INFO - User doctor4 created successfully
+2023-12-15 14:14:20,248 - INFO - User Park created successfully
+2023-12-15 17:14:17,573 - INFO - Connected to database: mysql+pymysql://root:cloudysky@localhost/PTS
+2023-12-15 17:14:56,419 - INFO - Connected to database: mysql+pymysql://root:cloudysky@localhost/PTS
+2023-12-15 17:15:10,920 - INFO - Connected to database: mysql+pymysql://root:cloudysky@localhost/PTS
+2023-12-15 17:15:33,548 - INFO - Connected to database: mysql+pymysql://root:cloudysky@localhost/PTS
+2023-12-15 17:15:37,954 - INFO - Connected to database: mysql+pymysql://root:cloudysky@localhost/PTS
+2023-12-15 17:15:49,449 - INFO - Connected to database: mysql+pymysql://root:cloudysky@localhost/PTS
+2023-12-15 17:24:29,309 - INFO - Connected to database: mysql+pymysql://root:cloudysky@localhost/PTS
+2023-12-15 17:24:35,714 - INFO - Connected to database: mysql+pymysql://root:cloudysky@localhost/PTS
+2023-12-15 17:30:11,525 - INFO - User Luro created successfully
+2023-12-15 17:32:45,031 - INFO - User Sriram created successfully
+2023-12-15 18:33:22,688 - INFO - Connected to database: mysql+pymysql://root:cloudysky@localhost/PTS
+2023-12-15 18:33:34,202 - INFO - Connected to database: mysql+pymysql://root:cloudysky@localhost/PTS
+2023-12-15 20:22:25,253 - INFO - Connected to database: mysql+pymysql://root:cloudysky@localhost/PTS
+2023-12-15 20:22:48,393 - INFO - Connected to database: mysql+pymysql://root:cloudysky@localhost/PTS
+2023-12-15 20:34:10,007 - INFO - Connected to database: mysql+pymysql://root:cloudysky@localhost/PTS
+2023-12-15 20:34:53,469 - INFO - Connected to database: mysql+pymysql://root:cloudysky@localhost/PTS
+2023-12-15 20:35:12,115 - INFO - Connected to database: mysql+pymysql://root:cloudysky@localhost/PTS
+2023-12-15 20:35:26,313 - INFO - Connected to database: mysql+pymysql://root:cloudysky@localhost/PTS
+2023-12-15 20:35:58,780 - INFO - Connected to database: mysql+pymysql://root:cloudysky@localhost/PTS
+2023-12-15 20:36:18,632 - INFO - Connected to database: mysql+pymysql://root:cloudysky@localhost/PTS
+2023-12-15 20:36:24,153 - INFO - Connected to database: mysql+pymysql://root:cloudysky@localhost/PTS
+2023-12-15 20:37:49,219 - INFO - Connected to database: mysql+pymysql://root:cloudysky@localhost/PTS
+2023-12-15 20:40:15,546 - INFO - Connected to database: mysql+pymysql://root:cloudysky@localhost/PTS
+2023-12-15 20:40:33,651 - INFO - Connected to database: mysql+pymysql://root:cloudysky@localhost/PTS
+2023-12-15 20:42:06,163 - INFO - Connected to database: mysql+pymysql://root:cloudysky@localhost/PTS
+2023-12-15 20:42:34,217 - INFO - Connected to database: mysql+pymysql://root:cloudysky@localhost/PTS
+2023-12-15 20:42:34,482 - INFO - Connected to database: mysql+pymysql://root:cloudysky@localhost/PTS
+2023-12-15 18:53:50,380 - INFO - Connected to database: mysql+pymysql://root:cloudysky@localhost/PTS
+2023-12-15 18:54:16,394 - INFO - Connected to database: mysql+pymysql://root:cloudysky@localhost/PTS
+2023-12-15 18:55:09,364 - INFO - Connected to database: mysql+pymysql://root:cloudysky@localhost/PTS
+2023-12-15 18:55:17,526 - INFO - User doctor2 logged in successfully
+2023-12-15 18:55:47,639 - DEBUG - Users retrieved successfully
+2023-12-15 18:55:51,020 - DEBUG - Users retrieved successfully
+2023-12-15 18:56:38,409 - INFO - Invalid credentials for user patient1@gmail.com
+2023-12-15 18:56:39,896 - INFO - User patient1 logged in successfully
+2023-12-15 18:56:44,165 - DEBUG - Users retrieved successfully
+2023-12-15 19:20:21,923 - DEBUG - {'username': 'testuser', 'user_email': 'testuser@testemail.com', 'password': 'Testuser@123', 'first_name': 'test', 'last_name': 'user', 'user_type': 'Doctor'}
+2023-12-15 19:20:22,003 - INFO - User testuser created successfully
+2023-12-15 19:20:22,006 - INFO - Doctor/Patient record created successfully
+2023-12-15 19:20:46,236 - DEBUG - {'username': 'asdf', 'user_email': 'sdf@fsdf.com', 'password': 'asdfA@123', 'first_name': 'sadf', 'last_name': 'sadf', 'user_type': 'Admin'}
+2023-12-15 19:20:46,303 - INFO - User asdf created successfully
+2023-12-15 19:20:46,303 - INFO - Doctor/Patient record created successfully
+2023-12-15 19:23:24,375 - INFO - User doctor2 logged in successfully
+2023-12-15 19:24:22,429 - INFO - Invalid credentials for user sdf
+2023-12-15 20:48:48,640 - INFO - Connected to database: mysql+pymysql://root:cloudysky@localhost/PTS
+2023-12-15 20:48:53,119 - INFO - Connected to database: mysql+pymysql://root:cloudysky@localhost/PTS
+2023-12-15 20:49:22,469 - INFO - Connected to database: mysql+pymysql://root:cloudysky@localhost/PTS
+2023-12-15 20:49:22,762 - INFO - Connected to database: mysql+pymysql://root:cloudysky@localhost/PTS
+2023-12-15 20:52:08,365 - INFO - Connected to database: mysql+pymysql://root:cloudysky@localhost/PTS
+2023-12-15 20:52:26,569 - INFO - Connected to database: mysql+pymysql://root:cloudysky@localhost/PTS
+2023-12-15 20:52:31,932 - INFO - Connected to database: mysql+pymysql://root:cloudysky@localhost/PTS
+2023-12-15 21:00:16,705 - INFO - Connected to database: mysql+pymysql://root:cloudysky@localhost/PTS
+2023-12-15 21:00:19,199 - INFO - Connected to database: mysql+pymysql://root:cloudysky@localhost/PTS
+2023-12-15 21:00:19,478 - INFO - Connected to database: mysql+pymysql://root:cloudysky@localhost/PTS
+2023-12-15 21:00:22,289 - DEBUG - {'username': 'Luro', 'user_email': 'Luro@gmail.com', 'password': 'Luro@0304', 'first_name': 'Luro', 'last_name': 'Potluri', 'user_type': 'Doctor'}
+2023-12-15 21:00:22,374 - INFO - User Luro created successfully
+2023-12-15 21:00:22,377 - INFO - Doctor/Patient record created successfully
+2023-12-15 21:00:50,052 - DEBUG - {'username': 'Sriram', 'user_email': 'sriram310@gmail.com', 'password': 'Sriram@0304', 'first_name': 'Sriram', 'last_name': 'Potluri', 'user_type': 'Patient'}
+2023-12-15 21:00:50,122 - INFO - User Sriram created successfully
+2023-12-15 21:00:50,124 - INFO - Doctor/Patient record created successfully
+2023-12-15 21:01:10,902 - INFO - User Sriram logged in successfully
+2023-12-15 21:01:16,071 - INFO - Patient appointments: {'data': [], 'isSuccess': 1}
+2023-12-15 21:01:16,074 - INFO - Patients: {'data': {'patients': [{'id': 1, 'user_id': 2, 'full_name': 'Sriram Potluri'}]}}
+2023-12-15 21:01:16,075 - INFO - Patient appointments: {'data': [], 'isSuccess': 1}
+2023-12-15 21:01:16,087 - INFO - Doctors: {'data': [{'user_id': 1, 'doctor_id': 1, 'full_name': 'Luro Potluri', 'specialization': 'general', 'license_start_date': '', 'last_license_renewed': '', 'license_expiry_date': '', 'license_number': ''}]}
+2023-12-15 21:01:16,101 - INFO - Patients: {'data': {'patients': [{'id': 1, 'user_id': 2, 'full_name': 'Sriram Potluri'}]}}
+2023-12-15 21:01:16,133 - INFO - Doctors: {'data': [{'user_id': 1, 'doctor_id': 1, 'full_name': 'Luro Potluri', 'specialization': 'general', 'license_start_date': '', 'last_license_renewed': '', 'license_expiry_date': '', 'license_number': ''}]}
+2023-12-15 21:01:18,484 - INFO - Doctors: {'data': [{'user_id': 1, 'doctor_id': 1, 'full_name': 'Luro Potluri', 'specialization': 'general', 'license_start_date': '', 'last_license_renewed': '', 'license_expiry_date': '', 'license_number': ''}]}
+2023-12-15 21:01:53,853 - INFO - Appointment created successfully: 1
+2023-12-15 21:02:18,139 - INFO - Appointment created successfully: 2
+2023-12-15 21:02:25,923 - DEBUG - Users retrieved successfully
+2023-12-15 21:04:01,844 - INFO - User Sriram logged in successfully
+2023-12-15 21:04:04,901 - INFO - No medical records found for the specified patient: 1
+2023-12-15 21:04:06,155 - INFO - Doctors: {'data': [{'user_id': 1, 'doctor_id': 1, 'full_name': 'Luro Potluri', 'specialization': 'general', 'license_start_date': '', 'last_license_renewed': '', 'license_expiry_date': '', 'license_number': ''}]}
+2023-12-15 21:04:37,055 - INFO - Medical record created successfully: 1
+2023-12-15 21:05:22,485 - DEBUG - User Sriram updated successfully
+2023-12-15 21:05:28,344 - DEBUG - Users retrieved successfully
+2023-12-15 21:05:45,104 - INFO - User Luro logged in successfully
+2023-12-15 21:05:50,986 - INFO - Patients: {'data': {'patients': [{'id': 1, 'user_id': 2, 'full_name': 'Sriram Potluri'}]}}
+2023-12-15 21:05:50,988 - INFO - Doctors: {'data': [{'user_id': 1, 'doctor_id': 1, 'full_name': 'Luro Potluri', 'specialization': 'general', 'license_start_date': '', 'last_license_renewed': '', 'license_expiry_date': '', 'license_number': ''}]}
+2023-12-15 21:05:51,016 - INFO - Doctor appointments: {'data': {'appointments': [{'id': 1, 'patient_id': 1, 'date': '2023-12-16', 'start_time': '10:00:00', 'end_time': '10:30:00', 'notes': 'Routine Dental Checkup', 'title': 'Dental Checkup'}, {'id': 2, 'patient_id': 1, 'date': '2023-12-16', 'start_time': '10:30:00', 'end_time': '11:00:00', 'notes': 'Full Body Checkup', 'title': 'Full body Checkup'}], 'available_slots': [], 'isSuccess': 1}}
+2023-12-15 21:05:51,016 - INFO - Patients: {'data': {'patients': [{'id': 1, 'user_id': 2, 'full_name': 'Sriram Potluri'}]}}
+2023-12-15 21:05:51,016 - INFO - Doctors: {'data': [{'user_id': 1, 'doctor_id': 1, 'full_name': 'Luro Potluri', 'specialization': 'general', 'license_start_date': '', 'last_license_renewed': '', 'license_expiry_date': '', 'license_number': ''}]}
+2023-12-15 21:05:51,020 - INFO - Doctor appointments: {'data': {'appointments': [{'id': 1, 'patient_id': 1, 'date': '2023-12-16', 'start_time': '10:00:00', 'end_time': '10:30:00', 'notes': 'Routine Dental Checkup', 'title': 'Dental Checkup'}, {'id': 2, 'patient_id': 1, 'date': '2023-12-16', 'start_time': '10:30:00', 'end_time': '11:00:00', 'notes': 'Full Body Checkup', 'title': 'Full body Checkup'}], 'available_slots': [], 'isSuccess': 1}}
+2023-12-15 21:05:53,943 - INFO - Patients: {'data': {'patients': [{'id': 1, 'user_id': 2, 'full_name': 'Sriram Potluri'}]}}
+2023-12-15 21:05:53,944 - INFO - Doctors: {'data': [{'user_id': 1, 'doctor_id': 1, 'full_name': 'Luro Potluri', 'specialization': 'general', 'license_start_date': '', 'last_license_renewed': '', 'license_expiry_date': '', 'license_number': ''}]}
+2023-12-15 21:05:53,952 - INFO - Doctor appointments: {'data': {'appointments': [{'id': 1, 'patient_id': 1, 'date': '2023-12-16', 'start_time': '10:00:00', 'end_time': '10:30:00', 'notes': 'Routine Dental Checkup', 'title': 'Dental Checkup'}, {'id': 2, 'patient_id': 1, 'date': '2023-12-16', 'start_time': '10:30:00', 'end_time': '11:00:00', 'notes': 'Full Body Checkup', 'title': 'Full body Checkup'}], 'available_slots': [], 'isSuccess': 1}}
+2023-12-15 21:05:53,952 - INFO - Doctor appointments: {'data': {'appointments': [{'id': 1, 'patient_id': 1, 'date': '2023-12-16', 'start_time': '10:00:00', 'end_time': '10:30:00', 'notes': 'Routine Dental Checkup', 'title': 'Dental Checkup'}, {'id': 2, 'patient_id': 1, 'date': '2023-12-16', 'start_time': '10:30:00', 'end_time': '11:00:00', 'notes': 'Full Body Checkup', 'title': 'Full body Checkup'}], 'available_slots': [], 'isSuccess': 1}}
+2023-12-15 21:05:53,993 - INFO - Doctors: {'data': [{'user_id': 1, 'doctor_id': 1, 'full_name': 'Luro Potluri', 'specialization': 'general', 'license_start_date': '', 'last_license_renewed': '', 'license_expiry_date': '', 'license_number': ''}]}
+2023-12-15 21:05:53,993 - INFO - Patients: {'data': {'patients': [{'id': 1, 'user_id': 2, 'full_name': 'Sriram Potluri'}]}}
+2023-12-15 21:05:55,696 - INFO - Patients: {'data': {'patients': [{'id': 1, 'user_id': 2, 'full_name': 'Sriram Potluri'}]}}
+2023-12-15 21:06:05,815 - INFO - Patients: {'data': {'patients': [{'id': 1, 'user_id': 2, 'full_name': 'Sriram Potluri'}]}}
+2023-12-15 21:06:05,819 - INFO - Doctor appointments: {'data': {'appointments': [{'id': 1, 'patient_id': 1, 'date': '2023-12-16', 'start_time': '10:00:00', 'end_time': '10:30:00', 'notes': 'Routine Dental Checkup', 'title': 'Dental Checkup'}, {'id': 2, 'patient_id': 1, 'date': '2023-12-16', 'start_time': '10:30:00', 'end_time': '11:00:00', 'notes': 'Full Body Checkup', 'title': 'Full body Checkup'}], 'available_slots': [], 'isSuccess': 1}}
+2023-12-15 21:06:05,819 - INFO - Doctor appointments: {'data': {'appointments': [{'id': 1, 'patient_id': 1, 'date': '2023-12-16', 'start_time': '10:00:00', 'end_time': '10:30:00', 'notes': 'Routine Dental Checkup', 'title': 'Dental Checkup'}, {'id': 2, 'patient_id': 1, 'date': '2023-12-16', 'start_time': '10:30:00', 'end_time': '11:00:00', 'notes': 'Full Body Checkup', 'title': 'Full body Checkup'}], 'available_slots': [], 'isSuccess': 1}}
+2023-12-15 21:06:05,999 - INFO - Patients: {'data': {'patients': [{'id': 1, 'user_id': 2, 'full_name': 'Sriram Potluri'}]}}
+2023-12-15 21:06:06,000 - INFO - Doctors: {'data': [{'user_id': 1, 'doctor_id': 1, 'full_name': 'Luro Potluri', 'specialization': 'general', 'license_start_date': '', 'last_license_renewed': '', 'license_expiry_date': '', 'license_number': ''}]}
+2023-12-15 21:06:06,021 - INFO - Doctors: {'data': [{'user_id': 1, 'doctor_id': 1, 'full_name': 'Luro Potluri', 'specialization': 'general', 'license_start_date': '', 'last_license_renewed': '', 'license_expiry_date': '', 'license_number': ''}]}
+2023-12-15 21:08:45,576 - INFO - Doctor appointments: {'data': {'appointments': [{'id': 1, 'patient_id': 1, 'date': '2023-12-16', 'start_time': '10:00:00', 'end_time': '10:30:00', 'notes': 'Routine Dental Checkup', 'title': 'Dental Checkup'}, {'id': 2, 'patient_id': 1, 'date': '2023-12-16', 'start_time': '10:30:00', 'end_time': '11:00:00', 'notes': 'Full Body Checkup', 'title': 'Full body Checkup'}], 'available_slots': [], 'isSuccess': 1}}
+2023-12-15 21:08:45,577 - INFO - Patients: {'data': {'patients': [{'id': 1, 'user_id': 2, 'full_name': 'Sriram Potluri'}]}}
+2023-12-15 21:08:45,577 - INFO - Doctor appointments: {'data': {'appointments': [{'id': 1, 'patient_id': 1, 'date': '2023-12-16', 'start_time': '10:00:00', 'end_time': '10:30:00', 'notes': 'Routine Dental Checkup', 'title': 'Dental Checkup'}, {'id': 2, 'patient_id': 1, 'date': '2023-12-16', 'start_time': '10:30:00', 'end_time': '11:00:00', 'notes': 'Full Body Checkup', 'title': 'Full body Checkup'}], 'available_slots': [], 'isSuccess': 1}}
+2023-12-15 21:08:45,604 - INFO - Doctors: {'data': [{'user_id': 1, 'doctor_id': 1, 'full_name': 'Luro Potluri', 'specialization': 'general', 'license_start_date': '', 'last_license_renewed': '', 'license_expiry_date': '', 'license_number': ''}]}
+2023-12-15 21:08:45,618 - INFO - Patients: {'data': {'patients': [{'id': 1, 'user_id': 2, 'full_name': 'Sriram Potluri'}]}}
+2023-12-15 21:08:45,620 - INFO - Doctors: {'data': [{'user_id': 1, 'doctor_id': 1, 'full_name': 'Luro Potluri', 'specialization': 'general', 'license_start_date': '', 'last_license_renewed': '', 'license_expiry_date': '', 'license_number': ''}]}
+2023-12-15 21:09:36,110 - INFO - Patients: {'data': {'patients': [{'id': 1, 'user_id': 2, 'full_name': 'Sriram Potluri'}]}}
+2023-12-15 21:09:38,942 - INFO - Patient full data: {'data': {'id': 1, 'name': 'Sriram Potluri', 'age': 27, 'gender': 'male', 'phone': None, 'history': 'Routine Dental Check up', 'history_diagnosis': [{'id': 1, 'timestamp': '2023-12-16T02:04:37.000000Z', 'doctorName': 'Sriram Potluri', 'diagnosis': 'Checkup', 'result': 'Routine Dental Check up'}], 'history_prescriptions': [{'id': 1, 'timestamp': '2023-12-16T02:04:37.000000Z', 'doctorName': 'Sriram Potluri', 'prescriptions': 'Routine Dental Check up'}]}, 'isSuccess': 1}
+2023-12-15 21:09:56,239 - INFO - User Sriram logged in successfully
+2023-12-15 21:09:57,997 - INFO - Patient appointments: {'data': [{'id': 1, 'doctor_id': 1, 'date': '2023-12-16', 'start_time': '10:00:00', 'end_time': '10:30:00', 'notes': 'Routine Dental Checkup', 'title': 'Dental Checkup'}, {'id': 2, 'doctor_id': 1, 'date': '2023-12-16', 'start_time': '10:30:00', 'end_time': '11:00:00', 'notes': 'Full Body Checkup', 'title': 'Full body Checkup'}], 'isSuccess': 1}
+2023-12-15 21:09:57,997 - INFO - Patient appointments: {'data': [{'id': 1, 'doctor_id': 1, 'date': '2023-12-16', 'start_time': '10:00:00', 'end_time': '10:30:00', 'notes': 'Routine Dental Checkup', 'title': 'Dental Checkup'}, {'id': 2, 'doctor_id': 1, 'date': '2023-12-16', 'start_time': '10:30:00', 'end_time': '11:00:00', 'notes': 'Full Body Checkup', 'title': 'Full body Checkup'}], 'isSuccess': 1}
+2023-12-15 21:09:57,997 - INFO - Patients: {'data': {'patients': [{'id': 1, 'user_id': 2, 'full_name': 'Sriram Potluri'}]}}
+2023-12-15 21:09:58,016 - INFO - Doctors: {'data': [{'user_id': 1, 'doctor_id': 1, 'full_name': 'Luro Potluri', 'specialization': 'general', 'license_start_date': '', 'last_license_renewed': '', 'license_expiry_date': '', 'license_number': ''}]}
+2023-12-15 21:09:58,022 - INFO - Patients: {'data': {'patients': [{'id': 1, 'user_id': 2, 'full_name': 'Sriram Potluri'}]}}
+2023-12-15 21:09:58,074 - INFO - Doctors: {'data': [{'user_id': 1, 'doctor_id': 1, 'full_name': 'Luro Potluri', 'specialization': 'general', 'license_start_date': '', 'last_license_renewed': '', 'license_expiry_date': '', 'license_number': ''}]}
+2023-12-15 21:10:54,663 - INFO - Doctors: {'data': [{'user_id': 1, 'doctor_id': 1, 'full_name': 'Luro Potluri', 'specialization': 'general', 'license_start_date': '', 'last_license_renewed': '', 'license_expiry_date': '', 'license_number': ''}]}
+2023-12-15 21:12:18,302 - INFO - Patients: {'data': {'patients': [{'id': 1, 'user_id': 2, 'full_name': 'Sriram Potluri'}]}}
+2023-12-15 21:12:18,302 - INFO - Patient appointments: {'data': [{'id': 1, 'doctor_id': 1, 'date': '2023-12-16', 'start_time': '10:00:00', 'end_time': '10:30:00', 'notes': 'Routine Dental Checkup', 'title': 'Dental Checkup'}, {'id': 2, 'doctor_id': 1, 'date': '2023-12-16', 'start_time': '10:30:00', 'end_time': '11:00:00', 'notes': 'Full Body Checkup', 'title': 'Full body Checkup'}], 'isSuccess': 1}
+2023-12-15 21:12:18,303 - INFO - Patient appointments: {'data': [{'id': 1, 'doctor_id': 1, 'date': '2023-12-16', 'start_time': '10:00:00', 'end_time': '10:30:00', 'notes': 'Routine Dental Checkup', 'title': 'Dental Checkup'}, {'id': 2, 'doctor_id': 1, 'date': '2023-12-16', 'start_time': '10:30:00', 'end_time': '11:00:00', 'notes': 'Full Body Checkup', 'title': 'Full body Checkup'}], 'isSuccess': 1}
+2023-12-15 21:12:18,316 - INFO - Doctors: {'data': [{'user_id': 1, 'doctor_id': 1, 'full_name': 'Luro Potluri', 'specialization': 'general', 'license_start_date': '', 'last_license_renewed': '', 'license_expiry_date': '', 'license_number': ''}]}
+2023-12-15 21:12:18,323 - INFO - Patients: {'data': {'patients': [{'id': 1, 'user_id': 2, 'full_name': 'Sriram Potluri'}]}}
+2023-12-15 21:12:18,339 - INFO - Doctors: {'data': [{'user_id': 1, 'doctor_id': 1, 'full_name': 'Luro Potluri', 'specialization': 'general', 'license_start_date': '', 'last_license_renewed': '', 'license_expiry_date': '', 'license_number': ''}]}
+2023-12-15 21:12:19,299 - INFO - Doctors: {'data': [{'user_id': 1, 'doctor_id': 1, 'full_name': 'Luro Potluri', 'specialization': 'general', 'license_start_date': '', 'last_license_renewed': '', 'license_expiry_date': '', 'license_number': ''}]}
+2023-12-15 21:13:35,951 - INFO - User Luro logged in successfully
+2023-12-15 21:13:37,315 - INFO - Patients: {'data': {'patients': [{'id': 1, 'user_id': 2, 'full_name': 'Sriram Potluri'}]}}
+2023-12-15 21:13:39,073 - INFO - Patient full data: {'data': {'id': 1, 'name': 'Sriram Potluri', 'age': 27, 'gender': 'male', 'phone': None, 'history': 'Routine Dental Check up', 'history_diagnosis': [{'id': 1, 'timestamp': '2023-12-16T02:04:37.000000Z', 'doctorName': 'Sriram Potluri', 'diagnosis': 'Checkup', 'result': 'Routine Dental Check up'}], 'history_prescriptions': [{'id': 1, 'timestamp': '2023-12-16T02:04:37.000000Z', 'doctorName': 'Sriram Potluri', 'prescriptions': 'Routine Dental Check up'}]}, 'isSuccess': 1}
+2023-12-15 21:26:03,233 - INFO - User Sriram logged in successfully
+2023-12-15 21:26:16,058 - DEBUG - Users retrieved successfully
+2023-12-15 21:26:18,500 - INFO - Medical records: {'data': {'medical_records': [{'id': 1, 'diagnosis': 'Checkup', 'comments': 'Routine Dental Check up', 'date': '2023-12-16 02:04:37', 'doctor_id': 1, 'patient_id': 1, 'patient_name': 'Sriram Potluri', 'doctor_name': 'Luro Potluri'}], 'documents': [{'id': 1, 'filename': 'Dolo-650___Midpoint_review.pdf', 'path': '/Users/prudhvinikku/patient-tracker-system/Backend/Uploads/Dolo-650___Midpoint_review.pdf', 'medical_record_id': 1, 'download_link': '/download/Dolo-650___Midpoint_review.pdf'}], 'isSuccess': 1}}
+2023-12-15 21:26:27,426 - INFO - Patients: {'data': {'patients': [{'id': 1, 'user_id': 2, 'full_name': 'Sriram Potluri'}]}}
+2023-12-15 21:26:27,431 - INFO - Patient appointments: {'data': [{'id': 1, 'doctor_id': 1, 'date': '2023-12-16', 'start_time': '10:00:00', 'end_time': '10:30:00', 'notes': 'Routine Dental Checkup', 'title': 'Dental Checkup'}, {'id': 2, 'doctor_id': 1, 'date': '2023-12-16', 'start_time': '10:30:00', 'end_time': '11:00:00', 'notes': 'Full Body Checkup', 'title': 'Full body Checkup'}], 'isSuccess': 1}
+2023-12-15 21:26:27,434 - INFO - Patient appointments: {'data': [{'id': 1, 'doctor_id': 1, 'date': '2023-12-16', 'start_time': '10:00:00', 'end_time': '10:30:00', 'notes': 'Routine Dental Checkup', 'title': 'Dental Checkup'}, {'id': 2, 'doctor_id': 1, 'date': '2023-12-16', 'start_time': '10:30:00', 'end_time': '11:00:00', 'notes': 'Full Body Checkup', 'title': 'Full body Checkup'}], 'isSuccess': 1}
+2023-12-15 21:26:27,455 - INFO - Patients: {'data': {'patients': [{'id': 1, 'user_id': 2, 'full_name': 'Sriram Potluri'}]}}
+2023-12-15 21:26:27,455 - INFO - Doctors: {'data': [{'user_id': 1, 'doctor_id': 1, 'full_name': 'Luro Potluri', 'specialization': 'general', 'license_start_date': '', 'last_license_renewed': '', 'license_expiry_date': '', 'license_number': ''}]}
+2023-12-15 21:26:27,480 - INFO - Doctors: {'data': [{'user_id': 1, 'doctor_id': 1, 'full_name': 'Luro Potluri', 'specialization': 'general', 'license_start_date': '', 'last_license_renewed': '', 'license_expiry_date': '', 'license_number': ''}]}
+2023-12-15 21:26:35,127 - DEBUG - Users retrieved successfully
+2023-12-15 21:26:41,563 - DEBUG - Users retrieved successfully
+2023-12-15 21:26:44,670 - INFO - Medical records: {'data': {'medical_records': [{'id': 1, 'diagnosis': 'Checkup', 'comments': 'Routine Dental Check up', 'date': '2023-12-16 02:04:37', 'doctor_id': 1, 'patient_id': 1, 'patient_name': 'Sriram Potluri', 'doctor_name': 'Luro Potluri'}], 'documents': [{'id': 1, 'filename': 'Dolo-650___Midpoint_review.pdf', 'path': '/Users/prudhvinikku/patient-tracker-system/Backend/Uploads/Dolo-650___Midpoint_review.pdf', 'medical_record_id': 1, 'download_link': '/download/Dolo-650___Midpoint_review.pdf'}], 'isSuccess': 1}}
+2023-12-15 21:27:02,034 - INFO - Doctors: {'data': [{'user_id': 1, 'doctor_id': 1, 'full_name': 'Luro Potluri', 'specialization': 'general', 'license_start_date': '', 'last_license_renewed': '', 'license_expiry_date': '', 'license_number': ''}]}
+2023-12-15 21:27:21,305 - INFO - Medical records: {'data': {'medical_records': [{'id': 1, 'diagnosis': 'Checkup', 'comments': 'Routine Dental Check up', 'date': '2023-12-16 02:04:37', 'doctor_id': 1, 'patient_id': 1, 'patient_name': 'Sriram Potluri', 'doctor_name': 'Luro Potluri'}], 'documents': [{'id': 1, 'filename': 'Dolo-650___Midpoint_review.pdf', 'path': '/Users/prudhvinikku/patient-tracker-system/Backend/Uploads/Dolo-650___Midpoint_review.pdf', 'medical_record_id': 1, 'download_link': '/download/Dolo-650___Midpoint_review.pdf'}], 'isSuccess': 1}}
+2023-12-15 21:27:28,432 - INFO - Patient appointments: {'data': [{'id': 1, 'doctor_id': 1, 'date': '2023-12-16', 'start_time': '10:00:00', 'end_time': '10:30:00', 'notes': 'Routine Dental Checkup', 'title': 'Dental Checkup'}, {'id': 2, 'doctor_id': 1, 'date': '2023-12-16', 'start_time': '10:30:00', 'end_time': '11:00:00', 'notes': 'Full Body Checkup', 'title': 'Full body Checkup'}], 'isSuccess': 1}
+2023-12-15 21:27:28,434 - INFO - Patient appointments: {'data': [{'id': 1, 'doctor_id': 1, 'date': '2023-12-16', 'start_time': '10:00:00', 'end_time': '10:30:00', 'notes': 'Routine Dental Checkup', 'title': 'Dental Checkup'}, {'id': 2, 'doctor_id': 1, 'date': '2023-12-16', 'start_time': '10:30:00', 'end_time': '11:00:00', 'notes': 'Full Body Checkup', 'title': 'Full body Checkup'}], 'isSuccess': 1}
+2023-12-15 21:27:28,439 - INFO - Patients: {'data': {'patients': [{'id': 1, 'user_id': 2, 'full_name': 'Sriram Potluri'}]}}
+2023-12-15 21:27:28,446 - INFO - Doctors: {'data': [{'user_id': 1, 'doctor_id': 1, 'full_name': 'Luro Potluri', 'specialization': 'general', 'license_start_date': '', 'last_license_renewed': '', 'license_expiry_date': '', 'license_number': ''}]}
+2023-12-15 21:27:28,470 - INFO - Patients: {'data': {'patients': [{'id': 1, 'user_id': 2, 'full_name': 'Sriram Potluri'}]}}
+2023-12-15 21:27:28,470 - INFO - Doctors: {'data': [{'user_id': 1, 'doctor_id': 1, 'full_name': 'Luro Potluri', 'specialization': 'general', 'license_start_date': '', 'last_license_renewed': '', 'license_expiry_date': '', 'license_number': ''}]}
+2023-12-15 21:27:44,340 - INFO - Doctors: {'data': [{'user_id': 1, 'doctor_id': 1, 'full_name': 'Luro Potluri', 'specialization': 'general', 'license_start_date': '', 'last_license_renewed': '', 'license_expiry_date': '', 'license_number': ''}]}
+2023-12-15 21:37:37,131 - DEBUG - {'username': 'Luro122323', 'user_email': 'Sriram@310gmail.com', 'password': 'Sriram@0304', 'first_name': 'Sriram', 'last_name': 'Potluri', 'user_type': 'Patient'}
+2023-12-15 21:37:37,243 - INFO - User Luro122323 created successfully
+2023-12-15 21:37:37,246 - INFO - Doctor/Patient record created successfully
+2023-12-15 21:38:40,250 - INFO - User Luro logged in successfully
+2023-12-15 21:38:42,681 - INFO - Doctor appointments: {'data': {'appointments': [{'id': 1, 'patient_id': 1, 'date': '2023-12-16', 'start_time': '10:00:00', 'end_time': '10:30:00', 'notes': 'Routine Dental Checkup', 'title': 'Dental Checkup'}, {'id': 2, 'patient_id': 1, 'date': '2023-12-16', 'start_time': '10:30:00', 'end_time': '11:00:00', 'notes': 'Full Body Checkup', 'title': 'Full body Checkup'}], 'available_slots': [], 'isSuccess': 1}}
+2023-12-15 21:38:42,681 - INFO - Patients: {'data': {'patients': [{'id': 1, 'user_id': 2, 'full_name': 'Sriram Potluri'}, {'id': 2, 'user_id': 3, 'full_name': 'Sriram Potluri'}]}}
+2023-12-15 21:38:42,704 - INFO - Doctors: {'data': [{'user_id': 1, 'doctor_id': 1, 'full_name': 'Luro Potluri', 'specialization': 'general', 'license_start_date': '', 'last_license_renewed': '', 'license_expiry_date': '', 'license_number': ''}]}
+2023-12-15 21:38:42,704 - INFO - Doctor appointments: {'data': {'appointments': [{'id': 1, 'patient_id': 1, 'date': '2023-12-16', 'start_time': '10:00:00', 'end_time': '10:30:00', 'notes': 'Routine Dental Checkup', 'title': 'Dental Checkup'}, {'id': 2, 'patient_id': 1, 'date': '2023-12-16', 'start_time': '10:30:00', 'end_time': '11:00:00', 'notes': 'Full Body Checkup', 'title': 'Full body Checkup'}], 'available_slots': [], 'isSuccess': 1}}
+2023-12-15 21:38:42,706 - INFO - Patients: {'data': {'patients': [{'id': 1, 'user_id': 2, 'full_name': 'Sriram Potluri'}, {'id': 2, 'user_id': 3, 'full_name': 'Sriram Potluri'}]}}
+2023-12-15 21:38:42,728 - INFO - Doctors: {'data': [{'user_id': 1, 'doctor_id': 1, 'full_name': 'Luro Potluri', 'specialization': 'general', 'license_start_date': '', 'last_license_renewed': '', 'license_expiry_date': '', 'license_number': ''}]}
+2023-12-15 21:39:28,615 - INFO - Patients: {'data': {'patients': [{'id': 1, 'user_id': 2, 'full_name': 'Sriram Potluri'}, {'id': 2, 'user_id': 3, 'full_name': 'Sriram Potluri'}]}}
+2023-12-15 21:39:34,036 - INFO - Medical records: {'data': {'medical_records': [{'id': 1, 'diagnosis': 'Checkup', 'comments': 'Routine Dental Check up', 'date': '2023-12-16 02:04:37', 'doctor_id': 1, 'patient_id': 1, 'patient_name': 'Sriram Potluri', 'doctor_name': 'Luro Potluri'}], 'documents': [{'id': 1, 'filename': 'Dolo-650___Midpoint_review.pdf', 'path': '/Users/prudhvinikku/patient-tracker-system/Backend/Uploads/Dolo-650___Midpoint_review.pdf', 'medical_record_id': 1, 'download_link': '/download/Dolo-650___Midpoint_review.pdf'}], 'isSuccess': 1}}
+2023-12-15 21:39:46,475 - DEBUG - Users retrieved successfully
+2023-12-15 21:39:55,246 - DEBUG - Users retrieved successfully
+2023-12-15 21:39:59,770 - INFO - Patients: {'data': {'patients': [{'id': 1, 'user_id': 2, 'full_name': 'Sriram Potluri'}, {'id': 2, 'user_id': 3, 'full_name': 'Sriram Potluri'}]}}
+2023-12-15 21:39:59,770 - INFO - Doctor appointments: {'data': {'appointments': [{'id': 1, 'patient_id': 1, 'date': '2023-12-16', 'start_time': '10:00:00', 'end_time': '10:30:00', 'notes': 'Routine Dental Checkup', 'title': 'Dental Checkup'}, {'id': 2, 'patient_id': 1, 'date': '2023-12-16', 'start_time': '10:30:00', 'end_time': '11:00:00', 'notes': 'Full Body Checkup', 'title': 'Full body Checkup'}], 'available_slots': [], 'isSuccess': 1}}
+2023-12-15 21:39:59,771 - INFO - Doctor appointments: {'data': {'appointments': [{'id': 1, 'patient_id': 1, 'date': '2023-12-16', 'start_time': '10:00:00', 'end_time': '10:30:00', 'notes': 'Routine Dental Checkup', 'title': 'Dental Checkup'}, {'id': 2, 'patient_id': 1, 'date': '2023-12-16', 'start_time': '10:30:00', 'end_time': '11:00:00', 'notes': 'Full Body Checkup', 'title': 'Full body Checkup'}], 'available_slots': [], 'isSuccess': 1}}
+2023-12-15 21:39:59,785 - INFO - Doctors: {'data': [{'user_id': 1, 'doctor_id': 1, 'full_name': 'Luro Potluri', 'specialization': 'general', 'license_start_date': '', 'last_license_renewed': '', 'license_expiry_date': '', 'license_number': ''}]}
+2023-12-15 21:39:59,795 - INFO - Patients: {'data': {'patients': [{'id': 1, 'user_id': 2, 'full_name': 'Sriram Potluri'}, {'id': 2, 'user_id': 3, 'full_name': 'Sriram Potluri'}]}}
+2023-12-15 21:39:59,804 - INFO - Doctors: {'data': [{'user_id': 1, 'doctor_id': 1, 'full_name': 'Luro Potluri', 'specialization': 'general', 'license_start_date': '', 'last_license_renewed': '', 'license_expiry_date': '', 'license_number': ''}]}
+2023-12-15 21:40:00,785 - INFO - Doctors: {'data': [{'user_id': 1, 'doctor_id': 1, 'full_name': 'Luro Potluri', 'specialization': 'general', 'license_start_date': '', 'last_license_renewed': '', 'license_expiry_date': '', 'license_number': ''}]}
+2023-12-15 21:40:00,786 - INFO - Patients: {'data': {'patients': [{'id': 1, 'user_id': 2, 'full_name': 'Sriram Potluri'}, {'id': 2, 'user_id': 3, 'full_name': 'Sriram Potluri'}]}}
+2023-12-15 21:40:00,788 - INFO - Doctor appointments: {'data': {'appointments': [{'id': 1, 'patient_id': 1, 'date': '2023-12-16', 'start_time': '10:00:00', 'end_time': '10:30:00', 'notes': 'Routine Dental Checkup', 'title': 'Dental Checkup'}, {'id': 2, 'patient_id': 1, 'date': '2023-12-16', 'start_time': '10:30:00', 'end_time': '11:00:00', 'notes': 'Full Body Checkup', 'title': 'Full body Checkup'}], 'available_slots': [], 'isSuccess': 1}}
+2023-12-15 21:40:00,788 - INFO - Doctor appointments: {'data': {'appointments': [{'id': 1, 'patient_id': 1, 'date': '2023-12-16', 'start_time': '10:00:00', 'end_time': '10:30:00', 'notes': 'Routine Dental Checkup', 'title': 'Dental Checkup'}, {'id': 2, 'patient_id': 1, 'date': '2023-12-16', 'start_time': '10:30:00', 'end_time': '11:00:00', 'notes': 'Full Body Checkup', 'title': 'Full body Checkup'}], 'available_slots': [], 'isSuccess': 1}}
+2023-12-15 21:40:00,809 - INFO - Doctors: {'data': [{'user_id': 1, 'doctor_id': 1, 'full_name': 'Luro Potluri', 'specialization': 'general', 'license_start_date': '', 'last_license_renewed': '', 'license_expiry_date': '', 'license_number': ''}]}
+2023-12-15 21:40:00,811 - INFO - Patients: {'data': {'patients': [{'id': 1, 'user_id': 2, 'full_name': 'Sriram Potluri'}, {'id': 2, 'user_id': 3, 'full_name': 'Sriram Potluri'}]}}
+2023-12-15 21:40:07,721 - INFO - Patients: {'data': {'patients': [{'id': 1, 'user_id': 2, 'full_name': 'Sriram Potluri'}, {'id': 2, 'user_id': 3, 'full_name': 'Sriram Potluri'}]}}
+2023-12-15 21:40:38,517 - INFO - Patients: {'data': {'patients': [{'id': 1, 'user_id': 2, 'full_name': 'Sriram Potluri'}, {'id': 2, 'user_id': 3, 'full_name': 'Sriram Potluri'}]}}
+2023-12-15 21:40:42,946 - INFO - Patient full data: {'data': {'id': 1, 'name': 'Sriram Potluri', 'age': 27, 'gender': 'male', 'phone': None, 'history': 'Routine Dental Check up', 'history_diagnosis': [{'id': 1, 'timestamp': '2023-12-16T02:04:37.000000Z', 'doctorName': 'Sriram Potluri', 'diagnosis': 'Checkup', 'result': 'Routine Dental Check up'}], 'history_prescriptions': [{'id': 1, 'timestamp': '2023-12-16T02:04:37.000000Z', 'doctorName': 'Sriram Potluri', 'prescriptions': 'Routine Dental Check up'}]}, 'isSuccess': 1}
+2023-12-15 21:41:06,899 - INFO - Medical record created successfully: 2
+2023-12-15 21:41:08,296 - INFO - Medical record created successfully: 3
+2023-12-15 21:41:10,502 - INFO - Patients: {'data': {'patients': [{'id': 1, 'user_id': 2, 'full_name': 'Sriram Potluri'}, {'id': 2, 'user_id': 3, 'full_name': 'Sriram Potluri'}]}}
+2023-12-15 21:41:11,830 - INFO - Patient full data: {'data': {'id': 1, 'name': 'Sriram Potluri', 'age': 27, 'gender': 'male', 'phone': None, 'history': 'Routine Dental Check up', 'history_diagnosis': [{'id': 1, 'timestamp': '2023-12-16T02:04:37.000000Z', 'doctorName': 'Sriram Potluri', 'diagnosis': 'Checkup', 'result': 'Routine Dental Check up'}, {'id': 2, 'timestamp': '2023-12-16T02:41:07.000000Z', 'doctorName': 'Sriram Potluri', 'diagnosis': 'Fever', 'result': 'Dolo 650'}, {'id': 3, 'timestamp': '2023-12-16T02:41:08.000000Z', 'doctorName': 'Sriram Potluri', 'diagnosis': 'Fever', 'result': 'Dolo 650'}], 'history_prescriptions': [{'id': 1, 'timestamp': '2023-12-16T02:04:37.000000Z', 'doctorName': 'Sriram Potluri', 'prescriptions': 'Routine Dental Check up'}, {'id': 2, 'timestamp': '2023-12-16T02:41:07.000000Z', 'doctorName': 'Sriram Potluri', 'prescriptions': 'Dolo 650'}, {'id': 3, 'timestamp': '2023-12-16T02:41:08.000000Z', 'doctorName': 'Sriram Potluri', 'prescriptions': 'Dolo 650'}]}, 'isSuccess': 1}
+2023-12-15 21:41:20,597 - INFO - Patients: {'data': {'patients': [{'id': 1, 'user_id': 2, 'full_name': 'Sriram Potluri'}, {'id': 2, 'user_id': 3, 'full_name': 'Sriram Potluri'}]}}
+2023-12-15 21:41:20,607 - INFO - Doctor appointments: {'data': {'appointments': [{'id': 1, 'patient_id': 1, 'date': '2023-12-16', 'start_time': '10:00:00', 'end_time': '10:30:00', 'notes': 'Routine Dental Checkup', 'title': 'Dental Checkup'}, {'id': 2, 'patient_id': 1, 'date': '2023-12-16', 'start_time': '10:30:00', 'end_time': '11:00:00', 'notes': 'Full Body Checkup', 'title': 'Full body Checkup'}], 'available_slots': [], 'isSuccess': 1}}
+2023-12-15 21:41:20,607 - INFO - Doctor appointments: {'data': {'appointments': [{'id': 1, 'patient_id': 1, 'date': '2023-12-16', 'start_time': '10:00:00', 'end_time': '10:30:00', 'notes': 'Routine Dental Checkup', 'title': 'Dental Checkup'}, {'id': 2, 'patient_id': 1, 'date': '2023-12-16', 'start_time': '10:30:00', 'end_time': '11:00:00', 'notes': 'Full Body Checkup', 'title': 'Full body Checkup'}], 'available_slots': [], 'isSuccess': 1}}
+2023-12-15 21:41:20,618 - INFO - Doctors: {'data': [{'user_id': 1, 'doctor_id': 1, 'full_name': 'Luro Potluri', 'specialization': 'general', 'license_start_date': '', 'last_license_renewed': '', 'license_expiry_date': '', 'license_number': ''}]}
+2023-12-15 21:41:20,628 - INFO - Patients: {'data': {'patients': [{'id': 1, 'user_id': 2, 'full_name': 'Sriram Potluri'}, {'id': 2, 'user_id': 3, 'full_name': 'Sriram Potluri'}]}}
+2023-12-15 21:41:20,650 - INFO - Doctors: {'data': [{'user_id': 1, 'doctor_id': 1, 'full_name': 'Luro Potluri', 'specialization': 'general', 'license_start_date': '', 'last_license_renewed': '', 'license_expiry_date': '', 'license_number': ''}]}
+2023-12-15 21:41:21,349 - INFO - Doctors: {'data': [{'user_id': 1, 'doctor_id': 1, 'full_name': 'Luro Potluri', 'specialization': 'general', 'license_start_date': '', 'last_license_renewed': '', 'license_expiry_date': '', 'license_number': ''}]}
+2023-12-15 21:41:21,350 - INFO - Doctor appointments: {'data': {'appointments': [{'id': 1, 'patient_id': 1, 'date': '2023-12-16', 'start_time': '10:00:00', 'end_time': '10:30:00', 'notes': 'Routine Dental Checkup', 'title': 'Dental Checkup'}, {'id': 2, 'patient_id': 1, 'date': '2023-12-16', 'start_time': '10:30:00', 'end_time': '11:00:00', 'notes': 'Full Body Checkup', 'title': 'Full body Checkup'}], 'available_slots': [], 'isSuccess': 1}}
+2023-12-15 21:41:21,350 - INFO - Doctor appointments: {'data': {'appointments': [{'id': 1, 'patient_id': 1, 'date': '2023-12-16', 'start_time': '10:00:00', 'end_time': '10:30:00', 'notes': 'Routine Dental Checkup', 'title': 'Dental Checkup'}, {'id': 2, 'patient_id': 1, 'date': '2023-12-16', 'start_time': '10:30:00', 'end_time': '11:00:00', 'notes': 'Full Body Checkup', 'title': 'Full body Checkup'}], 'available_slots': [], 'isSuccess': 1}}
+2023-12-15 21:41:21,350 - INFO - Patients: {'data': {'patients': [{'id': 1, 'user_id': 2, 'full_name': 'Sriram Potluri'}, {'id': 2, 'user_id': 3, 'full_name': 'Sriram Potluri'}]}}
+2023-12-15 21:41:21,375 - INFO - Doctors: {'data': [{'user_id': 1, 'doctor_id': 1, 'full_name': 'Luro Potluri', 'specialization': 'general', 'license_start_date': '', 'last_license_renewed': '', 'license_expiry_date': '', 'license_number': ''}]}
+2023-12-15 21:41:21,376 - INFO - Patients: {'data': {'patients': [{'id': 1, 'user_id': 2, 'full_name': 'Sriram Potluri'}, {'id': 2, 'user_id': 3, 'full_name': 'Sriram Potluri'}]}}
+2023-12-15 21:41:38,902 - INFO - User Sriram logged in successfully
+2023-12-15 21:41:42,903 - DEBUG - Users retrieved successfully
+2023-12-15 21:42:08,177 - INFO - Medical records: {'data': {'medical_records': [{'id': 1, 'diagnosis': 'Checkup', 'comments': 'Routine Dental Check up', 'date': '2023-12-16 02:04:37', 'doctor_id': 1, 'patient_id': 1, 'patient_name': 'Sriram Potluri', 'doctor_name': 'Luro Potluri'}, {'id': 2, 'diagnosis': 'Fever', 'comments': 'Dolo 650', 'date': '2023-12-16 02:41:07', 'doctor_id': 1, 'patient_id': 1, 'patient_name': 'Sriram Potluri', 'doctor_name': 'Luro Potluri'}, {'id': 3, 'diagnosis': 'Fever', 'comments': 'Dolo 650', 'date': '2023-12-16 02:41:08', 'doctor_id': 1, 'patient_id': 1, 'patient_name': 'Sriram Potluri', 'doctor_name': 'Luro Potluri'}], 'documents': [{'id': 1, 'filename': 'Dolo-650___Midpoint_review.pdf', 'path': '/Users/prudhvinikku/patient-tracker-system/Backend/Uploads/Dolo-650___Midpoint_review.pdf', 'medical_record_id': 1, 'download_link': '/download/Dolo-650___Midpoint_review.pdf'}], 'isSuccess': 1}}
+2023-12-15 21:42:22,619 - INFO - Doctors: {'data': [{'user_id': 1, 'doctor_id': 1, 'full_name': 'Luro Potluri', 'specialization': 'general', 'license_start_date': '', 'last_license_renewed': '', 'license_expiry_date': '', 'license_number': ''}]}
+2023-12-15 21:42:29,681 - INFO - Patient appointments: {'data': [{'id': 1, 'doctor_id': 1, 'date': '2023-12-16', 'start_time': '10:00:00', 'end_time': '10:30:00', 'notes': 'Routine Dental Checkup', 'title': 'Dental Checkup'}, {'id': 2, 'doctor_id': 1, 'date': '2023-12-16', 'start_time': '10:30:00', 'end_time': '11:00:00', 'notes': 'Full Body Checkup', 'title': 'Full body Checkup'}], 'isSuccess': 1}
+2023-12-15 21:42:29,682 - INFO - Patient appointments: {'data': [{'id': 1, 'doctor_id': 1, 'date': '2023-12-16', 'start_time': '10:00:00', 'end_time': '10:30:00', 'notes': 'Routine Dental Checkup', 'title': 'Dental Checkup'}, {'id': 2, 'doctor_id': 1, 'date': '2023-12-16', 'start_time': '10:30:00', 'end_time': '11:00:00', 'notes': 'Full Body Checkup', 'title': 'Full body Checkup'}], 'isSuccess': 1}
+2023-12-15 21:42:29,683 - INFO - Patients: {'data': {'patients': [{'id': 1, 'user_id': 2, 'full_name': 'Sriram Potluri'}, {'id': 2, 'user_id': 3, 'full_name': 'Sriram Potluri'}]}}
+2023-12-15 21:42:29,692 - INFO - Doctors: {'data': [{'user_id': 1, 'doctor_id': 1, 'full_name': 'Luro Potluri', 'specialization': 'general', 'license_start_date': '', 'last_license_renewed': '', 'license_expiry_date': '', 'license_number': ''}]}
+2023-12-15 21:42:29,706 - INFO - Patients: {'data': {'patients': [{'id': 1, 'user_id': 2, 'full_name': 'Sriram Potluri'}, {'id': 2, 'user_id': 3, 'full_name': 'Sriram Potluri'}]}}
+2023-12-15 21:42:29,714 - INFO - Doctors: {'data': [{'user_id': 1, 'doctor_id': 1, 'full_name': 'Luro Potluri', 'specialization': 'general', 'license_start_date': '', 'last_license_renewed': '', 'license_expiry_date': '', 'license_number': ''}]}
+2023-12-15 21:42:32,561 - INFO - Medical records: {'data': {'medical_records': [{'id': 1, 'diagnosis': 'Checkup', 'comments': 'Routine Dental Check up', 'date': '2023-12-16 02:04:37', 'doctor_id': 1, 'patient_id': 1, 'patient_name': 'Sriram Potluri', 'doctor_name': 'Luro Potluri'}, {'id': 2, 'diagnosis': 'Fever', 'comments': 'Dolo 650', 'date': '2023-12-16 02:41:07', 'doctor_id': 1, 'patient_id': 1, 'patient_name': 'Sriram Potluri', 'doctor_name': 'Luro Potluri'}, {'id': 3, 'diagnosis': 'Fever', 'comments': 'Dolo 650', 'date': '2023-12-16 02:41:08', 'doctor_id': 1, 'patient_id': 1, 'patient_name': 'Sriram Potluri', 'doctor_name': 'Luro Potluri'}], 'documents': [{'id': 1, 'filename': 'Dolo-650___Midpoint_review.pdf', 'path': '/Users/prudhvinikku/patient-tracker-system/Backend/Uploads/Dolo-650___Midpoint_review.pdf', 'medical_record_id': 1, 'download_link': '/download/Dolo-650___Midpoint_review.pdf'}], 'isSuccess': 1}}
+2023-12-15 21:42:33,637 - INFO - Doctors: {'data': [{'user_id': 1, 'doctor_id': 1, 'full_name': 'Luro Potluri', 'specialization': 'general', 'license_start_date': '', 'last_license_renewed': '', 'license_expiry_date': '', 'license_number': ''}]}
+2023-12-15 21:42:33,639 - INFO - Patients: {'data': {'patients': [{'id': 1, 'user_id': 2, 'full_name': 'Sriram Potluri'}, {'id': 2, 'user_id': 3, 'full_name': 'Sriram Potluri'}]}}
+2023-12-15 21:42:33,640 - INFO - Patient appointments: {'data': [{'id': 1, 'doctor_id': 1, 'date': '2023-12-16', 'start_time': '10:00:00', 'end_time': '10:30:00', 'notes': 'Routine Dental Checkup', 'title': 'Dental Checkup'}, {'id': 2, 'doctor_id': 1, 'date': '2023-12-16', 'start_time': '10:30:00', 'end_time': '11:00:00', 'notes': 'Full Body Checkup', 'title': 'Full body Checkup'}], 'isSuccess': 1}
+2023-12-15 21:42:33,640 - INFO - Patient appointments: {'data': [{'id': 1, 'doctor_id': 1, 'date': '2023-12-16', 'start_time': '10:00:00', 'end_time': '10:30:00', 'notes': 'Routine Dental Checkup', 'title': 'Dental Checkup'}, {'id': 2, 'doctor_id': 1, 'date': '2023-12-16', 'start_time': '10:30:00', 'end_time': '11:00:00', 'notes': 'Full Body Checkup', 'title': 'Full body Checkup'}], 'isSuccess': 1}
+2023-12-15 21:42:33,670 - INFO - Doctors: {'data': [{'user_id': 1, 'doctor_id': 1, 'full_name': 'Luro Potluri', 'specialization': 'general', 'license_start_date': '', 'last_license_renewed': '', 'license_expiry_date': '', 'license_number': ''}]}
+2023-12-15 21:42:33,670 - INFO - Patients: {'data': {'patients': [{'id': 1, 'user_id': 2, 'full_name': 'Sriram Potluri'}, {'id': 2, 'user_id': 3, 'full_name': 'Sriram Potluri'}]}}
+2023-12-15 21:42:48,383 - INFO - Doctors: {'data': [{'user_id': 1, 'doctor_id': 1, 'full_name': 'Luro Potluri', 'specialization': 'general', 'license_start_date': '', 'last_license_renewed': '', 'license_expiry_date': '', 'license_number': ''}]}
