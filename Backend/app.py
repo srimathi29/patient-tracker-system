@@ -67,7 +67,7 @@ from .Controllers.user_controller import Login, Logout, Register, UserAPI
 from .Controllers.doctor_controller import DoctorAPI
 from .Controllers.appointment_controller import DoctorAppointmentsResource, AppointmentCreateResource, \
       AppointmentUpdateResource, PatientAppointmentsResource
-from .Controllers.records_controller import MedicalRecordController, MedicalRecordAPI, DownloadFileAPI
+from .Controllers.records_controller import  MedicalRecordAPI, DownloadFileAPI
 from .Controllers.patient_controller import PatientAPI, PatientFullDataAPI
 from .Controllers.medicine_controller import MedicineAPI
 
