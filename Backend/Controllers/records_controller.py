@@ -78,7 +78,6 @@ class MedicalRecordController(Resource):
             db.session.rollback()
             return jsonify({"message": "Failed to update medical record", "error": str(e)}), 400
 
-
 class MedicalRecordAPI(Resource):
     # def get(self, medical_record_id=None):
     #     if medical_record_id:
@@ -157,7 +156,7 @@ class MedicalRecordAPI(Resource):
 
             if medical_records:
                 serialized_medical_records = []
-
+                serialized_documents_list = []
                 # Iterate through the medical records
                 for medical_record in medical_records:
                     serialized_record = medical_record.serialize()
@@ -173,11 +172,12 @@ class MedicalRecordAPI(Resource):
 
                     #serialized_record['documents'] = serialized_documents
                     serialized_medical_records.append(serialized_record)
+                    serialized_documents_list.append(serialized_documents)
 
                 response_data = {
                     "data": {
                         "medical_records": serialized_medical_records,
-                        "documents": serialized_documents,
+                        "documents": [doc for documents in serialized_documents_list for doc in documents],  # Flatten the list
                         "isSuccess": 1
                     }
                 }

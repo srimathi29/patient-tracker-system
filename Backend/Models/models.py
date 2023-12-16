@@ -30,6 +30,8 @@ class User(db.Model):
     gender = db.Column(db.String(10), nullable=True)
     contact_number = db.Column(db.String(15), nullable=True)
     address = db.Column(db.String(200), nullable=True)
+    age = db.Column(db.Integer, nullable=True)
+    img = db.Column(db.String(255), nullable=True)
 
     def __repr__(self):
         return '<User %r>' % self.username
@@ -63,7 +65,9 @@ class User(db.Model):
             "user_type": self.user_type.value,
             "gender": self.gender,
             "contact_number": self.contact_number if self.contact_number else "",
-            "address": self.address if self.address else ""
+            "address": self.address if self.address else "",
+            "age": self.age if self.age else 0,
+            "img": self.img if self.img else "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR04GWDTULmcrO5Gjnf_j-n3whWNEfKKQnChiOWkwidZ9DDgwzDU2SfnLMFQubt4mzwJj8&usqp=CAU"
         }
 
 
@@ -181,6 +185,11 @@ class MedicalRecord(db.Model):
         return f"<MedicalRecord {self.id}>"
     
     def serialize(self):
+        patient = Patient.query.get(self.patient_id)
+        patient_full_name = patient.serialize().get('full_name') if patient else ""
+
+        doctor = Doctor.query.get(self.doctor_id)
+        doctor_full_name = doctor.serialize().get('full_name') if doctor else ""
         data = {
             "id": self.id,
             "diagnosis": self.diagnosis,
@@ -188,6 +197,8 @@ class MedicalRecord(db.Model):
             "date": self.date.strftime("%Y-%m-%d %H:%M:%S") if self.date else "",
             "doctor_id": self.doctor_id,
             "patient_id": self.patient_id,
+            "patient_name": patient_full_name,
+            "doctor_name": doctor_full_name
             # "prescriptions": [prescription.serialize() for prescription in self.prescriptions],
             # "documents": [document.serialize() for document in self.documents]
             # You can add more attributes here as needed
@@ -225,6 +236,14 @@ class MedicalRecordDocument(db.Model):
 
     def __repr__(self):
         return f"<MedicalRecordDocument {self.filename}>"
+    
+    def serialize(self):
+        return {
+            "id": self.id,
+            "filename": self.filename,
+            "path": self.path,
+            "medical_record_id": self.medical_record_id
+        }
     
     
 

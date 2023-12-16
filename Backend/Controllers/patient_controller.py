@@ -110,3 +110,60 @@ class PatientAPI(Resource):
         return Response(json.dumps(response_data), mimetype="application/json", status=404)
 
 
+class PatientFullDataAPI(Resource):
+    def get(self,patient_id=None):
+        try:
+            patient = Patient.query.get(patient_id)
+
+            if not patient:
+                response_data = {
+                    "data": {
+                        "message": "Patient not found",
+                        "isSuccess": 0
+                    }}
+                return Response(json.dumps(response_data), mimetype="application/json", status=404)
+            else:
+                user = User.query.get(patient.user_id)
+                patient_data = {
+                    "id": patient.id,
+                    "name": user.first_name + ' ' + user.last_name,
+                    "age": user.age,
+                    "gender": user.gender,
+                    "phone": user.contact_number,
+                    "history": patient.medical_records[0].comments if patient.medical_records else "",
+                    "history_diagnosis": [],
+                    "history_prescriptions": []
+                }
+
+                for record in patient.medical_records:
+                    diagnosis_data = {
+                        "id": record.id,
+                        "timestamp": record.date.strftime("%Y-%m-%dT%H:%M:%S.%fZ"),
+                        "doctorName": record.doctor.serialize().get("full_name"),
+                        "diagnosis": record.diagnosis,
+                        "result": record.comments
+                    }
+                    patient_data["history_diagnosis"].append(diagnosis_data)
+                    prescription_data = {
+                            "id": record.id,
+                            "timestamp": record.date.strftime("%Y-%m-%dT%H:%M:%S.%fZ"),
+                            "doctorName": record.doctor.serialize().get("full_name"),
+                            "prescriptions": record.comments,
+                        }
+                    patient_data["history_prescriptions"].append(prescription_data)
+
+                response_data = {
+                    "data": patient_data,
+                    "isSuccess": 1
+                }
+                print(response_data)
+                return Response(json.dumps(response_data), mimetype="application/json", status=200)
+        except Exception as e:
+            response_data = {
+                "data": {
+                    "message": str(e),
+                    "isSuccess": 0
+                }
+            }
+            return Response(json.dumps(response_data), mimetype="application/json", status=500)
+
