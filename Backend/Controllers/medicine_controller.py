@@ -1,7 +1,7 @@
 from flask import request, Response, json
 from flask_restful import Resource
 from ..Models.models import db, Medicine
-
+from ..app import app
 class MedicineAPI(Resource):
     def get(self, medicine_id=None):
         if medicine_id:
@@ -14,6 +14,7 @@ class MedicineAPI(Resource):
                         "isSuccess": 1
                     }
                 }
+                app.logger.debug(response_data)
                 return Response(json.dumps(response_data), mimetype="application/json", status=200)
             response_data = {
                 "data": {
@@ -21,6 +22,7 @@ class MedicineAPI(Resource):
                     "isSuccess": 0
                 }
             }
+            app.logger.info(f"Medicine not found: {medicine_id}")
             return Response(json.dumps(response_data), mimetype="application/json", status=404)
         else:
             # Get all medicines
@@ -32,6 +34,7 @@ class MedicineAPI(Resource):
                     "isSuccess": 1
                 }
             }
+            app.logger.info(f"Medicines: {response_data}")
             return Response(json.dumps(response_data), mimetype="application/json", status=200)
 
     def post(self):
@@ -51,6 +54,7 @@ class MedicineAPI(Resource):
                     "isSuccess": 1
                 }
             }
+            app.logger.info(f"Medicine record created successfully: {new_medicine.id}")
             return Response(json.dumps(response_data), mimetype="application/json", status=201)
         except Exception as e:
             db.session.rollback()
@@ -60,6 +64,7 @@ class MedicineAPI(Resource):
                     "isSuccess": 0
                 }
             }
+            app.logger.info(f"Error creating medicine record: {e}")
             return Response(json.dumps(response_data), mimetype="application/json", status=400)
 
     def put(self, medicine_id):
@@ -78,6 +83,7 @@ class MedicineAPI(Resource):
                         "isSuccess": 1
                     }
                 }
+                app.logger.info(f"Medicine record updated successfully: {medicine.id}")
                 return Response(json.dumps(response_data), mimetype="application/json", status=200)
             except Exception as e:
                 db.session.rollback()
@@ -87,6 +93,7 @@ class MedicineAPI(Resource):
                         "isSuccess": 0
                     }
                 }
+                app.logger.info(f"Error updating medicine record: {e}")
                 return Response(json.dumps(response_data), mimetype="application/json", status=400)
         response_data = {
             "data": {
@@ -94,6 +101,7 @@ class MedicineAPI(Resource):
                 "isSuccess": 0
             }
         }
+        app.logger.info(f"Medicine not found: {medicine_id}")
         return Response(json.dumps(response_data), mimetype="application/json", status=404)
 
     def delete(self, medicine_id):
@@ -107,6 +115,7 @@ class MedicineAPI(Resource):
                     "isSuccess": 1
                 }
             }
+            app.logger.info(f"Medicine record deleted successfully: {medicine_id}")
             return Response(json.dumps(response_data), mimetype="application/json", status=200)
         response_data = {
             "data": {
@@ -114,4 +123,5 @@ class MedicineAPI(Resource):
                 "isSuccess": 0
             }
         }
+        app.logger.info(f"Medicine not found: {medicine_id}")
         return Response(json.dumps(response_data), mimetype="application/json", status=404)
