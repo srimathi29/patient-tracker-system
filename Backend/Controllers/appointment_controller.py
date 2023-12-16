@@ -2,6 +2,8 @@ from flask import request, Response, json
 from flask_restful import Resource
 from ..Models.models import db, Appointment, Doctor
 from datetime import datetime, timedelta
+from flask_login import login_required
+from ..app import app
 
 class AppointmentCreateResource(Resource):
     def post(self):
@@ -23,6 +25,7 @@ class AppointmentCreateResource(Resource):
                     "isSuccess": 0
                 }
             }
+            app.logger.info(f"Missing required data: {data}")
             return Response(json.dumps(response_data), mimetype="application/json", status=400)
 
         overlapping_appointments = Appointment.query.filter(
@@ -39,6 +42,7 @@ class AppointmentCreateResource(Resource):
                     "isSuccess": 0
                 }
             }
+            app.logger.info(f"Doctor is not available at this time: {data}")
             return Response(json.dumps(response_data), mimetype="application/json", status=400)
 
         appointment = Appointment(
@@ -64,6 +68,7 @@ class AppointmentCreateResource(Resource):
                 "isSuccess": 1
             }
         }
+        app.logger.info(f"Appointment created successfully: {appointment.id}")
         return Response(json.dumps(response_data), mimetype="application/json",status=201)
 
 class AppointmentUpdateResource(Resource):
@@ -78,6 +83,7 @@ class AppointmentUpdateResource(Resource):
                     "isSuccess": 0
                 }
             }
+            app.logger.info(f"Appointment not found: {appointment_id}")
             return Response(json.dumps(response_data), mimetype="application/json", status=404)
 
         # Check if the provided data includes start_time and end_time
@@ -102,6 +108,7 @@ class AppointmentUpdateResource(Resource):
 
                     }
                 }
+                app.logger.info(f"Doctor is not available at the updated time: {data}")
                 return Response(json.dumps(response_data), mimetype="application/json", status=400)
 
         # Update appointment fields
@@ -125,6 +132,7 @@ class AppointmentUpdateResource(Resource):
                 "isSuccess": 1
             }
         }
+        app.logger.info(f"Appointment updated successfully: {appointment.id}")
         return Response(json.dumps(response_data), mimetype="application/json", status=200)
 
 class DoctorAppointmentsResource(Resource):
@@ -193,6 +201,7 @@ class DoctorAppointmentsResource(Resource):
                 }
             }
 
+            app.logger.info(f"Doctor appointments: {response_data}")
             return Response(json.dumps(response_data), mimetype="application/json", status=200)
 
         except Exception as e:
@@ -202,6 +211,7 @@ class DoctorAppointmentsResource(Resource):
                     "isSuccess": 0
                 }
             }
+            app.logger.error(f"Error getting doctor appointments: {e}")
             return Response(json.dumps(response_data), mimetype="application/json", status=500)
 
 class PatientAppointmentsResource(Resource):
@@ -235,7 +245,7 @@ class PatientAppointmentsResource(Resource):
                 "data": appointment_data,
                 "isSuccess": 1
             }
-
+            app.logger.info(f"Patient appointments: {response_data}")
             return Response(json.dumps(response_data), mimetype="application/json",status=200)
 
         except Exception as e:
@@ -245,4 +255,5 @@ class PatientAppointmentsResource(Resource):
                     "isSuccess": 0
                 }
             }
+            app.logger.error(f"Error getting patient appointments: {e}")
             return Response(json.dumps(response_data), mimetype="application/json", status=500)
