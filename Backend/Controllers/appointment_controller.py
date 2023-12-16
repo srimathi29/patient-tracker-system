@@ -3,11 +3,8 @@ from flask_restful import Resource
 from ..Models.models import db, Appointment, Doctor
 from datetime import datetime, timedelta
 from flask_login import login_required
-<<<<<<< HEAD
 from ..app import app
 
-=======
->>>>>>> f12ed6bf76150229c43fbbebae5b9a75c99f419f
 class AppointmentCreateResource(Resource):
     def post(self):
         data = request.get_json()
