@@ -1,0 +1,128 @@
+.homePageContainer {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.appointmentsSection {
+    width: 70%;
+    /* Adjust width as needed */
+    padding: 10px;
+    border: 1px solid #ccc;
+    /* Light grey border */
+}
+
+.searchSection {
+    width: 25%;
+    /* Adjust width as needed */
+    padding: 10px;
+    border: 1px solid #ccc;
+    /* Light grey border */
+}
+
+.doctorInfo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    border-bottom: 1px solid #ccc;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+}
+
+.doctorInfo img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.doctorInfo h2 {
+    margin: 0;
+}
+
+.actionBar {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+    background-color: #f4f4f4;
+    /* example color */
+    margin-bottom: 20px;
+}
+
+.actionBar button,
+.actionBar label {
+    margin-right: 10px;
+    background: #e0e0e0;
+    /* example color */
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.actionBar label {
+    position: relative;
+}
+
+.actionBar label:hover {
+    background: #cacaca;
+    /* example color on hover */
+}
+
+/* Hide the file input but keep it functional */
+.actionBar input[type="file"] {
+    display: none;
+}
+
+/* Add this inside MedicalRecordsComponent.module.css */
+
+.actionBar button:hover,
+.actionBar label:hover {
+    background-color: #77002e;
+    color: white;
+    /* Red shade for hover */
+}
+
+.actionBar button:active,
+.actionBar label:active {
+    background-color: #77002e;
+    color: white;
+    /* Darker red shade for active/pressed */
+}
+.reportsList {
+    margin-top: 20px;
+}
+
+.reportsList Card {
+    margin-bottom: 10px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    border-radius: 4px;
+}
+
+h4 {
+    margin-top: 20px;
+    color: #333;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+ul li a {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+ul li a:hover {
+    text-decoration: underline;
+}
+.reportsComponent {
+    margin: 20px;
+    padding: 5px;
+}

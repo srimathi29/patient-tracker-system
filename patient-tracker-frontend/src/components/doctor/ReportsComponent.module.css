@@ -1,0 +1,51 @@
+.reportsComponent {
+    display: flex;
+    /* justify-content: space-between; */
+  }
+  
+  .reportsList {
+    flex-grow: 1;
+    /* Add spacing and other styles */
+  }
+  
+  .filterSection {
+    width: 200px; /* Adjust the width as needed */
+    /* Add spacing and other styles */
+  }
+  
+  .reportCard {
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    padding: 10px;
+    /* Add other styles for the report card */
+  }
+  .homePageContainer {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.appointmentsSection {
+    width: 70%;
+    /* Adjust width as needed */
+    padding: 10px;
+    border: 1px solid #ccc;
+    /* Light grey border */
+}
+
+.searchSection {
+    width: 25%;
+    /* Adjust width as needed */
+    padding: 10px;
+    border: 1px solid #ccc;
+    /* Light grey border */
+}
+
+.doctorInfo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    border-bottom: 1px solid #ccc;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+}

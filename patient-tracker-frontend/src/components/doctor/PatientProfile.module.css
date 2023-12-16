@@ -1,0 +1,37 @@
+.patientProfile {
+  padding: 20px;
+  margin: 20px;
+  border-radius: 8px;
+  background-color: #f3f3f3;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.patientProfile h1 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.historySection,
+.prescriptionSection {
+  margin-top: 20px;
+}
+
+.historySection ul,
+.prescriptionSection ul {
+  list-style: none;
+  padding: 0;
+}
+
+.historySection li,
+.prescriptionSection li {
+  background-color: white;
+  margin-bottom: 10px;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.historySection li p,
+.prescriptionSection li p {
+  margin: 5px 0;
+}

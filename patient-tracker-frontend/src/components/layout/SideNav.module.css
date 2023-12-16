@@ -1,0 +1,48 @@
+.navbar {
+    width: 200px;
+    background-color: #ffccd5; /* Light pink background */
+    color: #333333; /* Dark text for contrast */
+    height: 100vh;
+    top: 80px;
+    padding-left: 0 !important;
+    position: fixed;
+    left: 0; /* Ensure the bar is on the left edge */
+    /* Other styles */
+    margin-top:0;
+  }
+  
+  .navitems {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .navitem {
+    padding: 15px 20px; /* Increased padding for better spacing */
+    border-bottom: 1px solid #ffb6c1; /* Light pink border for the items */
+    /* Other styles */
+  }
+  
+  /* Style for the active nav item */
+  .navitem.active {
+    background-color: #ffb6c1; /* Slightly darker pink for active items */
+    color: white; /* White text for active items */
+  }
+  
+  /* Additional hover style for nav items */
+  .navitem:hover {
+    background-color: #ffccd5; /* Light pink background for hover */
+    color: #333333; /* Dark text color for hover */
+    cursor: pointer; /* Change cursor to pointer on hover */
+  }
+  
+  /* Optional: Add a transition for hover effects */
+  .navitem, .nav-item.active {
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  /* Ensure the content doesn't overlap with the fixed nav bar */
+  .maincontent {
+    margin-left: 200px; /* Same as the width of the nav bar */
+  }
+  

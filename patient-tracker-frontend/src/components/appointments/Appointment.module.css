@@ -1,0 +1,69 @@
+/* Appointment.module.css */
+
+.item {
+  list-style: none;
+  margin: 1rem 0;
+}
+
+.content {
+  padding: 1rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+p {
+  font-size: 1.2rem;
+}
+
+/* Style for patient name, doctor name, and other details */
+p b {
+  font-weight: bold;
+}
+
+/* Style for datetime, start time, and end time */
+p>span {
+  font-weight: normal;
+  margin-right: 1rem;
+}
+
+/* Actions buttons */
+.actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.confirm,
+.cancel {
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: background-color 0.3s ease;
+}
+
+.confirm:hover {
+  background-color: #4caf50;
+  /* Green color */
+  color: #fff;
+  /* White text */
+}
+
+.cancel:hover {
+  background-color: #f44336;
+  /* Red color */
+  color: #fff;
+  /* White text */
+}
+
+.card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* You can adjust the colors and styles to match your overall design. */
