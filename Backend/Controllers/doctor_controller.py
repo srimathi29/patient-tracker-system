@@ -1,7 +1,7 @@
 from flask import request, jsonify
 from flask_restful import Resource
 from ..Models.models import db, Doctor, User
-
+from ..app import app
 from flask import Response, json
 
 class DoctorAPI(Resource):
@@ -15,6 +15,7 @@ class DoctorAPI(Resource):
                         "doctor": doctor.serialize()
                     }
                 }
+                app.logger.debug(response_data)
                 return Response(json.dumps(response_data), mimetype="application/json", status=200)
             response_data = {
                 "data": {
@@ -22,6 +23,7 @@ class DoctorAPI(Resource):
                     "isSuccess": 0
                 }
             }
+            app.logger.info(f"Doctor not found: {user_id}")
             return Response(json.dumps(response_data), mimetype="application/json", status=404)
         else:
             # Get all doctors
@@ -31,7 +33,7 @@ class DoctorAPI(Resource):
             response_data = {
                 "data": serialized_doctors
             }
-            # print(response_data)
+            app.logger.info(f"Doctors: {response_data}")
             return Response(json.dumps(response_data), mimetype="application/json", status=200)
 
     def post(self):
@@ -55,6 +57,7 @@ class DoctorAPI(Resource):
                         "isSuccess": 1
                     }
                 }
+                app.logger.info(f"Doctor profile created successfully: {user.id}")
                 return Response(json.dumps(response_data), mimetype="application/json", status=201)
             except Exception as e:
                 db.session.rollback()
@@ -64,6 +67,7 @@ class DoctorAPI(Resource):
                         "isSuccess": 0
                     }
                 }
+                app.logger.info(f"Doctor profile not created: {user.id}")
                 return Response(json.dumps(response_data), mimetype="application/json", status=400)
         response_data = {
             "data": {
@@ -71,6 +75,7 @@ class DoctorAPI(Resource):
                 "isSuccess": 0
             }
         }
+        app.logger.info(f"User already has a doctor profile or does not exist: {user.id}")
         return Response(json.dumps(response_data), mimetype="application/json", status=409)
 
     def put(self, user_id):
@@ -90,6 +95,7 @@ class DoctorAPI(Resource):
                     "isSuccess": 1
                 }
             }
+            app.logger.info(f"Doctor profile updated successfully: {user_id}")
             return Response(json.dumps(response_data), mimetype="application/json", status=200)
         response_data = {
             "data": {
@@ -97,6 +103,7 @@ class DoctorAPI(Resource):
                 "isSuccess": 0
             }
         }
+        app.logger.info(f"Doctor not found: {user_id}")
         return Response(json.dumps(response_data), mimetype="application/json", status=404)
 
     def delete(self, user_id):
@@ -110,6 +117,7 @@ class DoctorAPI(Resource):
                     "isSuccess": 1
                 }
             }
+            app.logger.info(f"Doctor profile deleted successfully: {user_id}")
             return Response(json.dumps(response_data), mimetype="application/json", status=200)
         response_data = {
             "data": {
@@ -117,4 +125,5 @@ class DoctorAPI(Resource):
                 "isSuccess": 0
             }
         }
+        app.logger.info(f"Doctor not found: {user_id}")
         return Response(json.dumps(response_data), mimetype="application/json", status=404)

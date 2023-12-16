@@ -1100,3 +1100,20 @@ TypeError: Object of type Response is not JSON serializable
 2023-12-15 20:42:06,163 - INFO - Connected to database: mysql+pymysql://root:cloudysky@localhost/PTS
 2023-12-15 20:42:34,217 - INFO - Connected to database: mysql+pymysql://root:cloudysky@localhost/PTS
 2023-12-15 20:42:34,482 - INFO - Connected to database: mysql+pymysql://root:cloudysky@localhost/PTS
+2023-12-15 18:53:50,380 - INFO - Connected to database: mysql+pymysql://root:cloudysky@localhost/PTS
+2023-12-15 18:54:16,394 - INFO - Connected to database: mysql+pymysql://root:cloudysky@localhost/PTS
+2023-12-15 18:55:09,364 - INFO - Connected to database: mysql+pymysql://root:cloudysky@localhost/PTS
+2023-12-15 18:55:17,526 - INFO - User doctor2 logged in successfully
+2023-12-15 18:55:47,639 - DEBUG - Users retrieved successfully
+2023-12-15 18:55:51,020 - DEBUG - Users retrieved successfully
+2023-12-15 18:56:38,409 - INFO - Invalid credentials for user patient1@gmail.com
+2023-12-15 18:56:39,896 - INFO - User patient1 logged in successfully
+2023-12-15 18:56:44,165 - DEBUG - Users retrieved successfully
+2023-12-15 19:20:21,923 - DEBUG - {'username': 'testuser', 'user_email': 'testuser@testemail.com', 'password': 'Testuser@123', 'first_name': 'test', 'last_name': 'user', 'user_type': 'Doctor'}
+2023-12-15 19:20:22,003 - INFO - User testuser created successfully
+2023-12-15 19:20:22,006 - INFO - Doctor/Patient record created successfully
+2023-12-15 19:20:46,236 - DEBUG - {'username': 'asdf', 'user_email': 'sdf@fsdf.com', 'password': 'asdfA@123', 'first_name': 'sadf', 'last_name': 'sadf', 'user_type': 'Admin'}
+2023-12-15 19:20:46,303 - INFO - User asdf created successfully
+2023-12-15 19:20:46,303 - INFO - Doctor/Patient record created successfully
+2023-12-15 19:23:24,375 - INFO - User doctor2 logged in successfully
+2023-12-15 19:24:22,429 - INFO - Invalid credentials for user sdf

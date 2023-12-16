@@ -1,6 +1,7 @@
 from flask import request, jsonify, Response, json
 from flask_restful import Resource, Api
 from ..Models.models import db, Patient, User
+from ..app import app
 
 class PatientAPI(Resource):
     def get(self, user_id=None):
@@ -13,12 +14,14 @@ class PatientAPI(Resource):
                         "patient": patient.serialize()
                     }
                 }
+                app.logger.debug(response_data)
                 return Response(json.dumps(response_data), mimetype="application/json", status=200)
             response_data = {
                 "data": {
                     "message": "Patient not found"
                 }
             }
+            app.logger.info(f"Patient not found: {user_id}")
             return Response(json.dumps(response_data), mimetype="application/json", status=404)
         else:
             # Get all patients
@@ -29,6 +32,7 @@ class PatientAPI(Resource):
                     "patients": serialized_patients
                 }
             }
+            app.logger.info(f"Patients: {response_data}")
             return Response(json.dumps(response_data), mimetype="application/json", status=200)
 
     def post(self):
@@ -47,6 +51,7 @@ class PatientAPI(Resource):
                         "message": "Patient profile created successfully"
                     }
                 }
+                app.logger.info(f"Patient profile created successfully: {user.id}")
                 return Response(json.dumps(response_data), mimetype="application/json", status=201)
             except Exception as e:
                 db.session.rollback()
@@ -55,12 +60,14 @@ class PatientAPI(Resource):
                         "message": str(e)
                     }
                 }
+                app.logger.error(f"Error creating patient profile: {e}")
                 return Response(json.dumps(response_data), mimetype="application/json", status=400)
         response_data = {
             "data": {
                 "message": "User already has a patient profile or does not exist"
             }
         }
+        app.logger.info(f"User already has a patient profile or does not exist: {user.id}")
         return Response(json.dumps(response_data), mimetype="application/json", status=409)
 
     def put(self, user_id):
@@ -75,6 +82,7 @@ class PatientAPI(Resource):
                         "message": "Patient profile updated successfully"
                     }
                 }
+                app.logger.info(f"Patient profile updated successfully: {user_id}")
                 return Response(json.dumps(response_data), mimetype="application/json", status=200)
             except Exception as e:
                 db.session.rollback()
@@ -83,12 +91,14 @@ class PatientAPI(Resource):
                         "message": str(e)
                     }
                 }
+                app.logger.error(f"Error updating patient profile: {e}")
                 return Response(json.dumps(response_data), mimetype="application/json", status=400)
         response_data = {
             "data": {
                 "message": "Patient not found"
             }
         }
+        app.logger.info(f"Patient not found: {user_id}")
         return Response(json.dumps(response_data), mimetype="application/json", status=404)
 
     def delete(self, user_id):
@@ -101,12 +111,14 @@ class PatientAPI(Resource):
                     "message": "Patient profile deleted successfully"
                 }
             }
+            app.logger.info(f"Patient profile deleted successfully: {user_id}")
             return Response(json.dumps(response_data), mimetype="application/json", status=200)
         response_data = {
             "data": {
                 "message": "Patient not found"
             }
         }
+        app.logger.info(f"Patient not found: {user_id}")
         return Response(json.dumps(response_data), mimetype="application/json", status=404)
 
 
@@ -121,6 +133,7 @@ class PatientFullDataAPI(Resource):
                         "message": "Patient not found",
                         "isSuccess": 0
                     }}
+                app.logger.info(f"Patient not found: {patient_id}")
                 return Response(json.dumps(response_data), mimetype="application/json", status=404)
             else:
                 user = User.query.get(patient.user_id)
@@ -156,7 +169,7 @@ class PatientFullDataAPI(Resource):
                     "data": patient_data,
                     "isSuccess": 1
                 }
-                print(response_data)
+                app.logger.info(f"Patient full data: {response_data}")
                 return Response(json.dumps(response_data), mimetype="application/json", status=200)
         except Exception as e:
             response_data = {
@@ -165,5 +178,6 @@ class PatientFullDataAPI(Resource):
                     "isSuccess": 0
                 }
             }
+            app.logger.error(f"Error getting patient full data: {e}")
             return Response(json.dumps(response_data), mimetype="application/json", status=500)
 

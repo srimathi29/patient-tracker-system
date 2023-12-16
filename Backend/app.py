@@ -58,7 +58,7 @@ def load_user(user_id):
     try:
         return User.query.get(int(user_id))
     except Exception as e:
-        print("Error loading user: ", e)
+        app.logger.debug(f"Error loading user: {e}")
         return None
   
 
@@ -70,6 +70,8 @@ from .Controllers.appointment_controller import DoctorAppointmentsResource, Appo
 from .Controllers.records_controller import MedicalRecordController, MedicalRecordAPI, DownloadFileAPI
 from .Controllers.patient_controller import PatientAPI, PatientFullDataAPI
 from .Controllers.medicine_controller import MedicineAPI
+
+# User Endpoints
 api.add_resource(Login, '/login')
 api.add_resource(Logout, '/logout')
 api.add_resource(Register, '/register')
@@ -79,6 +81,7 @@ api.add_resource(UserAPI, '/users', '/users/<int:user_id>')
 # Patients Endpoints
 api.add_resource(PatientAPI, '/patients',  '/patients/<int:user_id>', endpoint='patients')
 api.add_resource(PatientFullDataAPI, '/v2/patients/<int:patient_id>',endpoint='patient_full_data')
+
 #Doctor Endpoints
 api.add_resource(DoctorAPI, '/doctors', '/doctors/<int:user_id>', endpoint='doctor')
 
@@ -99,17 +102,13 @@ api.add_resource(MedicineAPI, '/medicine', '/medicine/<int:medicine_id>')
 
 
 # Medical Records Endpoints
-# api.add_resource(MedicalRecordController, '/medical-records', endpoint='medical_records')
-# api.add_resource(MedicalRecordController, '/medical-records/<int:record_id>', endpoint='medical_record')
 api.add_resource(MedicalRecordAPI, "/medical-records", "/medical-records/<int:patient_id>")
 
+# api.add_resource(MedicalRecordController, '/medical-records', endpoint='medical_records')
+# api.add_resource(MedicalRecordController, '/medical-records/<int:record_id>', endpoint='medical_record')
+
+# Download File Endpoint
 api.add_resource(DownloadFileAPI, '/download/<string:filename>')
-
-class HelloWorld(Resource):
-    def get(self):
-        return {'message': 'Hello, Pumkas!'}
-
-api.add_resource(HelloWorld, '/')
 
 
 if __name__ == '__main__':

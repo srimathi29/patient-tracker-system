@@ -43,12 +43,13 @@ class Login(Resource):
                     "message": "Successfully Logged In!"
                 }
 
-
+                app.logger.info(f"User {user.username} logged in successfully")
                 return Response(json.dumps({"data":response_data}), mimetype="application/json", status=200)
             else:
+                app.logger.info(f"Invalid credentials for user {user_email}")
                 return Response(json.dumps({"data": {"isSuccess": 0, "message": "Invalid Credentials!"}}), mimetype="application/json", status=401)
         except Exception as e:
-            print(f"Error logging in: {e}")
+            app.logger.error(f"Error occurred during login {e}")
             return Response(json.dumps({"data": {"isSuccess": 0, "message": "Login error"}}), mimetype="application/json", status=500) 
             
 
@@ -60,12 +61,14 @@ class Logout(Resource):
     def get(self):
         try:
             logout_user()
+            app.logger.info(f"User logged out successfully")
             return Response(
                 json.dumps({"data": "Successfully Logged Out!", "isSuccess": 1}),
                 mimetype="application/json",
                 status=200
             )
         except Exception as e:
+            app.logger.error(f"Error occurred during logout {e}")
             return Response(
                 json.dumps({"data": str(e), "isSuccess": 0}),
                 mimetype="application/json",
@@ -76,15 +79,18 @@ class Register(Resource):
     def post(self):
         try:
             data = request.json
-            print(data)
+            app.logger.debug(data)
+
             username = data['username']
             email = data['user_email']
             password = data['password']
             first_name = data['first_name']
             last_name = data['last_name']
             user_type = data['user_type']
+
             # Check if user already exists
             if User.query.filter((User.username == username) or (User.user_email == email)).first():
+                app.logger.info(f"Username or email already exists")
                 return Response(json.dumps({"data": {"message": "Username or email already exists","isSuccess":0}}), mimetype="application/json", status=409)
 
             # Create a new user instance
@@ -123,6 +129,7 @@ class Register(Resource):
                 db.session.add(new_patient)
 
             db.session.commit()
+            app.logger.info(f"Doctor/Patient record created successfully")
             return Response(json.dumps({"data": {"message": "User registered successfully","isSuccess":1}}), mimetype="application/json", status=201)
 
         except Exception as e:
@@ -143,7 +150,7 @@ class UserAPI(Resource):
                         "isSuccess": 1
                     }
                 }
-                print(response_data)
+                app.logger.debug(f"User {user.username} retrieved successfully")
                 return Response(json.dumps(response_data), mimetype="application/json", status=200)
             response_data = {
                 "data": {
@@ -151,6 +158,7 @@ class UserAPI(Resource):
                     "isSuccess": 0
                 }
             }
+            app.logger.info(f"User not found")
             return Response(json.dumps(response_data), mimetype="application/json", status=404)
         else:
             # Get all users
@@ -162,6 +170,7 @@ class UserAPI(Resource):
                     "isSuccess": 1
                 }
             }
+            app.logger.debug(f"Users retrieved successfully")
             return Response(json.dumps(response_data), mimetype="application/json", status=200)
 
     def post(self):
@@ -189,6 +198,7 @@ class UserAPI(Resource):
                     "isSuccess": 1
                 }
             }
+            app.logger.debug(f"User {new_user.username} created successfully")
             return Response(json.dumps(response_data), mimetype="application/json", status=201)
         except Exception as e:
             db.session.rollback()
@@ -198,6 +208,7 @@ class UserAPI(Resource):
                     "isSuccess": 0
                 }
             }
+            app.logger.error(f"Error occurred during user creation {e}")
             return Response(json.dumps(response_data), mimetype="application/json", status=400)
 
     def put(self, user_id):
@@ -219,6 +230,7 @@ class UserAPI(Resource):
                         "isSuccess": 1
                     }
                 }
+                app.logger.debug(f"User {user.username} updated successfully")
                 return Response(json.dumps(response_data), mimetype="application/json", status=200)
             except Exception as e:
                 db.session.rollback()
@@ -228,6 +240,7 @@ class UserAPI(Resource):
                         "isSuccess": 0
                     }
                 }
+                app.logger.error(f"Error occurred during user update {e}")
                 return Response(json.dumps(response_data), mimetype="application/json", status=400)
         response_data = {
             "data": {
@@ -235,6 +248,7 @@ class UserAPI(Resource):
                 "isSuccess": 0
             }
         }
+        app.logger.info(f"User not found")
         return Response(json.dumps(response_data), mimetype="application/json", status=404)
 
     def delete(self, user_id):
@@ -248,6 +262,7 @@ class UserAPI(Resource):
                     "isSuccess": 1
                 }
             }
+            app.logger.debug(f"User {user.username} deleted successfully")
             return Response(json.dumps(response_data), mimetype="application/json", status=200)
         response_data = {
             "data": {
@@ -255,4 +270,5 @@ class UserAPI(Resource):
                 "isSuccess": 0
             }
         }
+        app.logger.info(f"User not found")
         return Response(json.dumps(response_data), mimetype="application/json", status=404)
