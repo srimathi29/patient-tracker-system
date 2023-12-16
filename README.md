@@ -32,6 +32,17 @@ To get started with HealthTrack, follow these simple steps:
 
 4. **HIPAA Compliance:** Familiarize yourself with HIPAA compliance guidelines and ensure that your system adheres to them.
 
+## Run the React app 
+
+navitate to 'patient-tracker-frontend' and run 
+```
+npm install 
+npm start 
+```
+This starts the server
+
+## Read me for backend is in 
+`Backend/`
 
 
 ---
